@@ -62,7 +62,7 @@
 /**
   ******************************************************************************
   * File Name          : FreeRTOSConfig.h
-  * Date               : 19/12/2015 14:00:02
+  * Date               : 19/12/2015 20:35:16
   ******************************************************************************
   */
 
@@ -91,7 +91,7 @@
     extern uint32_t SystemCoreClock;
 #endif
 
-#define configUSE_PREEMPTION                     0
+#define configUSE_PREEMPTION                     1
 #define configUSE_IDLE_HOOK                      0
 #define configUSE_TICK_HOOK                      0
 #define configCPU_CLOCK_HZ                       ( SystemCoreClock )

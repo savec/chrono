@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    system_stm32l1xx.c
   * @author  MCD Application Team
-  * @version V2.1.2
+  * @version V1.4.0
   * @date    09-October-2015
   * @brief   CMSIS Cortex-M3 Device Peripheral Access Layer System Source File.
   *             
@@ -122,8 +122,8 @@
                variable is updated automatically.
   */
 uint32_t SystemCoreClock    = 32000000;
-const uint8_t PLLMulTable[9] = {3, 4, 6, 8, 12, 16, 24, 32, 48};
-const uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+__IO const uint8_t PLLMulTable[9] = {3, 4, 6, 8, 12, 16, 24, 32, 48};
+__IO const uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
 
 /**
   * @}
@@ -286,25 +286,6 @@ void SystemCoreClockUpdate (void)
   */
 void SystemInit_ExtMemCtl(void)
 {
-  __IO uint32_t tmpreg = 0;
-
-  /* Flash 1 wait state */
-  FLASH->ACR |= FLASH_ACR_LATENCY;
-  
-  /* Power enable */
-  RCC->APB1ENR |= RCC_APB1ENR_PWREN;
-  
-  /* Delay after an RCC peripheral clock enabling */
-  tmpreg = READ_BIT(RCC->APB1ENR, RCC_APB1ENR_PWREN);
-
-  /* Select the Voltage Range 1 (1.8 V) */
-  PWR->CR = PWR_CR_VOS_0;
-  
-  /* Wait Until the Voltage Regulator is ready */
-  while((PWR->CSR & PWR_CSR_VOSF) != RESET)
-  {
-  }
-  
 /*-- GPIOs Configuration -----------------------------------------------------*/
 /*
  +-------------------+--------------------+------------------+------------------+
@@ -327,9 +308,6 @@ void SystemInit_ExtMemCtl(void)
 
   /* Enable GPIOD, GPIOE, GPIOF and GPIOG interface clock */
   RCC->AHBENR   = 0x000080D8;
-  
-  /* Delay after an RCC peripheral clock enabling */
-  tmpreg = READ_BIT(RCC->AHBENR, RCC_AHBENR_GPIODEN);
   
   /* Connect PDx pins to FSMC Alternate function */
   GPIOD->AFR[0]  = 0x00CC00CC;
@@ -383,11 +361,6 @@ void SystemInit_ExtMemCtl(void)
   /* Enable the FSMC interface clock */
   RCC->AHBENR    = 0x400080D8;
 
-  /* Delay after an RCC peripheral clock enabling */
-  tmpreg = READ_BIT(RCC->AHBENR, RCC_AHBENR_FSMCEN);
-  
-  (void)(tmpreg);
-  
   /* Configure and enable Bank1_SRAM3 */
   FSMC_Bank1->BTCR[4]  = 0x00001011;
   FSMC_Bank1->BTCR[5]  = 0x00000300;

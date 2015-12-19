@@ -78,23 +78,6 @@ MIDDLEWARES_SRC +=		$(FREERTOS)/Source/queue.c
 MIDDLEWARES_SRC +=		$(FREERTOS)/Source/croutine.c 
 MIDDLEWARES_SRC +=		$(FREERTOS)/Source/timers.c 
 MIDDLEWARES_SRC +=		$(FREERTOS)/Source/portable/GCC/ARM_CM3/port.c 
-# MIDDLEWARES_SRC +=		$(FREERTOS)/Source/portable/GCC/ARM_CM3/portasm.s
-
-# Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_gpio.h;
-# Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_gpio_ex.h;
-# Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_dma.h;
-# Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_dma_ex.h;
-# Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal.h;
-# Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_def.h;
-# Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_rcc.h;
-# Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_rcc_ex.h;
-# Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_cortex.h;
-# Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_flash.h;
-# Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_flash_ex.h;
-# Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_pwr.h;
-# Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_pwr_ex.h;
-# Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_flash_ramfunc.h;
-# Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/portmacro.h;
 
 DRIVERS_SRC =			$(PERIPHERAL_SRC)/stm32l1xx_hal_gpio.c \
 						$(PERIPHERAL_SRC)/stm32l1xx_hal_dma.c \
@@ -108,6 +91,11 @@ DRIVERS_SRC =			$(PERIPHERAL_SRC)/stm32l1xx_hal_gpio.c \
 						$(PERIPHERAL_SRC)/stm32l1xx_hal_pwr_ex.c \
 						$(PERIPHERAL_SRC)/stm32l1xx_hal_flash_ramfunc.c \
 						$(PERIPHERAL_SRC)/stm32l1xx_hal_lcd.c \
+						$(PERIPHERAL_SRC)/stm32l1xx_hal_adc.c \
+						$(PERIPHERAL_SRC)/stm32l1xx_hal_adc_ex.c \
+						$(PERIPHERAL_SRC)/stm32l1xx_hal_dac.c \
+						$(PERIPHERAL_SRC)/stm32l1xx_hal_dac_ex.c \
+						$(PERIPHERAL_SRC)/stm32l1xx_hal_uart.c \
 						$(BSP_DRIVERS_DIR)/stm32l152c_discovery.c \
 						$(BSP_DRIVERS_DIR)/stm32l152c_discovery_glass_lcd.c
 

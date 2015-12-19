@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    stm32l1xx_it.c
-  * @date    19/12/2015 14:00:03
+  * @date    19/12/2015 20:35:16
   * @brief   Interrupt Service Routines.
   ******************************************************************************
   *
@@ -35,12 +35,11 @@
 #include "stm32l1xx_hal.h"
 #include "stm32l1xx.h"
 #include "stm32l1xx_it.h"
-#include <FreeRTOS.h>
-#include <task.h>
 // #include "cmsis_os.h"
 
 /* USER CODE BEGIN 0 */
-
+#include <FreeRTOS.h>
+#include <task.h>
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/

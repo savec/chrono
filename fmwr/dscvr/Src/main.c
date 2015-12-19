@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * File Name          : main.c
-  * Date               : 19/12/2015 14:00:03
+  * Date               : 19/12/2015 20:35:16
   * Description        : Main program body
   ******************************************************************************
   *
@@ -34,34 +34,41 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_hal.h"
+
+
+/* USER CODE BEGIN Includes */
 #include "stm32l152c_discovery.h"
 #include "stm32l152c_discovery_glass_lcd.h"
-
+#include <string.h>
 #include <FreeRTOS.h>
 #include <task.h>
 #include <queue.h>
 #include <semphr.h>
-// #include "cmsis_os.h"
-
-/* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc;
+
+DAC_HandleTypeDef hdac;
+
+UART_HandleTypeDef huart1;
+
 // osThreadId defaultTaskHandle;
-static TaskHandle_t xMainHandle = NULL;
 
 /* USER CODE BEGIN PV */
-
+static TaskHandle_t xMainHandle = NULL;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-// void StartDefaultTask(void const * argument);
-void vMainTask( void * pvParameters );
-/* USER CODE BEGIN PFP */
+static void MX_ADC_Init(void);
+static void MX_DAC_Init(void);
+static void MX_USART1_UART_Init(void);
 
+/* USER CODE BEGIN PFP */
+void vMainTask( void * pvParameters );
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -85,14 +92,14 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_ADC_Init();
+  MX_DAC_Init();
+  MX_USART1_UART_Init();
 
   /* USER CODE BEGIN 2 */
   
   /* LCD GLASS Initialization */
   BSP_LCD_GLASS_Init();
-  /*Display " STM32L1xx" string on LCD glass in scrolling mode*/
-  uint8_t LCD_String[]= " STM32L1xx"; 
-  BSP_LCD_GLASS_ScrollSentence(LCD_String, 100, SCROLL_SPEED_LOW);
 
   /* USER CODE END 2 */
 
@@ -125,12 +132,13 @@ int main(void)
  
 
   /* Start scheduler */
-  vTaskStartScheduler();
+  // osKernelStart(NULL, NULL);
   
   /* We should never get here as control is now taken by the scheduler */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  vTaskStartScheduler();
   while (1)
   {
   /* USER CODE END WHILE */
@@ -174,6 +182,79 @@ void SystemClock_Config(void)
 
 }
 
+/* ADC init function */
+void MX_ADC_Init(void)
+{
+
+  ADC_ChannelConfTypeDef sConfig;
+
+    /**Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion) 
+    */
+  hadc.Instance = ADC1;
+  hadc.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+  hadc.Init.Resolution = ADC_RESOLUTION12b;
+  hadc.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc.Init.EOCSelection = EOC_SEQ_CONV;
+  hadc.Init.LowPowerAutoWait = ADC_AUTOWAIT_DISABLE;
+  hadc.Init.LowPowerAutoPowerOff = ADC_AUTOPOWEROFF_DISABLE;
+  hadc.Init.ChannelsBank = ADC_CHANNELS_BANK_A;
+  hadc.Init.ContinuousConvMode = DISABLE;
+  hadc.Init.NbrOfConversion = 1;
+  hadc.Init.DiscontinuousConvMode = DISABLE;
+  hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc.Init.DMAContinuousRequests = DISABLE;
+  HAL_ADC_Init(&hadc);
+
+    /**Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
+    */
+  sConfig.Channel = ADC_CHANNEL_19;
+  sConfig.Rank = 1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_4CYCLES;
+  HAL_ADC_ConfigChannel(&hadc, &sConfig);
+
+}
+
+/* DAC init function */
+void MX_DAC_Init(void)
+{
+
+  DAC_ChannelConfTypeDef sConfig;
+
+    /**DAC Initialization 
+    */
+  hdac.Instance = DAC;
+  HAL_DAC_Init(&hdac);
+
+    /**DAC channel OUT1 config 
+    */
+  sConfig.DAC_Trigger = DAC_TRIGGER_NONE;
+  sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
+  HAL_DAC_ConfigChannel(&hdac, &sConfig, DAC_CHANNEL_1);
+
+    /**DAC channel OUT2 config 
+    */
+  HAL_DAC_ConfigChannel(&hdac, &sConfig, DAC_CHANNEL_2);
+
+}
+
+/* USART1 init function */
+void MX_USART1_UART_Init(void)
+{
+
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  HAL_UART_Init(&huart1);
+
+}
+
 /** Configure pins as 
         * Analog 
         * Input 
@@ -187,19 +268,10 @@ void SystemClock_Config(void)
      PA1   ------> LCD_SEG0
      PA2   ------> LCD_SEG1
      PA3   ------> LCD_SEG2
-     PA4   ------> ADC_IN4
-     PA6   ------> TS_G2_IO1
-     PA7   ------> TS_G2_IO2
-     PC4   ------> TS_G9_IO1
-     PC5   ------> TS_G9_IO2
-     PB0   ------> TS_G3_IO1
-     PB1   ------> TS_G3_IO2
      PB10   ------> LCD_SEG10
      PB11   ------> LCD_SEG11
      PB12   ------> LCD_SEG12
-     PB13   ------> LCD_SEG13
      PB14   ------> LCD_SEG14
-     PB15   ------> LCD_SEG15
      PC6   ------> LCD_SEG24
      PC7   ------> LCD_SEG25
      PC8   ------> LCD_SEG26
@@ -225,11 +297,12 @@ void MX_GPIO_Init(void)
   __GPIOC_CLK_ENABLE();
   __GPIOA_CLK_ENABLE();
   __GPIOB_CLK_ENABLE();
+
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  // GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PC0 PC1 PC2 PC3 
@@ -244,14 +317,6 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF11_LCD;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PA0 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;//GPIO_MODE_EVT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-
-
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
   /*Configure GPIO pins : PA1 PA2 PA3 PA8 
                            PA9 PA10 PA15 */
   GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_8 
@@ -262,76 +327,36 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF11_LCD;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PA4 */
-  GPIO_InitStruct.Pin = GPIO_PIN_4;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : PA6 PA7 */
-  GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : PC4 PC5 */
-  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : PB0 PB1 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : PB10 PB11 PB12 PB13 
-                           PB14 PB15 PB3 PB4 
-                           PB5 PB8 PB9 */
-  GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_13 
-                          |GPIO_PIN_14|GPIO_PIN_15|GPIO_PIN_3|GPIO_PIN_4 
-                          |GPIO_PIN_5|GPIO_PIN_8|GPIO_PIN_9;
+  /*Configure GPIO pins : PB10 PB11 PB12 PB14 
+                           PB3 PB4 PB5 PB8 
+                           PB9 */
+  GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_14 
+                          |GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_8 
+                          |GPIO_PIN_9;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
   GPIO_InitStruct.Alternate = GPIO_AF11_LCD;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB6 PB7 */
-  GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
 }
 
 /* USER CODE BEGIN 4 */
-
-/* USER CODE END 4 */
-
 void vMainTask( void * pvParameters )
 {
-
+  uint8_t str[7];
+  uint8_t cnt = 0;
   for(;;)
   {
-    vTaskDelay(pdMS_TO_TICKS(10));
+    snprintf((char *)str, sizeof(str)-1, "%d", cnt++);
+    BSP_LCD_GLASS_Clear();
+    BSP_LCD_GLASS_DisplayString("888888");
+    vTaskDelay(pdMS_TO_TICKS(100));
   }
 }
 
-// /* StartDefaultTask function */
-// void StartDefaultTask(void const * argument)
-// {
+/* USER CODE END 4 */
 
-//   /* USER CODE BEGIN 5 */
-//   /* Infinite loop */
-//   for(;;)
-//   {
-//     osDelay(1);
-//   }
-//   /* USER CODE END 5 */ 
-// }
 
 #ifdef USE_FULL_ASSERT
 

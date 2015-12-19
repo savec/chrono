@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * File Name          : stm32l1xx_hal_msp.c
-  * Date               : 19/12/2015 14:00:03
+  * Date               : 19/12/2015 20:35:16
   * Description        : This file provides code for the MSP Initialization 
   *                      and de-Initialization codes.
   ******************************************************************************
@@ -59,6 +59,164 @@ void HAL_MspInit(void)
   /* USER CODE BEGIN MspInit 1 */
 
   /* USER CODE END MspInit 1 */
+}
+
+void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
+{
+
+  GPIO_InitTypeDef GPIO_InitStruct;
+  if(hadc->Instance==ADC1)
+  {
+  /* USER CODE BEGIN ADC1_MspInit 0 */
+
+  /* USER CODE END ADC1_MspInit 0 */
+    /* Peripheral clock enable */
+    __ADC1_CLK_ENABLE();
+  
+    /**ADC GPIO Configuration    
+    PB13     ------> ADC_IN19
+    PB15     ------> ADC_IN21 
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_15;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* USER CODE BEGIN ADC1_MspInit 1 */
+
+  /* USER CODE END ADC1_MspInit 1 */
+  }
+
+}
+
+void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
+{
+
+  if(hadc->Instance==ADC1)
+  {
+  /* USER CODE BEGIN ADC1_MspDeInit 0 */
+
+  /* USER CODE END ADC1_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __ADC1_CLK_DISABLE();
+  
+    /**ADC GPIO Configuration    
+    PB13     ------> ADC_IN19
+    PB15     ------> ADC_IN21 
+    */
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_13|GPIO_PIN_15);
+
+  /* USER CODE BEGIN ADC1_MspDeInit 1 */
+
+  /* USER CODE END ADC1_MspDeInit 1 */
+  }
+
+}
+
+void HAL_DAC_MspInit(DAC_HandleTypeDef* hdac)
+{
+
+  GPIO_InitTypeDef GPIO_InitStruct;
+  if(hdac->Instance==DAC)
+  {
+  /* USER CODE BEGIN DAC_MspInit 0 */
+
+  /* USER CODE END DAC_MspInit 0 */
+    /* Peripheral clock enable */
+    __DAC_CLK_ENABLE();
+  
+    /**DAC GPIO Configuration    
+    PA4     ------> DAC_OUT1
+    PA5     ------> DAC_OUT2 
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /* USER CODE BEGIN DAC_MspInit 1 */
+
+  /* USER CODE END DAC_MspInit 1 */
+  }
+
+}
+
+void HAL_DAC_MspDeInit(DAC_HandleTypeDef* hdac)
+{
+
+  if(hdac->Instance==DAC)
+  {
+  /* USER CODE BEGIN DAC_MspDeInit 0 */
+
+  /* USER CODE END DAC_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __DAC_CLK_DISABLE();
+  
+    /**DAC GPIO Configuration    
+    PA4     ------> DAC_OUT1
+    PA5     ------> DAC_OUT2 
+    */
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_4|GPIO_PIN_5);
+
+  /* USER CODE BEGIN DAC_MspDeInit 1 */
+
+  /* USER CODE END DAC_MspDeInit 1 */
+  }
+
+}
+
+void HAL_UART_MspInit(UART_HandleTypeDef* huart)
+{
+
+  GPIO_InitTypeDef GPIO_InitStruct;
+  if(huart->Instance==USART1)
+  {
+  /* USER CODE BEGIN USART1_MspInit 0 */
+
+  /* USER CODE END USART1_MspInit 0 */
+    /* Peripheral clock enable */
+    __USART1_CLK_ENABLE();
+  
+    /**USART1 GPIO Configuration    
+    PB6     ------> USART1_TX
+    PB7     ------> USART1_RX 
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
+    GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* USER CODE BEGIN USART1_MspInit 1 */
+
+  /* USER CODE END USART1_MspInit 1 */
+  }
+
+}
+
+void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
+{
+
+  if(huart->Instance==USART1)
+  {
+  /* USER CODE BEGIN USART1_MspDeInit 0 */
+
+  /* USER CODE END USART1_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __USART1_CLK_DISABLE();
+  
+    /**USART1 GPIO Configuration    
+    PB6     ------> USART1_TX
+    PB7     ------> USART1_RX 
+    */
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_6|GPIO_PIN_7);
+
+  /* USER CODE BEGIN USART1_MspDeInit 1 */
+
+  /* USER CODE END USART1_MspDeInit 1 */
+  }
+
 }
 
 /* USER CODE BEGIN 1 */
