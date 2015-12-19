@@ -298,12 +298,12 @@ void MX_GPIO_Init(void)
   __GPIOA_CLK_ENABLE();
   __GPIOB_CLK_ENABLE();
 
-  /*Configure GPIO pin : PC13 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  // /*Configure GPIO pin : PC13 */
+  // GPIO_InitStruct.Pin = GPIO_PIN_13;
+  // GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  // GPIO_InitStruct.Pull = GPIO_NOPULL;
+  // GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
+  // HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PC0 PC1 PC2 PC3 
                            PC6 PC7 PC8 PC9 
