@@ -34,6 +34,9 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_hal.h"
+#include "stm32l152c_discovery.h"
+#include "stm32l152c_discovery_glass_lcd.h"
+
 #include <FreeRTOS.h>
 #include <task.h>
 #include <queue.h>
@@ -84,6 +87,12 @@ int main(void)
   MX_GPIO_Init();
 
   /* USER CODE BEGIN 2 */
+  
+  /* LCD GLASS Initialization */
+  BSP_LCD_GLASS_Init();
+  /*Display " STM32L1xx" string on LCD glass in scrolling mode*/
+  uint8_t LCD_String[]= " STM32L1xx"; 
+  BSP_LCD_GLASS_ScrollSentence(LCD_String, 100, SCROLL_SPEED_LOW);
 
   /* USER CODE END 2 */
 
@@ -218,9 +227,9 @@ void MX_GPIO_Init(void)
   __GPIOB_CLK_ENABLE();
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
+  // GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PC0 PC1 PC2 PC3 
@@ -237,8 +246,10 @@ void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : PA0 */
   GPIO_InitStruct.Pin = GPIO_PIN_0;
-  GPIO_InitStruct.Mode = GPIO_MODE_EVT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;//GPIO_MODE_EVT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
+
+
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PA1 PA2 PA3 PA8 

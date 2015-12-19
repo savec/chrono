@@ -28,11 +28,14 @@ HAL_DIR = $(HOME)/STM32Cube/Repository/STM32Cube_FW_L1_V1.4.0
 CMSIS_DIR = $(HAL_DIR)/Drivers/CMSIS
 CMSIS_CORE_INC = $(CMSIS_DIR)/Include
 CMSIS_CORE_INC_LEGACY = $(CMSIS_CORE_INC)/Legacy
-DSP_DIR = $(CMSIS_DIR)/DSP_Lib
+# DSP_DIR = $(CMSIS_DIR)/DSP_Lib
 
 CMSIS_DEVICE_INC = $(CMSIS_DIR)/Device/ST/STM32L1xx/Include
 PERIPHERAL_INC = $(HAL_DIR)/Drivers/STM32L1xx_HAL_Driver/Inc
 PERIPHERAL_SRC = $(HAL_DIR)/Drivers/STM32L1xx_HAL_Driver/Src
+
+BSP_DRIVERS_DIR = $(HAL_DIR)/Drivers/BSP/STM32L152C-Discovery
+
 FREERTOS = $(HOME)/FreeRTOSV8.2.1/FreeRTOS
 # FREERTOS = $(HAL_DIR)/Middlewares/Third_Party/FreeRTOS
 FREERTOS_INC = $(FREERTOS)/Source/include
@@ -43,7 +46,7 @@ PROJECT_DIR = .
 PROJECT_INC = $(PROJECT_DIR)/Inc
 PROJECT_SRC = $(PROJECT_DIR)/Src
 
-DSP_SRC = $(DSP_DIR)/Source
+# DSP_SRC = $(DSP_DIR)/Source
 
 INCLUDES = 	-I$(CMSIS_CORE_INC) 
 INCLUDES += -I$(CMSIS_DEVICE_INC)  
@@ -53,6 +56,8 @@ INCLUDES += -I$(PROJECT_INC)
 INCLUDES += -I$(FREERTOS_INC) 
 INCLUDES += -I$(FREERTOS_CMSIS) 
 INCLUDES += -I$(FREERTOS_PORT)
+INCLUDES += -I$(BSP_DRIVERS_DIR)
+
 
 OPTIMIZE = -O0
 
@@ -101,7 +106,10 @@ DRIVERS_SRC =			$(PERIPHERAL_SRC)/stm32l1xx_hal_gpio.c \
 						$(PERIPHERAL_SRC)/stm32l1xx_hal_cortex.c \
 						$(PERIPHERAL_SRC)/stm32l1xx_hal_pwr.c \
 						$(PERIPHERAL_SRC)/stm32l1xx_hal_pwr_ex.c \
-						$(PERIPHERAL_SRC)/stm32l1xx_hal_flash_ramfunc.c
+						$(PERIPHERAL_SRC)/stm32l1xx_hal_flash_ramfunc.c \
+						$(PERIPHERAL_SRC)/stm32l1xx_hal_lcd.c \
+						$(BSP_DRIVERS_DIR)/stm32l152c_discovery.c \
+						$(BSP_DRIVERS_DIR)/stm32l152c_discovery_glass_lcd.c
 
 APPLICATION_SRC =       $(PROJECT_SRC)/freertos.c \
 				        $(PROJECT_SRC)/stm32l1xx_it.c \
