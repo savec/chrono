@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * File Name          : stm32l1xx_hal_msp.c
-  * Date               : 19/12/2015 20:35:16
+  * Date               : 24/12/2015 18:24:46
   * Description        : This file provides code for the MSP Initialization 
   *                      and de-Initialization codes.
   ******************************************************************************
@@ -34,6 +34,10 @@
   */
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_hal.h"
+
+extern DMA_HandleTypeDef hdma_adc;
+
+extern DMA_HandleTypeDef hdma_usart1_tx;
 
 /* USER CODE BEGIN 0 */
 
@@ -82,6 +86,20 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+    /* Peripheral DMA init*/
+  
+    hdma_adc.Instance = DMA1_Channel1;
+    hdma_adc.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_adc.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_adc.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_adc.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
+    hdma_adc.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
+    hdma_adc.Init.Mode = DMA_CIRCULAR;
+    hdma_adc.Init.Priority = DMA_PRIORITY_LOW;
+    HAL_DMA_Init(&hdma_adc);
+
+    __HAL_LINKDMA(hadc,DMA_Handle,hdma_adc);
+
   /* USER CODE BEGIN ADC1_MspInit 1 */
 
   /* USER CODE END ADC1_MspInit 1 */
@@ -106,6 +124,8 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
     */
     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_13|GPIO_PIN_15);
 
+    /* Peripheral DMA DeInit*/
+    HAL_DMA_DeInit(hadc->DMA_Handle);
   /* USER CODE BEGIN ADC1_MspDeInit 1 */
 
   /* USER CODE END ADC1_MspDeInit 1 */
@@ -165,6 +185,40 @@ void HAL_DAC_MspDeInit(DAC_HandleTypeDef* hdac)
 
 }
 
+void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
+{
+
+  if(htim_base->Instance==TIM3)
+  {
+  /* USER CODE BEGIN TIM3_MspInit 0 */
+
+  /* USER CODE END TIM3_MspInit 0 */
+    /* Peripheral clock enable */
+    __TIM3_CLK_ENABLE();
+  /* USER CODE BEGIN TIM3_MspInit 1 */
+
+  /* USER CODE END TIM3_MspInit 1 */
+  }
+
+}
+
+void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
+{
+
+  if(htim_base->Instance==TIM3)
+  {
+  /* USER CODE BEGIN TIM3_MspDeInit 0 */
+
+  /* USER CODE END TIM3_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __TIM3_CLK_DISABLE();
+  /* USER CODE BEGIN TIM3_MspDeInit 1 */
+
+  /* USER CODE END TIM3_MspDeInit 1 */
+  }
+
+}
+
 void HAL_UART_MspInit(UART_HandleTypeDef* huart)
 {
 
@@ -187,6 +241,20 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    /* Peripheral DMA init*/
+  
+    hdma_usart1_tx.Instance = DMA1_Channel4;
+    hdma_usart1_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+    hdma_usart1_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_usart1_tx.Init.MemInc = DMA_MINC_DISABLE;
+    hdma_usart1_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+    hdma_usart1_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+    hdma_usart1_tx.Init.Mode = DMA_NORMAL;
+    hdma_usart1_tx.Init.Priority = DMA_PRIORITY_LOW;
+    HAL_DMA_Init(&hdma_usart1_tx);
+
+    __HAL_LINKDMA(huart,hdmatx,hdma_usart1_tx);
 
   /* USER CODE BEGIN USART1_MspInit 1 */
 
@@ -212,6 +280,8 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
     */
     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_6|GPIO_PIN_7);
 
+    /* Peripheral DMA DeInit*/
+    HAL_DMA_DeInit(huart->hdmatx);
   /* USER CODE BEGIN USART1_MspDeInit 1 */
 
   /* USER CODE END USART1_MspDeInit 1 */

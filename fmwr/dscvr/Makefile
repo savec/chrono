@@ -95,6 +95,8 @@ DRIVERS_SRC =			$(PERIPHERAL_SRC)/stm32l1xx_hal_gpio.c \
 						$(PERIPHERAL_SRC)/stm32l1xx_hal_adc_ex.c \
 						$(PERIPHERAL_SRC)/stm32l1xx_hal_dac.c \
 						$(PERIPHERAL_SRC)/stm32l1xx_hal_dac_ex.c \
+						$(PERIPHERAL_SRC)/stm32l1xx_hal_tim.c \
+						$(PERIPHERAL_SRC)/stm32l1xx_hal_tim_ex.c \
 						$(PERIPHERAL_SRC)/stm32l1xx_hal_uart.c \
 						$(BSP_DRIVERS_DIR)/stm32l152c_discovery.c \
 						$(BSP_DRIVERS_DIR)/stm32l152c_discovery_glass_lcd.c
@@ -103,7 +105,8 @@ APPLICATION_SRC =       $(PROJECT_SRC)/freertos.c \
 				        $(PROJECT_SRC)/stm32l1xx_it.c \
 				        $(PROJECT_SRC)/stm32l1xx_hal_msp.c \
 				        $(PROJECT_SRC)/main.c  \
-				        $(PROJECT_SRC)/system_stm32l1xx.c 
+				        $(PROJECT_SRC)/system_stm32l1xx.c \
+				        $(PROJECT_SRC)/median.c
 
 
 STARTUP = $(PROJECT_SRC)/startup_stm32l152xb.s

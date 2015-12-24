@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * File Name          : main.c
-  * Date               : 19/12/2015 20:35:16
+  * Date               : 24/12/2015 18:24:46
   * Description        : Main program body
   ******************************************************************************
   *
@@ -34,7 +34,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_hal.h"
-
+// #include "cmsis_os.h"
 
 /* USER CODE BEGIN Includes */
 #include "stm32l152c_discovery.h"
@@ -44,34 +44,75 @@
 #include <task.h>
 #include <queue.h>
 #include <semphr.h>
+#include <median.h>
 
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc;
+DMA_HandleTypeDef hdma_adc;
 
 DAC_HandleTypeDef hdac;
 
+TIM_HandleTypeDef htim3;
+
 UART_HandleTypeDef huart1;
+DMA_HandleTypeDef hdma_usart1_tx;
 
 // osThreadId defaultTaskHandle;
 
 /* USER CODE BEGIN PV */
 static TaskHandle_t xMainHandle = NULL;
+
+#define NUM_ELEMENTS(x) (sizeof(x)/sizeof(x[0]))
+#define NUM_ADC_CHANNELS 2
+#define ADC_SAMPLES_PER_FRAME 10
+#define ADC_DATA_BUFFER_SIZE (NUM_ADC_CHANNELS * ADC_SAMPLES_PER_FRAME * 2) 
+static uint16_t adc_data[ADC_DATA_BUFFER_SIZE] __attribute__ ((aligned));
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_ADC_Init(void);
 static void MX_DAC_Init(void);
+static void MX_TIM3_Init(void);
 static void MX_USART1_UART_Init(void);
+// void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
 void vMainTask( void * pvParameters );
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
+static void start_acquire(void)
+{
+  // init_filters();
+  HAL_ADC_Start_DMA(&hadc, (uint32_t*)adc_data, NUM_ELEMENTS(adc_data));
+  HAL_TIM_Base_Start(&htim3);
+}
+
+static void stop_acquire(void)
+{
+  HAL_TIM_Base_Stop(&htim3);
+  HAL_ADC_Stop_DMA(&hadc);
+}
+
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+{
+  // xTaskNotifyFromISR(xDSPHandle, (uint32_t)(&adc_data[NUM_ELEMENTS(adc_data)/2]), 
+  //   eSetValueWithOverwrite, NULL);
+  // HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_9);
+}
+
+void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc)
+{
+  // xTaskNotifyFromISR(xDSPHandle, (uint32_t)(&adc_data[0]), eSetValueWithOverwrite, 
+  //   NULL);
+}
 
 /* USER CODE END 0 */
 
@@ -92,14 +133,17 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_ADC_Init();
   MX_DAC_Init();
+  MX_TIM3_Init();
   MX_USART1_UART_Init();
 
   /* USER CODE BEGIN 2 */
   
   /* LCD GLASS Initialization */
   BSP_LCD_GLASS_Init();
+  start_acquire();
 
   /* USER CODE END 2 */
 
@@ -194,23 +238,30 @@ void MX_ADC_Init(void)
   hadc.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
   hadc.Init.Resolution = ADC_RESOLUTION12b;
   hadc.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc.Init.ScanConvMode = ADC_SCAN_DISABLE;
-  hadc.Init.EOCSelection = EOC_SEQ_CONV;
+  hadc.Init.ScanConvMode = ADC_SCAN_ENABLE;
+  hadc.Init.EOCSelection = EOC_SINGLE_CONV;
   hadc.Init.LowPowerAutoWait = ADC_AUTOWAIT_DISABLE;
   hadc.Init.LowPowerAutoPowerOff = ADC_AUTOPOWEROFF_DISABLE;
   hadc.Init.ChannelsBank = ADC_CHANNELS_BANK_A;
   hadc.Init.ContinuousConvMode = DISABLE;
-  hadc.Init.NbrOfConversion = 1;
+  hadc.Init.NbrOfConversion = 2;
   hadc.Init.DiscontinuousConvMode = DISABLE;
-  hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-  hadc.Init.DMAContinuousRequests = DISABLE;
+  hadc.Init.ExternalTrigConv = ADC_EXTERNALTRIGCONV_T3_TRGO;
+  hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
+  hadc.Init.DMAContinuousRequests = ENABLE;
   HAL_ADC_Init(&hadc);
 
     /**Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
     */
   sConfig.Channel = ADC_CHANNEL_19;
   sConfig.Rank = 1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_4CYCLES;
+  HAL_ADC_ConfigChannel(&hadc, &sConfig);
+
+    /**Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
+    */
+  sConfig.Channel = ADC_CHANNEL_21;
+  sConfig.Rank = 2;
   sConfig.SamplingTime = ADC_SAMPLETIME_4CYCLES;
   HAL_ADC_ConfigChannel(&hadc, &sConfig);
 
@@ -239,6 +290,29 @@ void MX_DAC_Init(void)
 
 }
 
+/* TIM3 init function */
+void MX_TIM3_Init(void)
+{
+
+  TIM_ClockConfigTypeDef sClockSourceConfig;
+  TIM_MasterConfigTypeDef sMasterConfig;
+
+  htim3.Instance = TIM3;
+  htim3.Init.Prescaler = 32000;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.Period = 100;
+  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  HAL_TIM_Base_Init(&htim3);
+
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig);
+
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig);
+
+}
+
 /* USART1 init function */
 void MX_USART1_UART_Init(void)
 {
@@ -252,6 +326,22 @@ void MX_USART1_UART_Init(void)
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   HAL_UART_Init(&huart1);
+
+}
+
+/** 
+  * Enable DMA controller clock
+  */
+void MX_DMA_Init(void) 
+{
+  /* DMA controller clock enable */
+  __DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+  HAL_NVIC_SetPriority(DMA1_Channel4_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel4_IRQn);
 
 }
 
@@ -298,13 +388,6 @@ void MX_GPIO_Init(void)
   __GPIOA_CLK_ENABLE();
   __GPIOB_CLK_ENABLE();
 
-  // /*Configure GPIO pin : PC13 */
-  // GPIO_InitStruct.Pin = GPIO_PIN_13;
-  // GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  // GPIO_InitStruct.Pull = GPIO_NOPULL;
-  // GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
-  // HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
   /*Configure GPIO pins : PC0 PC1 PC2 PC3 
                            PC6 PC7 PC8 PC9 
                            PC10 PC11 */
@@ -348,15 +431,27 @@ void vMainTask( void * pvParameters )
   uint8_t cnt = 0;
   for(;;)
   {
-    snprintf((char *)str, sizeof(str)-1, "%d", cnt++);
-    BSP_LCD_GLASS_Clear();
-    BSP_LCD_GLASS_DisplayString("888888");
+    // snprintf((char *)str, sizeof(str)-1, "%d", cnt++);
+    // BSP_LCD_GLASS_Clear();
+    // BSP_LCD_GLASS_DisplayString((uint8_t *)"888888");
     vTaskDelay(pdMS_TO_TICKS(100));
   }
 }
 
 /* USER CODE END 4 */
 
+/* StartDefaultTask function */
+// void StartDefaultTask(void const * argument)
+// {
+
+//   /* USER CODE BEGIN 5 */
+//   /* Infinite loop */
+//   for(;;)
+//   {
+//     osDelay(1);
+//   }
+//   /* USER CODE END 5 */ 
+// }
 
 #ifdef USE_FULL_ASSERT
 
