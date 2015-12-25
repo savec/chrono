@@ -2,6 +2,8 @@
 #define MEDIAN_H
 
 #define FLT_SIZE 5 // must be odd
-#define MEDIAN_NON_VALID (uint16_t)(-1)
+
+int flt_median(const uint16_t in, uint16_t *out);
+void init_median(void);
 
 #endif

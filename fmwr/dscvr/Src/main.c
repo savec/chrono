@@ -63,11 +63,15 @@ DMA_HandleTypeDef hdma_usart1_tx;
 
 /* USER CODE BEGIN PV */
 static TaskHandle_t xMainHandle = NULL;
+static TaskHandle_t xTestHandle = NULL;
+static TaskHandle_t xSensorTuneHandle = NULL;
 
 #define NUM_ELEMENTS(x) (sizeof(x)/sizeof(x[0]))
 #define NUM_ADC_CHANNELS 2
-#define ADC_SAMPLES_PER_FRAME 10
-#define ADC_DATA_BUFFER_SIZE (NUM_ADC_CHANNELS * ADC_SAMPLES_PER_FRAME * 2) 
+#define ADC_SAMPLES_PER_FRAME 1
+#define ADC_DATA_BUFFER_SIZE (NUM_ADC_CHANNELS * ADC_SAMPLES_PER_FRAME * 2)
+#define ADC_GATE1 0
+#define ADC_GATE2 1
 static uint16_t adc_data[ADC_DATA_BUFFER_SIZE] __attribute__ ((aligned));
 
 /* USER CODE END PV */
@@ -84,25 +88,29 @@ static void MX_USART1_UART_Init(void);
 
 /* USER CODE BEGIN PFP */
 void vMainTask( void * pvParameters );
+void vTestTask( void * pvParameters );
+void vSensorTuneTask( void * pvParameters );
+static void DAC_SetValue(uint32_t Channel, uint32_t Data);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
 static void start_acquire(void)
 {
-  // init_filters();
+  init_median();
   HAL_ADC_Start_DMA(&hadc, (uint32_t*)adc_data, NUM_ELEMENTS(adc_data));
   HAL_TIM_Base_Start(&htim3);
 }
 
-static void stop_acquire(void)
-{
-  HAL_TIM_Base_Stop(&htim3);
-  HAL_ADC_Stop_DMA(&hadc);
-}
+// static void stop_acquire(void)
+// {
+//   HAL_TIM_Base_Stop(&htim3);
+//   HAL_ADC_Stop_DMA(&hadc);
+// }
 
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
+
   // xTaskNotifyFromISR(xDSPHandle, (uint32_t)(&adc_data[NUM_ELEMENTS(adc_data)/2]), 
   //   eSetValueWithOverwrite, NULL);
   // HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_9);
@@ -112,6 +120,11 @@ void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc)
 {
   // xTaskNotifyFromISR(xDSPHandle, (uint32_t)(&adc_data[0]), eSetValueWithOverwrite, 
   //   NULL);
+}
+
+static void DAC_SetValue(uint32_t Channel, uint32_t Data)
+{
+  HAL_DAC_SetValue(&hdac, Channel, DAC_ALIGN_12B_R, Data);
 }
 
 /* USER CODE END 0 */
@@ -142,8 +155,15 @@ int main(void)
   /* USER CODE BEGIN 2 */
   
   /* LCD GLASS Initialization */
-  BSP_LCD_GLASS_Init();
+  // BSP_LCD_GLASS_Init();
   start_acquire();
+
+  HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
+  HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
+
+  DAC_SetValue(DAC_CHANNEL_1, 0);
+  DAC_SetValue(DAC_CHANNEL_2, 0);
+
 
   /* USER CODE END 2 */
 
@@ -168,6 +188,13 @@ int main(void)
   /* add threads, ... */
   xTaskCreate( vMainTask, "MAIN", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xMainHandle );
   configASSERT( xMainHandle ); 
+
+  xTaskCreate( vTestTask, "TEST", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xTestHandle );
+  configASSERT( xTestHandle ); 
+
+  xTaskCreate( vSensorTuneTask, "SENS", configMINIMAL_STACK_SIZE, NULL, 1, &xSensorTuneHandle );
+  configASSERT( xSensorTuneHandle ); 
+
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
@@ -281,7 +308,7 @@ void MX_DAC_Init(void)
     /**DAC channel OUT1 config 
     */
   sConfig.DAC_Trigger = DAC_TRIGGER_NONE;
-  sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
+  sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_DISABLE;
   HAL_DAC_ConfigChannel(&hdac, &sConfig, DAC_CHANNEL_1);
 
     /**DAC channel OUT2 config 
@@ -298,7 +325,7 @@ void MX_TIM3_Init(void)
   TIM_MasterConfigTypeDef sMasterConfig;
 
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 32000;
+  htim3.Init.Prescaler = 3200;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim3.Init.Period = 100;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -427,13 +454,33 @@ void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void vMainTask( void * pvParameters )
 {
-  uint8_t str[7];
-  uint8_t cnt = 0;
+  // uint8_t str[7];
+  // uint8_t cnt = 0;
   for(;;)
   {
     // snprintf((char *)str, sizeof(str)-1, "%d", cnt++);
     // BSP_LCD_GLASS_Clear();
     // BSP_LCD_GLASS_DisplayString((uint8_t *)"888888");
+    vTaskDelay(pdMS_TO_TICKS(100));
+  }
+}
+
+void vTestTask( void * pvParameters )
+{
+  // uint8_t dac = 0;
+  
+  for(;;)
+  {
+    // DAC_SetValue(DAC_CHANNEL_1, dac);
+    // DAC_SetValue(DAC_CHANNEL_2, dac++);    
+    vTaskDelay(pdMS_TO_TICKS(100));
+  }
+}
+
+void vSensorTuneTask( void * pvParameters )
+{
+  for(;;)
+  {
     vTaskDelay(pdMS_TO_TICKS(100));
   }
 }

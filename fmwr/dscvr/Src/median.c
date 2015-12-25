@@ -14,23 +14,21 @@ int cmp(const void *a, const void *b)
 	return (a1>b1)?(1):((a1<b1)?-1:0); 
 }
 
-uint16_t flt_median(uint16_t data)
+int flt_median(const uint16_t in, uint16_t *out)
 {
 	uint16_t b[FLT_SIZE];
 
-	buffer[idx] = data;
+	buffer[idx] = in;
 	if(++idx > FLT_SIZE-1)
 	{
 		idx = 0;
 		filled = 1;
 	}
-
-	if(!filled)
-		return MEDIAN_NON_VALID;
-
 	memcpy(b, buffer, sizeof(buffer));
 	qsort(b, FLT_SIZE, sizeof(b[0]), cmp);
-	return b[FLT_SIZE/2];
+	*out = b[FLT_SIZE/2];
+
+	return filled?0:-1;
 }
 
 void init_median(void)
