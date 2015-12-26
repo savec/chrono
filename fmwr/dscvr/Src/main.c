@@ -90,6 +90,9 @@ static QueueHandle_t xUartRxQueue = NULL;
 #define ADC_DATA_BUFFER_SIZE (NUM_ADC_CHANNELS * ADC_SAMPLES_PER_FRAME * 2)
 #define ADC_GATE1 0
 #define ADC_GATE2 1
+#define RESET_H06() HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET)
+#define UNRESET_H06() HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_SET)
+
 static uint16_t adc_data[ADC_DATA_BUFFER_SIZE] __attribute__ ((aligned));
 static u16_median_t * median[2];
 static uint8_t uart_data;
@@ -163,7 +166,7 @@ static void DAC_SetValue(uint32_t Channel, uint32_t Data)
 
 static BaseType_t send_data(const void *addr, size_t size, uint32_t nf)
 {
-  tx_buf_t *b = (tx_buf_t *)pvPortMalloc(size);
+  tx_buf_t *b = (tx_buf_t *)pvPortMalloc(sizeof(*b));
 
   configASSERT( b );
 
@@ -213,6 +216,8 @@ int main(void)
 
   DAC_SetValue(DAC_CHANNEL_1, 0);
   DAC_SetValue(DAC_CHANNEL_2, 0);
+
+  UNRESET_H06();
 
 
   /* USER CODE END 2 */
@@ -432,39 +437,6 @@ void MX_DMA_Init(void)
 
 }
 
-/** Configure pins as 
-        * Analog 
-        * Input 
-        * Output
-        * EVENT_OUT
-        * EXTI
-     PC0   ------> LCD_SEG18
-     PC1   ------> LCD_SEG19
-     PC2   ------> LCD_SEG20
-     PC3   ------> LCD_SEG21
-     PA1   ------> LCD_SEG0
-     PA2   ------> LCD_SEG1
-     PA3   ------> LCD_SEG2
-     PB10   ------> LCD_SEG10
-     PB11   ------> LCD_SEG11
-     PB12   ------> LCD_SEG12
-     PB14   ------> LCD_SEG14
-     PC6   ------> LCD_SEG24
-     PC7   ------> LCD_SEG25
-     PC8   ------> LCD_SEG26
-     PC9   ------> LCD_SEG27
-     PA8   ------> LCD_COM0
-     PA9   ------> LCD_COM1
-     PA10   ------> LCD_COM2
-     PA15   ------> LCD_SEG17
-     PC10   ------> LCD_SEG28
-     PC11   ------> LCD_SEG29
-     PB3   ------> LCD_SEG7
-     PB4   ------> LCD_SEG8
-     PB5   ------> LCD_SEG9
-     PB8   ------> LCD_SEG16
-     PB9   ------> LCD_COM3
-*/
 void MX_GPIO_Init(void)
 {
 
@@ -475,39 +447,45 @@ void MX_GPIO_Init(void)
   __GPIOA_CLK_ENABLE();
   __GPIOB_CLK_ENABLE();
 
-  /*Configure GPIO pins : PC0 PC1 PC2 PC3 
-                           PC6 PC7 PC8 PC9 
-                           PC10 PC11 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3 
-                          |GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9 
-                          |GPIO_PIN_10|GPIO_PIN_11;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF11_LCD;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : PA1 PA2 PA3 PA8 
-                           PA9 PA10 PA15 */
-  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_8 
-                          |GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_15;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF11_LCD;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : PB10 PB11 PB12 PB14 
-                           PB3 PB4 PB5 PB8 
-                           PB9 */
-  GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_14 
-                          |GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_8 
-                          |GPIO_PIN_9;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF11_LCD;
+  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  // /*Configure GPIO pins : PC0 PC1 PC2 PC3 
+  //                          PC6 PC7 PC8 PC9 
+  //                          PC10 PC11 */
+  // GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3 
+  //                         |GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9 
+  //                         |GPIO_PIN_10|GPIO_PIN_11;
+  // GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  // GPIO_InitStruct.Pull = GPIO_NOPULL;
+  // GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
+  // GPIO_InitStruct.Alternate = GPIO_AF11_LCD;
+  // HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  // /*Configure GPIO pins : PA1 PA2 PA3 PA8 
+  //                          PA9 PA10 PA15 */
+  // GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_8 
+  //                         |GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_15;
+  // GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  // GPIO_InitStruct.Pull = GPIO_NOPULL;
+  // GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
+  // GPIO_InitStruct.Alternate = GPIO_AF11_LCD;
+  // HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  // /*Configure GPIO pins : PB10 PB11 PB12 PB14 
+  //                          PB3 PB4 PB5 PB8 
+  //                          PB9 */
+  // GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_14 
+  //                         |GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_8 
+  //                         |GPIO_PIN_9;
+  // GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  // GPIO_InitStruct.Pull = GPIO_NOPULL;
+  // GPIO_InitStruct.Speed = GPIO_SPEED_VERY_LOW;
+  // GPIO_InitStruct.Alternate = GPIO_AF11_LCD;
+  // HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }
 

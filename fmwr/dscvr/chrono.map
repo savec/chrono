@@ -11,11 +11,11 @@ Archive member included because of file (symbol)
 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-init.o)
                               /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o (__libc_init_array)
 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memcpy.o)
-                              /tmp/cc5VyRhd.o (memcpy)
+                              /tmp/ccg4Nby9.o (memcpy)
 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memset.o)
                               /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o (memset)
 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-qsort.o)
-                              /tmp/cc9C3fOx.o (qsort)
+                              /tmp/cc3jfSpy.o (qsort)
 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__atexit.o)
                               /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o) (__register_exitproc)
 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__call_atexit.o)
@@ -26,16 +26,16 @@ Archive member included because of file (symbol)
 Allocating common symbols
 Common symbol       size              file
 
-Digit               0x10              /tmp/ccFDougV.o
-xQueueRegistry      0x40              /tmp/cc5VyRhd.o
-pFlash              0x18              /tmp/ccOlmcfE.o
-htim3               0x38              /tmp/ccTLVLuk.o
-hdma_usart1_tx      0x38              /tmp/ccTLVLuk.o
-huart1              0x40              /tmp/ccTLVLuk.o
-hdac                0x14              /tmp/ccTLVLuk.o
-LCDHandle           0x3c              /tmp/ccFDougV.o
-hdma_adc            0x38              /tmp/ccTLVLuk.o
-hadc                0x54              /tmp/ccTLVLuk.o
+Digit               0x10              /tmp/ccWrvyiw.o
+xQueueRegistry      0x40              /tmp/ccg4Nby9.o
+pFlash              0x18              /tmp/ccTmy5bO.o
+htim3               0x38              /tmp/ccQc5Qfx.o
+hdma_usart1_tx      0x38              /tmp/ccQc5Qfx.o
+huart1              0x40              /tmp/ccQc5Qfx.o
+hdac                0x14              /tmp/ccQc5Qfx.o
+LCDHandle           0x3c              /tmp/ccWrvyiw.o
+hdma_adc            0x38              /tmp/ccQc5Qfx.o
+hadc                0x54              /tmp/ccQc5Qfx.o
 
 Memory Configuration
 
@@ -49,42 +49,42 @@ Linker script and memory map
 LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crti.o
 LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
 LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o
-LOAD /tmp/cchxSs51.o
-LOAD /tmp/ccNe3KE4.o
-LOAD /tmp/ccEeSEq7.o
-LOAD /tmp/cc5NRdia.o
-LOAD /tmp/cc5VyRhd.o
-LOAD /tmp/ccFJuakg.o
-LOAD /tmp/ccP7m8oj.o
-LOAD /tmp/ccCMpxxm.o
-LOAD /tmp/ccptBPMp.o
-LOAD /tmp/ccNt0yat.o
-LOAD /tmp/cc7i1DKw.o
-LOAD /tmp/ccZPryrA.o
-LOAD /tmp/ccOlmcfE.o
-LOAD /tmp/ccexzzcI.o
-LOAD /tmp/cchIhVgM.o
-LOAD /tmp/ccE6NSsQ.o
-LOAD /tmp/ccYfQSLU.o
-LOAD /tmp/ccGXHXaZ.o
-LOAD /tmp/ccirxgG3.o
-LOAD /tmp/ccW42li8.o
-LOAD /tmp/ccCXUe5c.o
-LOAD /tmp/cc40Pb0h.o
-LOAD /tmp/cc6hgX2m.o
-LOAD /tmp/cc0WIYbs.o
-LOAD /tmp/ccbY2wIx.o
-LOAD /tmp/cc2hosmD.o
-LOAD /tmp/ccv0vFcJ.o
-LOAD /tmp/ccrMGE9O.o
-LOAD /tmp/ccFDougV.o
-LOAD /tmp/cczXTVp1.o
-LOAD /tmp/ccSH5UE7.o
-LOAD /tmp/ccsLjl0d.o
-LOAD /tmp/ccTLVLuk.o
-LOAD /tmp/ccV0Zf6q.o
-LOAD /tmp/cc9C3fOx.o
-LOAD /tmp/ccBVzUwE.o
+LOAD /tmp/cclHHYwm.o
+LOAD /tmp/ccmoWu3i.o
+LOAD /tmp/ccP1PCMf.o
+LOAD /tmp/cczwUnBc.o
+LOAD /tmp/ccg4Nby9.o
+LOAD /tmp/ccO03Nx6.o
+LOAD /tmp/cc7uIgA3.o
+LOAD /tmp/ccvtV8F0.o
+LOAD /tmp/ccUpJWSX.o
+LOAD /tmp/ccMfBneV.o
+LOAD /tmp/ccBxoaMS.o
+LOAD /tmp/ccmJNLqQ.o
+LOAD /tmp/ccTmy5bO.o
+LOAD /tmp/cc3sWC6L.o
+LOAD /tmp/ccpGFS7J.o
+LOAD /tmp/ccF4JIgI.o
+LOAD /tmp/ccPqkpwG.o
+LOAD /tmp/ccncv2RE.o
+LOAD /tmp/ccIEINjD.o
+LOAD /tmp/cc278iSB.o
+LOAD /tmp/ccD5KCBA.o
+LOAD /tmp/cc2df9sz.o
+LOAD /tmp/ccCdjhsy.o
+LOAD /tmp/cc6DdHxx.o
+LOAD /tmp/ccX2Rs0w.o
+LOAD /tmp/ccNNDxAw.o
+LOAD /tmp/cc47QRmw.o
+LOAD /tmp/ccG9NTfw.o
+LOAD /tmp/ccWrvyiw.o
+LOAD /tmp/ccf7YNnw.o
+LOAD /tmp/ccAJnGyw.o
+LOAD /tmp/ccQffUPw.o
+LOAD /tmp/ccQc5Qfx.o
+LOAD /tmp/ccNEDHMx.o
+LOAD /tmp/cc3jfSpy.o
+LOAD /tmp/ccqNVG3y.o
 START GROUP
 LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/libgcc.a
 START GROUP
@@ -102,11 +102,11 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
 .isr_vector     0x0000000008000000      0x13c
                 0x0000000008000000                . = ALIGN (0x4)
  *(.isr_vector)
- .isr_vector    0x0000000008000000      0x13c /tmp/ccBVzUwE.o
+ .isr_vector    0x0000000008000000      0x13c /tmp/ccqNVG3y.o
                 0x0000000008000000                g_pfnVectors
                 0x000000000800013c                . = ALIGN (0x4)
 
-.text           0x000000000800013c    0x13f28
+.text           0x000000000800013c    0x13ee4
                 0x000000000800013c                . = ALIGN (0x4)
  *(.text)
  .text          0x000000000800013c        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crti.o
@@ -114,19 +114,19 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
  .text          0x0000000008000204       0x68 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o
                 0x0000000008000204                _mainCRTStartup
                 0x0000000008000204                _start
- .text          0x000000000800026c      0x420 /tmp/cchxSs51.o
+ .text          0x000000000800026c      0x420 /tmp/cclHHYwm.o
                 0x000000000800026c                pvPortMalloc
                 0x0000000008000400                vPortFree
                 0x00000000080004a8                xPortGetFreeHeapSize
                 0x00000000080004c0                xPortGetMinimumEverFreeHeapSize
                 0x00000000080004d8                vPortInitialiseBlocks
- .text          0x000000000800068c      0x164 /tmp/ccNe3KE4.o
+ .text          0x000000000800068c      0x164 /tmp/ccmoWu3i.o
                 0x000000000800068c                vListInitialise
                 0x00000000080006cc                vListInitialiseItem
                 0x00000000080006e4                vListInsertEnd
                 0x000000000800072c                vListInsert
                 0x000000000800079c                uxListRemove
- .text          0x00000000080007f0     0x1fd0 /tmp/ccEeSEq7.o
+ .text          0x00000000080007f0     0x1fd0 /tmp/ccP1PCMf.o
                 0x00000000080007f0                xTaskGenericCreate
                 0x00000000080009a0                vTaskDelete
                 0x0000000008000ab0                vTaskDelay
@@ -166,7 +166,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x0000000008002468                xTaskGenericNotify
                 0x000000000800258c                xTaskNotifyFromISR
                 0x00000000080026d4                vTaskNotifyGiveFromISR
- .text          0x00000000080027c0      0x4f8 /tmp/cc5NRdia.o
+ .text          0x00000000080027c0      0x4f8 /tmp/cczwUnBc.o
                 0x00000000080027c0                xEventGroupCreate
                 0x00000000080027f0                xEventGroupSync
                 0x000000000800290c                xEventGroupWaitBits
@@ -177,7 +177,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x0000000008002c18                vEventGroupSetBitsCallback
                 0x0000000008002c30                vEventGroupClearBitsCallback
                 0x0000000008002c8c                uxEventGroupGetNumber
- .text          0x0000000008002cb8      0xd28 /tmp/cc5VyRhd.o
+ .text          0x0000000008002cb8      0xd28 /tmp/ccg4Nby9.o
                 0x0000000008002cb8                xQueueGenericReset
                 0x0000000008002d68                xQueueGenericCreate
                 0x0000000008002e04                xQueueCreateMutex
@@ -201,9 +201,9 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x0000000008003904                xQueueIsQueueFullFromISR
                 0x0000000008003938                vQueueAddToRegistry
                 0x0000000008003994                vQueueUnregisterQueue
- .text          0x00000000080039e0        0x0 /tmp/ccFJuakg.o
- .text          0x00000000080039e0        0x0 /tmp/ccP7m8oj.o
- .text          0x00000000080039e0      0x3ac /tmp/ccCMpxxm.o
+ .text          0x00000000080039e0        0x0 /tmp/ccO03Nx6.o
+ .text          0x00000000080039e0        0x0 /tmp/cc7uIgA3.o
+ .text          0x00000000080039e0      0x3ac /tmp/ccvtV8F0.o
                 0x00000000080039e0                pxPortInitialiseStack
                 0x0000000008003a58                SVC_Handler
                 0x0000000008003a98                xPortStartScheduler
@@ -217,7 +217,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x0000000008003cc4                xPortSysTickHandler
                 0x0000000008003cec                vPortSetupTimerInterrupt
                 0x0000000008003d28                vPortValidateInterruptPriority
- .text          0x0000000008003d8c      0x660 /tmp/ccptBPMp.o
+ .text          0x0000000008003d8c      0x660 /tmp/ccUpJWSX.o
                 0x0000000008003d8c                HAL_GPIO_Init
                 0x00000000080040d0                HAL_GPIO_DeInit
                 0x00000000080042cc                HAL_GPIO_ReadPin
@@ -226,7 +226,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x0000000008004350                HAL_GPIO_LockPin
                 0x00000000080043a0                HAL_GPIO_EXTI_IRQHandler
                 0x00000000080043d8                HAL_GPIO_EXTI_Callback
- .text          0x00000000080043ec      0xdc0 /tmp/ccNt0yat.o
+ .text          0x00000000080043ec      0xdc0 /tmp/ccMfBneV.o
                 0x00000000080043ec                HAL_DMA_Init
                 0x0000000008004484                HAL_DMA_DeInit
                 0x00000000080046c8                HAL_DMA_Start
@@ -236,7 +236,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x0000000008004c8c                HAL_DMA_IRQHandler
                 0x000000000800512c                HAL_DMA_GetState
                 0x0000000008005148                HAL_DMA_GetError
- .text          0x00000000080051ac     0x20e0 /tmp/cc7i1DKw.o
+ .text          0x00000000080051ac     0x20e0 /tmp/ccBxoaMS.o
                 0x00000000080051ac                HAL_RCC_DeInit
                 0x0000000008005284                HAL_RCC_OscConfig
                 0x0000000008006500                HAL_RCC_ClockConfig
@@ -251,11 +251,11 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x00000000080070ec                HAL_RCC_GetClockConfig
                 0x0000000008007164                HAL_RCC_NMI_IRQHandler
                 0x000000000800718c                HAL_RCC_CSSCallback
- .text          0x000000000800728c      0x384 /tmp/ccZPryrA.o
+ .text          0x000000000800728c      0x384 /tmp/ccmJNLqQ.o
                 0x000000000800728c                HAL_RCCEx_PeriphCLKConfig
                 0x00000000080074bc                HAL_RCCEx_GetPeriphCLKConfig
                 0x0000000008007524                HAL_RCCEx_GetPeriphCLKFreq
- .text          0x0000000008007610      0x61c /tmp/ccOlmcfE.o
+ .text          0x0000000008007610      0x61c /tmp/ccTmy5bO.o
                 0x0000000008007610                HAL_FLASH_Program
                 0x0000000008007688                HAL_FLASH_Program_IT
                 0x0000000008007710                HAL_FLASH_IRQHandler
@@ -268,7 +268,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x0000000008007a94                HAL_FLASH_OB_Launch
                 0x0000000008007ac0                HAL_FLASH_GetError
                 0x0000000008007ad8                FLASH_WaitForLastOperation
- .text          0x0000000008007c2c      0xc38 /tmp/ccexzzcI.o
+ .text          0x0000000008007c2c      0xc38 /tmp/cc3sWC6L.o
                 0x0000000008007c2c                HAL_FLASHEx_Erase
                 0x0000000008007d00                HAL_FLASHEx_Erase_IT
                 0x0000000008007d94                HAL_FLASHEx_OBProgram
@@ -280,7 +280,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x00000000080080b4                HAL_FLASHEx_DATAEEPROM_EnableFixedTimeProgram
                 0x00000000080080d8                HAL_FLASHEx_DATAEEPROM_DisableFixedTimeProgram
                 0x000000000800880c                FLASH_PageErase
- .text          0x0000000008008864      0x2d0 /tmp/cchIhVgM.o
+ .text          0x0000000008008864      0x2d0 /tmp/ccpGFS7J.o
                 0x0000000008008864                HAL_Init
                 0x00000000080088b0                HAL_DeInit
                 0x0000000008008918                HAL_MspDeInit
@@ -299,7 +299,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x0000000008008ac8                HAL_DBGMCU_DisableDBGStopMode
                 0x0000000008008aec                HAL_DBGMCU_EnableDBGStandbyMode
                 0x0000000008008b10                HAL_DBGMCU_DisableDBGStandbyMode
- .text          0x0000000008008b34      0x60c /tmp/ccE6NSsQ.o
+ .text          0x0000000008008b34      0x60c /tmp/ccF4JIgI.o
                 0x0000000008008edc                HAL_NVIC_SetPriorityGrouping
                 0x0000000008008ef0                HAL_NVIC_SetPriority
                 0x0000000008008f28                HAL_NVIC_EnableIRQ
@@ -316,7 +316,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x00000000080090dc                HAL_SYSTICK_CLKSourceConfig
                 0x0000000008009128                HAL_SYSTICK_IRQHandler
                 0x0000000008009134                HAL_SYSTICK_Callback
- .text          0x0000000008009140      0x464 /tmp/ccYfQSLU.o
+ .text          0x0000000008009140      0x464 /tmp/ccPqkpwG.o
                 0x0000000008009140                HAL_PWR_DeInit
                 0x000000000800917c                HAL_PWR_EnableBkUpAccess
                 0x00000000080091b0                HAL_PWR_DisableBkUpAccess
@@ -334,7 +334,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x0000000008009548                HAL_PWR_DisableSEVOnPend
                 0x000000000800956c                HAL_PWR_PVD_IRQHandler
                 0x0000000008009598                HAL_PWR_PVDCallback
- .text          0x00000000080095a4      0x194 /tmp/ccGXHXaZ.o
+ .text          0x00000000080095a4      0x194 /tmp/ccncv2RE.o
                 0x00000000080095a4                HAL_PWREx_GetVoltageRange
                 0x00000000080095c0                HAL_PWREx_EnableFastWakeUp
                 0x00000000080095f4                HAL_PWREx_DisableFastWakeUp
@@ -342,8 +342,8 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x000000000800965c                HAL_PWREx_DisableUltraLowPower
                 0x0000000008009690                HAL_PWREx_EnableLowPowerRunMode
                 0x00000000080096e4                HAL_PWREx_DisableLowPowerRunMode
- .text          0x0000000008009738        0x0 /tmp/ccirxgG3.o
- .text          0x0000000008009738      0x480 /tmp/ccW42li8.o
+ .text          0x0000000008009738        0x0 /tmp/ccIEINjD.o
+ .text          0x0000000008009738      0x480 /tmp/cc278iSB.o
                 0x0000000008009738                HAL_LCD_DeInit
                 0x00000000080097b0                HAL_LCD_Init
                 0x0000000008009928                HAL_LCD_MspDeInit
@@ -354,7 +354,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x0000000008009b3c                HAL_LCD_GetState
                 0x0000000008009b58                HAL_LCD_GetError
                 0x0000000008009b70                LCD_WaitForSynchro
- .text          0x0000000008009bb8     0x1258 /tmp/ccCXUe5c.o
+ .text          0x0000000008009bb8     0x1258 /tmp/ccD5KCBA.o
                 0x0000000008009bb8                HAL_ADC_Init
                 0x0000000008009e44                HAL_ADC_DeInit
                 0x000000000800a020                HAL_ADC_Start
@@ -375,7 +375,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x000000000800abe0                HAL_ADC_GetError
                 0x000000000800abf8                ADC_Enable
                 0x000000000800aca8                ADC_ConversionStop_Disable
- .text          0x000000000800ae10      0x80c /tmp/cc40Pb0h.o
+ .text          0x000000000800ae10      0x80c /tmp/cc2df9sz.o
                 0x000000000800ae10                HAL_ADCEx_InjectedStart
                 0x000000000800aeb0                HAL_ADCEx_InjectedStop
                 0x000000000800af38                HAL_ADCEx_InjectedPollForConversion
@@ -384,7 +384,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x000000000800b254                HAL_ADCEx_InjectedGetValue
                 0x000000000800b2a8                HAL_ADCEx_InjectedConvCpltCallback
                 0x000000000800b2bc                HAL_ADCEx_InjectedConfigChannel
- .text          0x000000000800b61c      0x5f0 /tmp/cc6hgX2m.o
+ .text          0x000000000800b61c      0x5f0 /tmp/ccCdjhsy.o
                 0x000000000800b61c                HAL_DAC_Init
                 0x000000000800b660                HAL_DAC_DeInit
                 0x000000000800b6c4                HAL_DAC_Start
@@ -401,7 +401,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x000000000800bb28                HAL_DAC_SetValue
                 0x000000000800bb70                HAL_DAC_GetState
                 0x000000000800bb8c                HAL_DAC_GetError
- .text          0x000000000800bc0c      0x214 /tmp/cc0WIYbs.o
+ .text          0x000000000800bc0c      0x214 /tmp/cc6DdHxx.o
                 0x000000000800bc0c                HAL_DACEx_DualGetValue
                 0x000000000800bc40                HAL_DACEx_TriangleWaveGenerate
                 0x000000000800bca8                HAL_DACEx_NoiseWaveGenerate
@@ -413,7 +413,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x000000000800bdb8                DAC_DMAConvCpltCh2
                 0x000000000800bdd8                DAC_DMAHalfConvCpltCh2
                 0x000000000800bdf4                DAC_DMAErrorCh2
- .text          0x000000000800be20     0x3760 /tmp/ccbY2wIx.o
+ .text          0x000000000800be20     0x3760 /tmp/ccX2Rs0w.o
                 0x000000000800be20                HAL_TIM_Base_Init
                 0x000000000800be78                HAL_TIM_Base_DeInit
                 0x000000000800bef0                HAL_TIM_Base_Start
@@ -501,10 +501,10 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x000000000800ec58                TIM_DMAError
                 0x000000000800ec7c                TIM_DMADelayPulseCplt
                 0x000000000800ecec                TIM_DMACaptureCplt
- .text          0x000000000800f580       0xd4 /tmp/cc2hosmD.o
+ .text          0x000000000800f580       0xd4 /tmp/ccNNDxAw.o
                 0x000000000800f580                HAL_TIMEx_MasterConfigSynchronization
                 0x000000000800f60c                HAL_TIMEx_RemapConfig
- .text          0x000000000800f654     0x1670 /tmp/ccv0vFcJ.o
+ .text          0x000000000800f654     0x1670 /tmp/cc47QRmw.o
                 0x000000000800f654                HAL_UART_Init
                 0x000000000800f6e8                HAL_HalfDuplex_Init
                 0x000000000800f78c                HAL_LIN_Init
@@ -530,7 +530,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x00000000080104cc                HAL_HalfDuplex_EnableReceiver
                 0x0000000008010524                HAL_UART_GetState
                 0x0000000008010540                HAL_UART_GetError
- .text          0x0000000008010cc4      0x2b4 /tmp/ccrMGE9O.o
+ .text          0x0000000008010cc4      0x2b4 /tmp/ccG9NTfw.o
                 0x0000000008010cc4                BSP_GetVersion
                 0x0000000008010cdc                BSP_LED_Init
                 0x0000000008010dc8                BSP_LED_On
@@ -538,7 +538,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x0000000008010e38                BSP_LED_Toggle
                 0x0000000008010e6c                BSP_PB_Init
                 0x0000000008010f4c                BSP_PB_GetState
- .text          0x0000000008010f78     0x1554 /tmp/ccFDougV.o
+ .text          0x0000000008010f78     0x1554 /tmp/ccWrvyiw.o
                 0x0000000008010f78                BSP_LCD_GLASS_Init
                 0x0000000008011038                BSP_LCD_GLASS_DeInit
                 0x0000000008011058                BSP_LCD_GLASS_BlinkConfig
@@ -552,13 +552,13 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x0000000008011e6c                BSP_LCD_GLASS_DisplayStrDeci
                 0x0000000008011f04                BSP_LCD_GLASS_Clear
                 0x0000000008011f18                BSP_LCD_GLASS_ScrollSentence
- .text          0x00000000080124cc        0x0 /tmp/cczXTVp1.o
- .text          0x00000000080124cc       0x54 /tmp/ccSH5UE7.o
+ .text          0x00000000080124cc        0x0 /tmp/ccf7YNnw.o
+ .text          0x00000000080124cc       0x54 /tmp/ccAJnGyw.o
                 0x00000000080124cc                SysTick_Handler
                 0x00000000080124e4                DMA1_Channel1_IRQHandler
                 0x00000000080124f8                DMA1_Channel4_IRQHandler
                 0x000000000801250c                USART1_IRQHandler
- .text          0x0000000008012520      0x418 /tmp/ccsLjl0d.o
+ .text          0x0000000008012520      0x418 /tmp/ccQffUPw.o
                 0x0000000008012520                HAL_MspInit
                 0x0000000008012568                HAL_ADC_MspInit
                 0x0000000008012660                HAL_ADC_MspDeInit
@@ -568,218 +568,218 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x00000000080127a4                HAL_TIM_Base_MspDeInit
                 0x00000000080127e0                HAL_UART_MspInit
                 0x00000000080128e8                HAL_UART_MspDeInit
- .text          0x0000000008012938      0x928 /tmp/ccTLVLuk.o
+ .text          0x0000000008012938      0x8e4 /tmp/ccQc5Qfx.o
                 0x0000000008012960                HAL_ADC_ConvCpltCallback
                 0x0000000008012974                HAL_ADC_ConvHalfCpltCallback
                 0x0000000008012988                HAL_UART_TxCpltCallback
                 0x00000000080129a8                HAL_UART_RxCpltCallback
                 0x0000000008012a64                main
-                0x0000000008012c98                SystemClock_Config
-                0x000000000801312c                vMainTask
-                0x000000000801313c                vTestTask
-                0x0000000008013160                vSensorTuneTask
-                0x0000000008013170                vUartTxTask
-                0x00000000080131ec                vUartRxTask
- .text          0x0000000008013260      0x264 /tmp/ccV0Zf6q.o
-                0x0000000008013260                SystemInit
-                0x0000000008013308                SystemCoreClockUpdate
- .text          0x00000000080134c4      0x1b0 /tmp/cc9C3fOx.o
-                0x00000000080134c4                cmp
-                0x0000000008013504                u16_median_init
-                0x0000000008013594                u16_median_free
-                0x00000000080135d4                u16_median_flt
- .text          0x0000000008013674       0x14 /tmp/ccBVzUwE.o
- .text          0x0000000008013688        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
- .text          0x0000000008013688        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-exit.o)
- .text          0x0000000008013688        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-fini.o)
- .text          0x0000000008013688        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-impure.o)
- .text          0x0000000008013688        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-init.o)
- .text          0x0000000008013688       0xec /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memcpy.o)
-                0x0000000008013688                memcpy
- .text          0x0000000008013774        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memset.o)
- .text          0x0000000008013774        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-qsort.o)
- .text          0x0000000008013774        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__atexit.o)
- .text          0x0000000008013774        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__call_atexit.o)
- .text          0x0000000008013774        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libnosys.a(_exit.o)
- .text          0x0000000008013774        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtend.o
- .text          0x0000000008013774        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
+                0x0000000008012ca8                SystemClock_Config
+                0x00000000080130e8                vMainTask
+                0x00000000080130f8                vTestTask
+                0x000000000801311c                vSensorTuneTask
+                0x000000000801312c                vUartTxTask
+                0x00000000080131a8                vUartRxTask
+ .text          0x000000000801321c      0x264 /tmp/ccNEDHMx.o
+                0x000000000801321c                SystemInit
+                0x00000000080132c4                SystemCoreClockUpdate
+ .text          0x0000000008013480      0x1b0 /tmp/cc3jfSpy.o
+                0x0000000008013480                cmp
+                0x00000000080134c0                u16_median_init
+                0x0000000008013550                u16_median_free
+                0x0000000008013590                u16_median_flt
+ .text          0x0000000008013630       0x14 /tmp/ccqNVG3y.o
+ .text          0x0000000008013644        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
+ .text          0x0000000008013644        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-exit.o)
+ .text          0x0000000008013644        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-fini.o)
+ .text          0x0000000008013644        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-impure.o)
+ .text          0x0000000008013644        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-init.o)
+ .text          0x0000000008013644       0xec /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memcpy.o)
+                0x0000000008013644                memcpy
+ .text          0x0000000008013730        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memset.o)
+ .text          0x0000000008013730        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-qsort.o)
+ .text          0x0000000008013730        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__atexit.o)
+ .text          0x0000000008013730        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__call_atexit.o)
+ .text          0x0000000008013730        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libnosys.a(_exit.o)
+ .text          0x0000000008013730        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtend.o
+ .text          0x0000000008013730        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
  *(.text*)
  .text.Reset_Handler
-                0x0000000008013774       0x48 /tmp/ccBVzUwE.o
-                0x0000000008013774                Reset_Handler
+                0x0000000008013730       0x48 /tmp/ccqNVG3y.o
+                0x0000000008013730                Reset_Handler
  .text.Default_Handler
-                0x00000000080137bc        0x2 /tmp/ccBVzUwE.o
-                0x00000000080137bc                RTC_Alarm_IRQHandler
-                0x00000000080137bc                EXTI2_IRQHandler
-                0x00000000080137bc                DebugMon_Handler
-                0x00000000080137bc                HardFault_Handler
-                0x00000000080137bc                TIM10_IRQHandler
-                0x00000000080137bc                USB_HP_IRQHandler
-                0x00000000080137bc                TIM6_IRQHandler
-                0x00000000080137bc                PVD_IRQHandler
-                0x00000000080137bc                NMI_Handler
-                0x00000000080137bc                EXTI3_IRQHandler
-                0x00000000080137bc                EXTI0_IRQHandler
-                0x00000000080137bc                I2C2_EV_IRQHandler
-                0x00000000080137bc                UsageFault_Handler
-                0x00000000080137bc                SPI1_IRQHandler
-                0x00000000080137bc                USB_FS_WKUP_IRQHandler
-                0x00000000080137bc                ADC1_IRQHandler
-                0x00000000080137bc                USART3_IRQHandler
-                0x00000000080137bc                DMA1_Channel7_IRQHandler
-                0x00000000080137bc                LCD_IRQHandler
-                0x00000000080137bc                TIM4_IRQHandler
-                0x00000000080137bc                I2C1_EV_IRQHandler
-                0x00000000080137bc                DMA1_Channel6_IRQHandler
-                0x00000000080137bc                TIM3_IRQHandler
-                0x00000000080137bc                RCC_IRQHandler
-                0x00000000080137bc                Default_Handler
-                0x00000000080137bc                EXTI15_10_IRQHandler
-                0x00000000080137bc                TIM7_IRQHandler
-                0x00000000080137bc                EXTI9_5_IRQHandler
-                0x00000000080137bc                TIM9_IRQHandler
-                0x00000000080137bc                TAMPER_STAMP_IRQHandler
-                0x00000000080137bc                RTC_WKUP_IRQHandler
-                0x00000000080137bc                SPI2_IRQHandler
-                0x00000000080137bc                MemManage_Handler
-                0x00000000080137bc                DMA1_Channel5_IRQHandler
-                0x00000000080137bc                USB_LP_IRQHandler
-                0x00000000080137bc                EXTI4_IRQHandler
-                0x00000000080137bc                DMA1_Channel3_IRQHandler
-                0x00000000080137bc                COMP_IRQHandler
-                0x00000000080137bc                WWDG_IRQHandler
-                0x00000000080137bc                TIM2_IRQHandler
-                0x00000000080137bc                DAC_IRQHandler
-                0x00000000080137bc                EXTI1_IRQHandler
-                0x00000000080137bc                TIM11_IRQHandler
-                0x00000000080137bc                USART2_IRQHandler
-                0x00000000080137bc                I2C2_ER_IRQHandler
-                0x00000000080137bc                DMA1_Channel2_IRQHandler
-                0x00000000080137bc                FLASH_IRQHandler
-                0x00000000080137bc                BusFault_Handler
-                0x00000000080137bc                I2C1_ER_IRQHandler
- *fill*         0x00000000080137be        0x2 
- .text.atexit   0x00000000080137c0        0xc /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
-                0x00000000080137c0                atexit
- .text.exit     0x00000000080137cc       0x20 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-exit.o)
-                0x00000000080137cc                exit
+                0x0000000008013778        0x2 /tmp/ccqNVG3y.o
+                0x0000000008013778                RTC_Alarm_IRQHandler
+                0x0000000008013778                EXTI2_IRQHandler
+                0x0000000008013778                DebugMon_Handler
+                0x0000000008013778                HardFault_Handler
+                0x0000000008013778                TIM10_IRQHandler
+                0x0000000008013778                USB_HP_IRQHandler
+                0x0000000008013778                TIM6_IRQHandler
+                0x0000000008013778                PVD_IRQHandler
+                0x0000000008013778                NMI_Handler
+                0x0000000008013778                EXTI3_IRQHandler
+                0x0000000008013778                EXTI0_IRQHandler
+                0x0000000008013778                I2C2_EV_IRQHandler
+                0x0000000008013778                UsageFault_Handler
+                0x0000000008013778                SPI1_IRQHandler
+                0x0000000008013778                USB_FS_WKUP_IRQHandler
+                0x0000000008013778                ADC1_IRQHandler
+                0x0000000008013778                USART3_IRQHandler
+                0x0000000008013778                DMA1_Channel7_IRQHandler
+                0x0000000008013778                LCD_IRQHandler
+                0x0000000008013778                TIM4_IRQHandler
+                0x0000000008013778                I2C1_EV_IRQHandler
+                0x0000000008013778                DMA1_Channel6_IRQHandler
+                0x0000000008013778                TIM3_IRQHandler
+                0x0000000008013778                RCC_IRQHandler
+                0x0000000008013778                Default_Handler
+                0x0000000008013778                EXTI15_10_IRQHandler
+                0x0000000008013778                TIM7_IRQHandler
+                0x0000000008013778                EXTI9_5_IRQHandler
+                0x0000000008013778                TIM9_IRQHandler
+                0x0000000008013778                TAMPER_STAMP_IRQHandler
+                0x0000000008013778                RTC_WKUP_IRQHandler
+                0x0000000008013778                SPI2_IRQHandler
+                0x0000000008013778                MemManage_Handler
+                0x0000000008013778                DMA1_Channel5_IRQHandler
+                0x0000000008013778                USB_LP_IRQHandler
+                0x0000000008013778                EXTI4_IRQHandler
+                0x0000000008013778                DMA1_Channel3_IRQHandler
+                0x0000000008013778                COMP_IRQHandler
+                0x0000000008013778                WWDG_IRQHandler
+                0x0000000008013778                TIM2_IRQHandler
+                0x0000000008013778                DAC_IRQHandler
+                0x0000000008013778                EXTI1_IRQHandler
+                0x0000000008013778                TIM11_IRQHandler
+                0x0000000008013778                USART2_IRQHandler
+                0x0000000008013778                I2C2_ER_IRQHandler
+                0x0000000008013778                DMA1_Channel2_IRQHandler
+                0x0000000008013778                FLASH_IRQHandler
+                0x0000000008013778                BusFault_Handler
+                0x0000000008013778                I2C1_ER_IRQHandler
+ *fill*         0x000000000801377a        0x2 
+ .text.atexit   0x000000000801377c        0xc /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
+                0x000000000801377c                atexit
+ .text.exit     0x0000000008013788       0x20 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-exit.o)
+                0x0000000008013788                exit
  .text.__libc_fini_array
-                0x00000000080137ec       0x34 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-fini.o)
-                0x00000000080137ec                __libc_fini_array
+                0x00000000080137a8       0x34 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-fini.o)
+                0x00000000080137a8                __libc_fini_array
  .text.__libc_init_array
-                0x0000000008013820       0x5c /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-init.o)
-                0x0000000008013820                __libc_init_array
- .text.memset   0x000000000801387c       0x94 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memset.o)
-                0x000000000801387c                memset
- .text.qsort    0x0000000008013910      0x578 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-qsort.o)
-                0x0000000008013910                qsort
+                0x00000000080137dc       0x5c /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-init.o)
+                0x00000000080137dc                __libc_init_array
+ .text.memset   0x0000000008013838       0x94 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memset.o)
+                0x0000000008013838                memset
+ .text.qsort    0x00000000080138cc      0x578 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-qsort.o)
+                0x00000000080138cc                qsort
  .text.__register_exitproc
-                0x0000000008013e88       0xac /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__atexit.o)
-                0x0000000008013e88                __register_exitproc
+                0x0000000008013e44       0xac /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__atexit.o)
+                0x0000000008013e44                __register_exitproc
  .text.startup.register_fini
-                0x0000000008013f34       0x18 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__call_atexit.o)
+                0x0000000008013ef0       0x18 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__call_atexit.o)
  .text.__call_exitprocs
-                0x0000000008013f4c       0xf8 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__call_atexit.o)
-                0x0000000008013f4c                __call_exitprocs
- .text._exit    0x0000000008014044        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libnosys.a(_exit.o)
-                0x0000000008014044                _exit
+                0x0000000008013f08       0xf8 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__call_atexit.o)
+                0x0000000008013f08                __call_exitprocs
+ .text._exit    0x0000000008014000        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libnosys.a(_exit.o)
+                0x0000000008014000                _exit
  *(.glue_7)
  .glue_7        0x0000000000000000        0x0 linker stubs
  *(.glue_7t)
  .glue_7t       0x0000000000000000        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0000000008014048        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
- .eh_frame      0x0000000008014048        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtend.o
+ .eh_frame      0x0000000008014004        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
+ .eh_frame      0x0000000008014004        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtend.o
  *(.init)
- .init          0x000000000801404c        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crti.o
-                0x000000000801404c                _init
- .init          0x0000000008014050        0x8 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
+ .init          0x0000000008014008        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crti.o
+                0x0000000008014008                _init
+ .init          0x000000000801400c        0x8 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
  *(.fini)
- .fini          0x0000000008014058        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crti.o
-                0x0000000008014058                _fini
- .fini          0x000000000801405c        0x8 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
-                0x0000000008014064                . = ALIGN (0x4)
-                0x0000000008014064                _etext = .
+ .fini          0x0000000008014014        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crti.o
+                0x0000000008014014                _fini
+ .fini          0x0000000008014018        0x8 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
+                0x0000000008014020                . = ALIGN (0x4)
+                0x0000000008014020                _etext = .
 
-.vfp11_veneer   0x0000000008014064        0x0
+.vfp11_veneer   0x0000000008014020        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x0000000008014064        0x0
+.v4_bx          0x0000000008014020        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x0000000008014064        0x0
+.iplt           0x0000000008014020        0x0
  .iplt          0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
 
-.RamFunc        0x0000000008014064      0x3bc
- .RamFunc       0x0000000008014064      0x3bc /tmp/ccirxgG3.o
-                0x0000000008014064                HAL_FLASHEx_EnableRunPowerDown
-                0x00000000080140b0                HAL_FLASHEx_DisableRunPowerDown
-                0x00000000080140fc                HAL_FLASHEx_HalfPageProgram
-                0x00000000080141d8                HAL_FLASHEx_DATAEEPROM_EraseDoubleWord
-                0x00000000080142a0                HAL_FLASHEx_DATAEEPROM_ProgramDoubleWord
+.RamFunc        0x0000000008014020      0x3bc
+ .RamFunc       0x0000000008014020      0x3bc /tmp/ccIEINjD.o
+                0x0000000008014020                HAL_FLASHEx_EnableRunPowerDown
+                0x000000000801406c                HAL_FLASHEx_DisableRunPowerDown
+                0x00000000080140b8                HAL_FLASHEx_HalfPageProgram
+                0x0000000008014194                HAL_FLASHEx_DATAEEPROM_EraseDoubleWord
+                0x000000000801425c                HAL_FLASHEx_DATAEEPROM_ProgramDoubleWord
 
-.rodata         0x0000000008014420       0xb8
-                0x0000000008014420                . = ALIGN (0x4)
+.rodata         0x00000000080143dc       0xb8
+                0x00000000080143dc                . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x0000000008014420        0x4 /tmp/cchxSs51.o
- .rodata        0x0000000008014424        0x8 /tmp/ccEeSEq7.o
- .rodata        0x000000000801442c        0x4 /tmp/ccCMpxxm.o
- .rodata        0x0000000008014430       0x20 /tmp/cc7i1DKw.o
-                0x0000000008014430                aAPBAHBPrescTable
-                0x0000000008014440                aPLLDivisionFactorTable
-                0x0000000008014444                aPLLMULFactorTable
- .rodata        0x0000000008014450        0xc /tmp/ccrMGE9O.o
-                0x0000000008014450                GPIO_PIN
-                0x0000000008014454                BUTTON_PIN
-                0x0000000008014458                BUTTON_IRQn
- .rodata        0x000000000801445c       0x48 /tmp/ccFDougV.o
-                0x000000000801445c                CapLetterMap
-                0x0000000008014490                NumberMap
- .rodata        0x00000000080144a4       0x2c /tmp/ccTLVLuk.o
+ .rodata        0x00000000080143dc        0x4 /tmp/cclHHYwm.o
+ .rodata        0x00000000080143e0        0x8 /tmp/ccP1PCMf.o
+ .rodata        0x00000000080143e8        0x4 /tmp/ccvtV8F0.o
+ .rodata        0x00000000080143ec       0x20 /tmp/ccBxoaMS.o
+                0x00000000080143ec                aAPBAHBPrescTable
+                0x00000000080143fc                aPLLDivisionFactorTable
+                0x0000000008014400                aPLLMULFactorTable
+ .rodata        0x000000000801440c        0xc /tmp/ccG9NTfw.o
+                0x000000000801440c                GPIO_PIN
+                0x0000000008014410                BUTTON_PIN
+                0x0000000008014414                BUTTON_IRQn
+ .rodata        0x0000000008014418       0x48 /tmp/ccWrvyiw.o
+                0x0000000008014418                CapLetterMap
+                0x000000000801444c                NumberMap
+ .rodata        0x0000000008014460       0x2c /tmp/ccQc5Qfx.o
  *(.rodata*)
  .rodata.str1.4
-                0x00000000080144d0        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-impure.o)
+                0x000000000801448c        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-impure.o)
  .rodata._global_impure_ptr
-                0x00000000080144d4        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-impure.o)
-                0x00000000080144d4                _global_impure_ptr
-                0x00000000080144d8                . = ALIGN (0x4)
+                0x0000000008014490        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-impure.o)
+                0x0000000008014490                _global_impure_ptr
+                0x0000000008014494                . = ALIGN (0x4)
 
-.ARM.extab      0x00000000080144d8        0x0
+.ARM.extab      0x0000000008014494        0x0
  *(.ARM.extab* .gnu.linkonce.armextab.*)
- .ARM.extab     0x00000000080144d8        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .ARM.extab     0x0000000008014494        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o
 
-.ARM            0x00000000080144d8        0x8
-                0x00000000080144d8                __exidx_start = .
+.ARM            0x0000000008014494        0x8
+                0x0000000008014494                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x00000000080144d8        0x8 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o
-                0x00000000080144e0                __exidx_end = .
+ .ARM.exidx     0x0000000008014494        0x8 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o
+                0x000000000801449c                __exidx_end = .
 
-.rel.dyn        0x00000000080144e0        0x0
+.rel.dyn        0x000000000801449c        0x0
  .rel.iplt      0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
 
-.preinit_array  0x00000000080144e0        0x0
-                0x00000000080144e0                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x000000000801449c        0x0
+                0x000000000801449c                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x00000000080144e0                PROVIDE (__preinit_array_end, .)
+                0x000000000801449c                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x00000000080144e0        0x8
-                0x00000000080144e0                PROVIDE (__init_array_start, .)
+.init_array     0x000000000801449c        0x8
+                0x000000000801449c                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  .init_array.00000
-                0x00000000080144e0        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__call_atexit.o)
+                0x000000000801449c        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x00000000080144e4        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
-                0x00000000080144e8                PROVIDE (__init_array_end, .)
+ .init_array    0x00000000080144a0        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
+                0x00000000080144a4                PROVIDE (__init_array_end, .)
 
-.fini_array     0x00000000080144e8        0x4
-                0x00000000080144e8                PROVIDE (__fini_array_start, .)
+.fini_array     0x00000000080144a4        0x4
+                0x00000000080144a4                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x00000000080144e8        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
-                0x00000000080144ec                PROVIDE (__fini_array_end, .)
-                0x00000000080144ec                _sidata = LOADADDR (.data)
+ .fini_array    0x00000000080144a4        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
+                0x00000000080144a8                PROVIDE (__fini_array_end, .)
+                0x00000000080144a8                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000      0x46c load address 0x00000000080144ec
+.data           0x0000000020000000      0x46c load address 0x00000000080144a8
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -787,49 +787,49 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
  .data          0x0000000020000000        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
                 0x0000000020000000                __dso_handle
  .data          0x0000000020000004        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o
- .data          0x0000000020000004        0x0 /tmp/cchxSs51.o
- .data          0x0000000020000004        0x0 /tmp/ccNe3KE4.o
- .data          0x0000000020000004        0x4 /tmp/ccEeSEq7.o
- .data          0x0000000020000008        0x0 /tmp/cc5NRdia.o
- .data          0x0000000020000008        0x0 /tmp/cc5VyRhd.o
- .data          0x0000000020000008        0x0 /tmp/ccFJuakg.o
- .data          0x0000000020000008        0x0 /tmp/ccP7m8oj.o
- .data          0x0000000020000008        0x4 /tmp/ccCMpxxm.o
- .data          0x000000002000000c        0x0 /tmp/ccptBPMp.o
- .data          0x000000002000000c        0x0 /tmp/ccNt0yat.o
- .data          0x000000002000000c        0x0 /tmp/cc7i1DKw.o
- .data          0x000000002000000c        0x0 /tmp/ccZPryrA.o
- .data          0x000000002000000c        0x0 /tmp/ccOlmcfE.o
- .data          0x000000002000000c        0x0 /tmp/ccexzzcI.o
- .data          0x000000002000000c        0x0 /tmp/cchIhVgM.o
- .data          0x000000002000000c        0x0 /tmp/ccE6NSsQ.o
- .data          0x000000002000000c        0x0 /tmp/ccYfQSLU.o
- .data          0x000000002000000c        0x0 /tmp/ccGXHXaZ.o
- .data          0x000000002000000c        0x0 /tmp/ccirxgG3.o
- .data          0x000000002000000c        0x0 /tmp/ccW42li8.o
- .data          0x000000002000000c        0x0 /tmp/ccCXUe5c.o
- .data          0x000000002000000c        0x0 /tmp/cc40Pb0h.o
- .data          0x000000002000000c        0x0 /tmp/cc6hgX2m.o
- .data          0x000000002000000c        0x0 /tmp/cc0WIYbs.o
- .data          0x000000002000000c        0x0 /tmp/ccbY2wIx.o
- .data          0x000000002000000c        0x0 /tmp/cc2hosmD.o
- .data          0x000000002000000c        0x0 /tmp/ccv0vFcJ.o
- .data          0x000000002000000c        0xc /tmp/ccrMGE9O.o
+ .data          0x0000000020000004        0x0 /tmp/cclHHYwm.o
+ .data          0x0000000020000004        0x0 /tmp/ccmoWu3i.o
+ .data          0x0000000020000004        0x4 /tmp/ccP1PCMf.o
+ .data          0x0000000020000008        0x0 /tmp/cczwUnBc.o
+ .data          0x0000000020000008        0x0 /tmp/ccg4Nby9.o
+ .data          0x0000000020000008        0x0 /tmp/ccO03Nx6.o
+ .data          0x0000000020000008        0x0 /tmp/cc7uIgA3.o
+ .data          0x0000000020000008        0x4 /tmp/ccvtV8F0.o
+ .data          0x000000002000000c        0x0 /tmp/ccUpJWSX.o
+ .data          0x000000002000000c        0x0 /tmp/ccMfBneV.o
+ .data          0x000000002000000c        0x0 /tmp/ccBxoaMS.o
+ .data          0x000000002000000c        0x0 /tmp/ccmJNLqQ.o
+ .data          0x000000002000000c        0x0 /tmp/ccTmy5bO.o
+ .data          0x000000002000000c        0x0 /tmp/cc3sWC6L.o
+ .data          0x000000002000000c        0x0 /tmp/ccpGFS7J.o
+ .data          0x000000002000000c        0x0 /tmp/ccF4JIgI.o
+ .data          0x000000002000000c        0x0 /tmp/ccPqkpwG.o
+ .data          0x000000002000000c        0x0 /tmp/ccncv2RE.o
+ .data          0x000000002000000c        0x0 /tmp/ccIEINjD.o
+ .data          0x000000002000000c        0x0 /tmp/cc278iSB.o
+ .data          0x000000002000000c        0x0 /tmp/ccD5KCBA.o
+ .data          0x000000002000000c        0x0 /tmp/cc2df9sz.o
+ .data          0x000000002000000c        0x0 /tmp/ccCdjhsy.o
+ .data          0x000000002000000c        0x0 /tmp/cc6DdHxx.o
+ .data          0x000000002000000c        0x0 /tmp/ccX2Rs0w.o
+ .data          0x000000002000000c        0x0 /tmp/ccNNDxAw.o
+ .data          0x000000002000000c        0x0 /tmp/cc47QRmw.o
+ .data          0x000000002000000c        0xc /tmp/ccG9NTfw.o
                 0x000000002000000c                GPIO_PORT
                 0x0000000020000014                BUTTON_PORT
- .data          0x0000000020000018        0x1 /tmp/ccFDougV.o
+ .data          0x0000000020000018        0x1 /tmp/ccWrvyiw.o
                 0x0000000020000018                LCDBar
- .data          0x0000000020000019        0x0 /tmp/cczXTVp1.o
- .data          0x0000000020000019        0x0 /tmp/ccSH5UE7.o
- .data          0x0000000020000019        0x0 /tmp/ccsLjl0d.o
- .data          0x0000000020000019        0x0 /tmp/ccTLVLuk.o
+ .data          0x0000000020000019        0x0 /tmp/ccf7YNnw.o
+ .data          0x0000000020000019        0x0 /tmp/ccAJnGyw.o
+ .data          0x0000000020000019        0x0 /tmp/ccQffUPw.o
+ .data          0x0000000020000019        0x0 /tmp/ccQc5Qfx.o
  *fill*         0x0000000020000019        0x3 
- .data          0x000000002000001c       0x20 /tmp/ccV0Zf6q.o
+ .data          0x000000002000001c       0x20 /tmp/ccNEDHMx.o
                 0x000000002000001c                SystemCoreClock
                 0x0000000020000020                PLLMulTable
                 0x000000002000002c                AHBPrescTable
- .data          0x000000002000003c        0x0 /tmp/cc9C3fOx.o
- .data          0x000000002000003c        0x0 /tmp/ccBVzUwE.o
+ .data          0x000000002000003c        0x0 /tmp/cc3jfSpy.o
+ .data          0x000000002000003c        0x0 /tmp/ccqNVG3y.o
  .data          0x000000002000003c        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
  .data          0x000000002000003c        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-exit.o)
  .data          0x000000002000003c        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-fini.o)
@@ -853,67 +853,67 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x000000002000046c                . = ALIGN (0x4)
                 0x000000002000046c                _edata = .
 
-.jcr            0x000000002000046c        0x4 load address 0x0000000008014958
+.jcr            0x000000002000046c        0x4 load address 0x0000000008014914
  .jcr           0x000000002000046c        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
  .jcr           0x000000002000046c        0x4 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtend.o
 
 .tm_clone_table
-                0x0000000020000470        0x0 load address 0x000000000801495c
+                0x0000000020000470        0x0 load address 0x0000000008014918
  .tm_clone_table
                 0x0000000020000470        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
  .tm_clone_table
                 0x0000000020000470        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtend.o
 
-.igot.plt       0x0000000020000470        0x0 load address 0x000000000801495c
+.igot.plt       0x0000000020000470        0x0 load address 0x0000000008014918
  .igot.plt      0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
                 0x0000000020000470                . = ALIGN (0x4)
 
-.bss            0x0000000020000470     0x2ba4 load address 0x000000000801495c
+.bss            0x0000000020000470     0x2ba4 load address 0x0000000008014918
                 0x0000000020000470                _sbss = .
                 0x0000000020000470                __bss_start__ = _sbss
  *(.bss)
  .bss           0x0000000020000470        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crti.o
  .bss           0x0000000020000470       0x1c /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
  .bss           0x000000002000048c        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o
- .bss           0x000000002000048c     0x2728 /tmp/cchxSs51.o
- .bss           0x0000000020002bb4        0x0 /tmp/ccNe3KE4.o
- .bss           0x0000000020002bb4      0x124 /tmp/ccEeSEq7.o
+ .bss           0x000000002000048c     0x2728 /tmp/cclHHYwm.o
+ .bss           0x0000000020002bb4        0x0 /tmp/ccmoWu3i.o
+ .bss           0x0000000020002bb4      0x124 /tmp/ccP1PCMf.o
                 0x0000000020002bb4                pxCurrentTCB
- .bss           0x0000000020002cd8        0x0 /tmp/cc5NRdia.o
- .bss           0x0000000020002cd8        0x0 /tmp/cc5VyRhd.o
- .bss           0x0000000020002cd8        0x0 /tmp/ccFJuakg.o
- .bss           0x0000000020002cd8        0x0 /tmp/ccP7m8oj.o
- .bss           0x0000000020002cd8        0x8 /tmp/ccCMpxxm.o
- .bss           0x0000000020002ce0        0x0 /tmp/ccptBPMp.o
- .bss           0x0000000020002ce0        0x0 /tmp/ccNt0yat.o
- .bss           0x0000000020002ce0        0x0 /tmp/cc7i1DKw.o
- .bss           0x0000000020002ce0        0x0 /tmp/ccZPryrA.o
- .bss           0x0000000020002ce0        0x0 /tmp/ccOlmcfE.o
- .bss           0x0000000020002ce0        0x0 /tmp/ccexzzcI.o
- .bss           0x0000000020002ce0        0x4 /tmp/cchIhVgM.o
- .bss           0x0000000020002ce4        0x0 /tmp/ccE6NSsQ.o
- .bss           0x0000000020002ce4        0x0 /tmp/ccYfQSLU.o
- .bss           0x0000000020002ce4        0x0 /tmp/ccGXHXaZ.o
- .bss           0x0000000020002ce4        0x0 /tmp/ccirxgG3.o
- .bss           0x0000000020002ce4        0x0 /tmp/ccW42li8.o
- .bss           0x0000000020002ce4        0x0 /tmp/ccCXUe5c.o
- .bss           0x0000000020002ce4        0x0 /tmp/cc40Pb0h.o
- .bss           0x0000000020002ce4        0x0 /tmp/cc6hgX2m.o
- .bss           0x0000000020002ce4        0x0 /tmp/cc0WIYbs.o
- .bss           0x0000000020002ce4        0x0 /tmp/ccbY2wIx.o
- .bss           0x0000000020002ce4        0x0 /tmp/cc2hosmD.o
- .bss           0x0000000020002ce4        0x0 /tmp/ccv0vFcJ.o
- .bss           0x0000000020002ce4        0x0 /tmp/ccrMGE9O.o
- .bss           0x0000000020002ce4        0x1 /tmp/ccFDougV.o
+ .bss           0x0000000020002cd8        0x0 /tmp/cczwUnBc.o
+ .bss           0x0000000020002cd8        0x0 /tmp/ccg4Nby9.o
+ .bss           0x0000000020002cd8        0x0 /tmp/ccO03Nx6.o
+ .bss           0x0000000020002cd8        0x0 /tmp/cc7uIgA3.o
+ .bss           0x0000000020002cd8        0x8 /tmp/ccvtV8F0.o
+ .bss           0x0000000020002ce0        0x0 /tmp/ccUpJWSX.o
+ .bss           0x0000000020002ce0        0x0 /tmp/ccMfBneV.o
+ .bss           0x0000000020002ce0        0x0 /tmp/ccBxoaMS.o
+ .bss           0x0000000020002ce0        0x0 /tmp/ccmJNLqQ.o
+ .bss           0x0000000020002ce0        0x0 /tmp/ccTmy5bO.o
+ .bss           0x0000000020002ce0        0x0 /tmp/cc3sWC6L.o
+ .bss           0x0000000020002ce0        0x4 /tmp/ccpGFS7J.o
+ .bss           0x0000000020002ce4        0x0 /tmp/ccF4JIgI.o
+ .bss           0x0000000020002ce4        0x0 /tmp/ccPqkpwG.o
+ .bss           0x0000000020002ce4        0x0 /tmp/ccncv2RE.o
+ .bss           0x0000000020002ce4        0x0 /tmp/ccIEINjD.o
+ .bss           0x0000000020002ce4        0x0 /tmp/cc278iSB.o
+ .bss           0x0000000020002ce4        0x0 /tmp/ccD5KCBA.o
+ .bss           0x0000000020002ce4        0x0 /tmp/cc2df9sz.o
+ .bss           0x0000000020002ce4        0x0 /tmp/ccCdjhsy.o
+ .bss           0x0000000020002ce4        0x0 /tmp/cc6DdHxx.o
+ .bss           0x0000000020002ce4        0x0 /tmp/ccX2Rs0w.o
+ .bss           0x0000000020002ce4        0x0 /tmp/ccNNDxAw.o
+ .bss           0x0000000020002ce4        0x0 /tmp/cc47QRmw.o
+ .bss           0x0000000020002ce4        0x0 /tmp/ccG9NTfw.o
+ .bss           0x0000000020002ce4        0x1 /tmp/ccWrvyiw.o
                 0x0000000020002ce4                bLCDGlass_KeyPressed
- .bss           0x0000000020002ce5        0x0 /tmp/cczXTVp1.o
- .bss           0x0000000020002ce5        0x0 /tmp/ccSH5UE7.o
- .bss           0x0000000020002ce5        0x0 /tmp/ccsLjl0d.o
+ .bss           0x0000000020002ce5        0x0 /tmp/ccf7YNnw.o
+ .bss           0x0000000020002ce5        0x0 /tmp/ccAJnGyw.o
+ .bss           0x0000000020002ce5        0x0 /tmp/ccQffUPw.o
  *fill*         0x0000000020002ce5        0x3 
- .bss           0x0000000020002ce8      0x138 /tmp/ccTLVLuk.o
- .bss           0x0000000020002e20        0x0 /tmp/ccV0Zf6q.o
- .bss           0x0000000020002e20        0x0 /tmp/cc9C3fOx.o
- .bss           0x0000000020002e20        0x0 /tmp/ccBVzUwE.o
+ .bss           0x0000000020002ce8      0x138 /tmp/ccQc5Qfx.o
+ .bss           0x0000000020002e20        0x0 /tmp/ccNEDHMx.o
+ .bss           0x0000000020002e20        0x0 /tmp/cc3jfSpy.o
+ .bss           0x0000000020002e20        0x0 /tmp/ccqNVG3y.o
  .bss           0x0000000020002e20        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
  .bss           0x0000000020002e20        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-exit.o)
  .bss           0x0000000020002e20        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-fini.o)
@@ -929,14 +929,14 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
  .bss           0x0000000020002e20        0x0 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
  *(.bss*)
  *(COMMON)
- COMMON         0x0000000020002e20       0x40 /tmp/cc5VyRhd.o
+ COMMON         0x0000000020002e20       0x40 /tmp/ccg4Nby9.o
                 0x0000000020002e20                xQueueRegistry
- COMMON         0x0000000020002e60       0x18 /tmp/ccOlmcfE.o
+ COMMON         0x0000000020002e60       0x18 /tmp/ccTmy5bO.o
                 0x0000000020002e60                pFlash
- COMMON         0x0000000020002e78       0x4c /tmp/ccFDougV.o
+ COMMON         0x0000000020002e78       0x4c /tmp/ccWrvyiw.o
                 0x0000000020002e78                Digit
                 0x0000000020002e88                LCDHandle
- COMMON         0x0000000020002ec4      0x150 /tmp/ccTLVLuk.o
+ COMMON         0x0000000020002ec4      0x150 /tmp/ccQc5Qfx.o
                 0x0000000020002ec4                htim3
                 0x0000000020002efc                hdma_usart1_tx
                 0x0000000020002f34                huart1
@@ -948,7 +948,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
                 0x0000000020003014                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x0000000020003014      0x600 load address 0x000000000801495c
+                0x0000000020003014      0x600 load address 0x0000000008014918
                 0x0000000020003014                . = ALIGN (0x4)
                 0x0000000020003014                PROVIDE (end, .)
                 0x0000000020003014                PROVIDE (_end, .)
@@ -973,77 +973,77 @@ LOAD /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtn.o
  .ARM.attributes
                 0x000000000000004a       0x1b /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o
  .ARM.attributes
-                0x0000000000000065       0x33 /tmp/cchxSs51.o
+                0x0000000000000065       0x33 /tmp/cclHHYwm.o
  .ARM.attributes
-                0x0000000000000098       0x33 /tmp/ccNe3KE4.o
+                0x0000000000000098       0x33 /tmp/ccmoWu3i.o
  .ARM.attributes
-                0x00000000000000cb       0x33 /tmp/ccEeSEq7.o
+                0x00000000000000cb       0x33 /tmp/ccP1PCMf.o
  .ARM.attributes
-                0x00000000000000fe       0x33 /tmp/cc5NRdia.o
+                0x00000000000000fe       0x33 /tmp/cczwUnBc.o
  .ARM.attributes
-                0x0000000000000131       0x33 /tmp/cc5VyRhd.o
+                0x0000000000000131       0x33 /tmp/ccg4Nby9.o
  .ARM.attributes
-                0x0000000000000164       0x33 /tmp/ccFJuakg.o
+                0x0000000000000164       0x33 /tmp/ccO03Nx6.o
  .ARM.attributes
-                0x0000000000000197       0x33 /tmp/ccP7m8oj.o
+                0x0000000000000197       0x33 /tmp/cc7uIgA3.o
  .ARM.attributes
-                0x00000000000001ca       0x33 /tmp/ccCMpxxm.o
+                0x00000000000001ca       0x33 /tmp/ccvtV8F0.o
  .ARM.attributes
-                0x00000000000001fd       0x33 /tmp/ccptBPMp.o
+                0x00000000000001fd       0x33 /tmp/ccUpJWSX.o
  .ARM.attributes
-                0x0000000000000230       0x33 /tmp/ccNt0yat.o
+                0x0000000000000230       0x33 /tmp/ccMfBneV.o
  .ARM.attributes
-                0x0000000000000263       0x33 /tmp/cc7i1DKw.o
+                0x0000000000000263       0x33 /tmp/ccBxoaMS.o
  .ARM.attributes
-                0x0000000000000296       0x33 /tmp/ccZPryrA.o
+                0x0000000000000296       0x33 /tmp/ccmJNLqQ.o
  .ARM.attributes
-                0x00000000000002c9       0x33 /tmp/ccOlmcfE.o
+                0x00000000000002c9       0x33 /tmp/ccTmy5bO.o
  .ARM.attributes
-                0x00000000000002fc       0x33 /tmp/ccexzzcI.o
+                0x00000000000002fc       0x33 /tmp/cc3sWC6L.o
  .ARM.attributes
-                0x000000000000032f       0x33 /tmp/cchIhVgM.o
+                0x000000000000032f       0x33 /tmp/ccpGFS7J.o
  .ARM.attributes
-                0x0000000000000362       0x33 /tmp/ccE6NSsQ.o
+                0x0000000000000362       0x33 /tmp/ccF4JIgI.o
  .ARM.attributes
-                0x0000000000000395       0x33 /tmp/ccYfQSLU.o
+                0x0000000000000395       0x33 /tmp/ccPqkpwG.o
  .ARM.attributes
-                0x00000000000003c8       0x33 /tmp/ccGXHXaZ.o
+                0x00000000000003c8       0x33 /tmp/ccncv2RE.o
  .ARM.attributes
-                0x00000000000003fb       0x33 /tmp/ccirxgG3.o
+                0x00000000000003fb       0x33 /tmp/ccIEINjD.o
  .ARM.attributes
-                0x000000000000042e       0x33 /tmp/ccW42li8.o
+                0x000000000000042e       0x33 /tmp/cc278iSB.o
  .ARM.attributes
-                0x0000000000000461       0x33 /tmp/ccCXUe5c.o
+                0x0000000000000461       0x33 /tmp/ccD5KCBA.o
  .ARM.attributes
-                0x0000000000000494       0x33 /tmp/cc40Pb0h.o
+                0x0000000000000494       0x33 /tmp/cc2df9sz.o
  .ARM.attributes
-                0x00000000000004c7       0x33 /tmp/cc6hgX2m.o
+                0x00000000000004c7       0x33 /tmp/ccCdjhsy.o
  .ARM.attributes
-                0x00000000000004fa       0x33 /tmp/cc0WIYbs.o
+                0x00000000000004fa       0x33 /tmp/cc6DdHxx.o
  .ARM.attributes
-                0x000000000000052d       0x33 /tmp/ccbY2wIx.o
+                0x000000000000052d       0x33 /tmp/ccX2Rs0w.o
  .ARM.attributes
-                0x0000000000000560       0x33 /tmp/cc2hosmD.o
+                0x0000000000000560       0x33 /tmp/ccNNDxAw.o
  .ARM.attributes
-                0x0000000000000593       0x33 /tmp/ccv0vFcJ.o
+                0x0000000000000593       0x33 /tmp/cc47QRmw.o
  .ARM.attributes
-                0x00000000000005c6       0x33 /tmp/ccrMGE9O.o
+                0x00000000000005c6       0x33 /tmp/ccG9NTfw.o
  .ARM.attributes
-                0x00000000000005f9       0x33 /tmp/ccFDougV.o
+                0x00000000000005f9       0x33 /tmp/ccWrvyiw.o
  .ARM.attributes
-                0x000000000000062c       0x33 /tmp/cczXTVp1.o
+                0x000000000000062c       0x33 /tmp/ccf7YNnw.o
  .ARM.attributes
-                0x000000000000065f       0x33 /tmp/ccSH5UE7.o
+                0x000000000000065f       0x33 /tmp/ccAJnGyw.o
  .ARM.attributes
-                0x0000000000000692       0x33 /tmp/ccsLjl0d.o
+                0x0000000000000692       0x33 /tmp/ccQffUPw.o
  .ARM.attributes
-                0x00000000000006c5       0x33 /tmp/ccTLVLuk.o
+                0x00000000000006c5       0x33 /tmp/ccQc5Qfx.o
  .ARM.attributes
-                0x00000000000006f8       0x33 /tmp/ccV0Zf6q.o
+                0x00000000000006f8       0x33 /tmp/ccNEDHMx.o
  .ARM.attributes
-                0x000000000000072b       0x33 /tmp/cc9C3fOx.o
+                0x000000000000072b       0x33 /tmp/cc3jfSpy.o
  .ARM.attributes
-                0x000000000000075e       0x21 /tmp/ccBVzUwE.o
+                0x000000000000075e       0x21 /tmp/ccqNVG3y.o
  .ARM.attributes
                 0x000000000000077f       0x2d /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
  .ARM.attributes
@@ -1075,41 +1075,41 @@ OUTPUT(chrono.elf elf32-littlearm)
 .comment        0x0000000000000000       0x1f
  .comment       0x0000000000000000       0x1f /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtbegin.o
                                          0x20 (size before relaxing)
- .comment       0x0000000000000000       0x20 /tmp/cchxSs51.o
- .comment       0x0000000000000000       0x20 /tmp/ccNe3KE4.o
- .comment       0x0000000000000000       0x20 /tmp/ccEeSEq7.o
- .comment       0x0000000000000000       0x20 /tmp/cc5NRdia.o
- .comment       0x0000000000000000       0x20 /tmp/cc5VyRhd.o
- .comment       0x0000000000000000       0x20 /tmp/ccFJuakg.o
- .comment       0x0000000000000000       0x20 /tmp/ccP7m8oj.o
- .comment       0x0000000000000000       0x20 /tmp/ccCMpxxm.o
- .comment       0x0000000000000000       0x20 /tmp/ccptBPMp.o
- .comment       0x0000000000000000       0x20 /tmp/ccNt0yat.o
- .comment       0x0000000000000000       0x20 /tmp/cc7i1DKw.o
- .comment       0x0000000000000000       0x20 /tmp/ccZPryrA.o
- .comment       0x0000000000000000       0x20 /tmp/ccOlmcfE.o
- .comment       0x0000000000000000       0x20 /tmp/ccexzzcI.o
- .comment       0x0000000000000000       0x20 /tmp/cchIhVgM.o
- .comment       0x0000000000000000       0x20 /tmp/ccE6NSsQ.o
- .comment       0x0000000000000000       0x20 /tmp/ccYfQSLU.o
- .comment       0x0000000000000000       0x20 /tmp/ccGXHXaZ.o
- .comment       0x0000000000000000       0x20 /tmp/ccirxgG3.o
- .comment       0x0000000000000000       0x20 /tmp/ccW42li8.o
- .comment       0x0000000000000000       0x20 /tmp/ccCXUe5c.o
- .comment       0x0000000000000000       0x20 /tmp/cc40Pb0h.o
- .comment       0x0000000000000000       0x20 /tmp/cc6hgX2m.o
- .comment       0x0000000000000000       0x20 /tmp/cc0WIYbs.o
- .comment       0x0000000000000000       0x20 /tmp/ccbY2wIx.o
- .comment       0x0000000000000000       0x20 /tmp/cc2hosmD.o
- .comment       0x0000000000000000       0x20 /tmp/ccv0vFcJ.o
- .comment       0x0000000000000000       0x20 /tmp/ccrMGE9O.o
- .comment       0x0000000000000000       0x20 /tmp/ccFDougV.o
- .comment       0x0000000000000000       0x20 /tmp/cczXTVp1.o
- .comment       0x0000000000000000       0x20 /tmp/ccSH5UE7.o
- .comment       0x0000000000000000       0x20 /tmp/ccsLjl0d.o
- .comment       0x0000000000000000       0x20 /tmp/ccTLVLuk.o
- .comment       0x0000000000000000       0x20 /tmp/ccV0Zf6q.o
- .comment       0x0000000000000000       0x20 /tmp/cc9C3fOx.o
+ .comment       0x0000000000000000       0x20 /tmp/cclHHYwm.o
+ .comment       0x0000000000000000       0x20 /tmp/ccmoWu3i.o
+ .comment       0x0000000000000000       0x20 /tmp/ccP1PCMf.o
+ .comment       0x0000000000000000       0x20 /tmp/cczwUnBc.o
+ .comment       0x0000000000000000       0x20 /tmp/ccg4Nby9.o
+ .comment       0x0000000000000000       0x20 /tmp/ccO03Nx6.o
+ .comment       0x0000000000000000       0x20 /tmp/cc7uIgA3.o
+ .comment       0x0000000000000000       0x20 /tmp/ccvtV8F0.o
+ .comment       0x0000000000000000       0x20 /tmp/ccUpJWSX.o
+ .comment       0x0000000000000000       0x20 /tmp/ccMfBneV.o
+ .comment       0x0000000000000000       0x20 /tmp/ccBxoaMS.o
+ .comment       0x0000000000000000       0x20 /tmp/ccmJNLqQ.o
+ .comment       0x0000000000000000       0x20 /tmp/ccTmy5bO.o
+ .comment       0x0000000000000000       0x20 /tmp/cc3sWC6L.o
+ .comment       0x0000000000000000       0x20 /tmp/ccpGFS7J.o
+ .comment       0x0000000000000000       0x20 /tmp/ccF4JIgI.o
+ .comment       0x0000000000000000       0x20 /tmp/ccPqkpwG.o
+ .comment       0x0000000000000000       0x20 /tmp/ccncv2RE.o
+ .comment       0x0000000000000000       0x20 /tmp/ccIEINjD.o
+ .comment       0x0000000000000000       0x20 /tmp/cc278iSB.o
+ .comment       0x0000000000000000       0x20 /tmp/ccD5KCBA.o
+ .comment       0x0000000000000000       0x20 /tmp/cc2df9sz.o
+ .comment       0x0000000000000000       0x20 /tmp/ccCdjhsy.o
+ .comment       0x0000000000000000       0x20 /tmp/cc6DdHxx.o
+ .comment       0x0000000000000000       0x20 /tmp/ccX2Rs0w.o
+ .comment       0x0000000000000000       0x20 /tmp/ccNNDxAw.o
+ .comment       0x0000000000000000       0x20 /tmp/cc47QRmw.o
+ .comment       0x0000000000000000       0x20 /tmp/ccG9NTfw.o
+ .comment       0x0000000000000000       0x20 /tmp/ccWrvyiw.o
+ .comment       0x0000000000000000       0x20 /tmp/ccf7YNnw.o
+ .comment       0x0000000000000000       0x20 /tmp/ccAJnGyw.o
+ .comment       0x0000000000000000       0x20 /tmp/ccQffUPw.o
+ .comment       0x0000000000000000       0x20 /tmp/ccQc5Qfx.o
+ .comment       0x0000000000000000       0x20 /tmp/ccNEDHMx.o
+ .comment       0x0000000000000000       0x20 /tmp/cc3jfSpy.o
  .comment       0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
  .comment       0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-exit.o)
  .comment       0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-fini.o)
@@ -1122,144 +1122,144 @@ OUTPUT(chrono.elf elf32-littlearm)
  .comment       0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libnosys.a(_exit.o)
  .comment       0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/4.8.2/armv7-m/crtend.o
 
-.debug_line     0x0000000000000000     0x8cc3
+.debug_line     0x0000000000000000     0x8cb7
  .debug_line    0x0000000000000000       0x7b /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o
- .debug_line    0x000000000000007b      0x1b2 /tmp/cchxSs51.o
- .debug_line    0x000000000000022d      0x178 /tmp/ccNe3KE4.o
- .debug_line    0x00000000000003a5      0x7c8 /tmp/ccEeSEq7.o
- .debug_line    0x0000000000000b6d      0x2a2 /tmp/cc5NRdia.o
- .debug_line    0x0000000000000e0f      0x594 /tmp/cc5VyRhd.o
- .debug_line    0x00000000000013a3       0x1d /tmp/ccFJuakg.o
- .debug_line    0x00000000000013c0       0x1d /tmp/ccP7m8oj.o
- .debug_line    0x00000000000013dd      0x1d8 /tmp/ccCMpxxm.o
- .debug_line    0x00000000000015b5      0x333 /tmp/ccptBPMp.o
- .debug_line    0x00000000000018e8      0x4d1 /tmp/ccNt0yat.o
- .debug_line    0x0000000000001db9      0xc63 /tmp/cc7i1DKw.o
- .debug_line    0x0000000000002a1c      0x330 /tmp/ccZPryrA.o
- .debug_line    0x0000000000002d4c      0x33f /tmp/ccOlmcfE.o
- .debug_line    0x000000000000308b      0x47a /tmp/ccexzzcI.o
- .debug_line    0x0000000000003505      0x283 /tmp/cchIhVgM.o
- .debug_line    0x0000000000003788      0x380 /tmp/ccE6NSsQ.o
- .debug_line    0x0000000000003b08      0x32d /tmp/ccYfQSLU.o
- .debug_line    0x0000000000003e35      0x26a /tmp/ccGXHXaZ.o
- .debug_line    0x000000000000409f      0x2b8 /tmp/ccirxgG3.o
- .debug_line    0x0000000000004357      0x363 /tmp/ccW42li8.o
- .debug_line    0x00000000000046ba      0x5d6 /tmp/ccCXUe5c.o
- .debug_line    0x0000000000004c90      0x475 /tmp/cc40Pb0h.o
- .debug_line    0x0000000000005105      0x37f /tmp/cc6hgX2m.o
- .debug_line    0x0000000000005484      0x2e9 /tmp/cc0WIYbs.o
- .debug_line    0x000000000000576d      0xaf0 /tmp/ccbY2wIx.o
- .debug_line    0x000000000000625d      0x2d2 /tmp/cc2hosmD.o
- .debug_line    0x000000000000652f      0x6e1 /tmp/ccv0vFcJ.o
- .debug_line    0x0000000000006c10      0x295 /tmp/ccrMGE9O.o
- .debug_line    0x0000000000006ea5      0x4c5 /tmp/ccFDougV.o
- .debug_line    0x000000000000736a       0x1d /tmp/cczXTVp1.o
- .debug_line    0x0000000000007387      0x25e /tmp/ccSH5UE7.o
- .debug_line    0x00000000000075e5      0x2b4 /tmp/ccsLjl0d.o
- .debug_line    0x0000000000007899      0x4a9 /tmp/ccTLVLuk.o
- .debug_line    0x0000000000007d42      0x18e /tmp/ccV0Zf6q.o
- .debug_line    0x0000000000007ed0      0x17d /tmp/cc9C3fOx.o
- .debug_line    0x000000000000804d       0x76 /tmp/ccBVzUwE.o
- .debug_line    0x00000000000080c3       0xa6 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
- .debug_line    0x0000000000008169      0x13f /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-exit.o)
- .debug_line    0x00000000000082a8       0x9c /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-fini.o)
- .debug_line    0x0000000000008344       0xd6 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-impure.o)
- .debug_line    0x000000000000841a       0xb5 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-init.o)
- .debug_line    0x00000000000084cf       0xbb /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memcpy.o)
- .debug_line    0x000000000000858a       0xff /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memset.o)
- .debug_line    0x0000000000008689      0x2e8 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-qsort.o)
- .debug_line    0x0000000000008971      0x160 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__atexit.o)
- .debug_line    0x0000000000008ad1      0x19a /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__call_atexit.o)
- .debug_line    0x0000000000008c6b       0x58 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libnosys.a(_exit.o)
+ .debug_line    0x000000000000007b      0x1b2 /tmp/cclHHYwm.o
+ .debug_line    0x000000000000022d      0x178 /tmp/ccmoWu3i.o
+ .debug_line    0x00000000000003a5      0x7c8 /tmp/ccP1PCMf.o
+ .debug_line    0x0000000000000b6d      0x2a2 /tmp/cczwUnBc.o
+ .debug_line    0x0000000000000e0f      0x594 /tmp/ccg4Nby9.o
+ .debug_line    0x00000000000013a3       0x1d /tmp/ccO03Nx6.o
+ .debug_line    0x00000000000013c0       0x1d /tmp/cc7uIgA3.o
+ .debug_line    0x00000000000013dd      0x1d8 /tmp/ccvtV8F0.o
+ .debug_line    0x00000000000015b5      0x333 /tmp/ccUpJWSX.o
+ .debug_line    0x00000000000018e8      0x4d1 /tmp/ccMfBneV.o
+ .debug_line    0x0000000000001db9      0xc63 /tmp/ccBxoaMS.o
+ .debug_line    0x0000000000002a1c      0x330 /tmp/ccmJNLqQ.o
+ .debug_line    0x0000000000002d4c      0x33f /tmp/ccTmy5bO.o
+ .debug_line    0x000000000000308b      0x47a /tmp/cc3sWC6L.o
+ .debug_line    0x0000000000003505      0x283 /tmp/ccpGFS7J.o
+ .debug_line    0x0000000000003788      0x380 /tmp/ccF4JIgI.o
+ .debug_line    0x0000000000003b08      0x32d /tmp/ccPqkpwG.o
+ .debug_line    0x0000000000003e35      0x26a /tmp/ccncv2RE.o
+ .debug_line    0x000000000000409f      0x2b8 /tmp/ccIEINjD.o
+ .debug_line    0x0000000000004357      0x363 /tmp/cc278iSB.o
+ .debug_line    0x00000000000046ba      0x5d6 /tmp/ccD5KCBA.o
+ .debug_line    0x0000000000004c90      0x475 /tmp/cc2df9sz.o
+ .debug_line    0x0000000000005105      0x37f /tmp/ccCdjhsy.o
+ .debug_line    0x0000000000005484      0x2e9 /tmp/cc6DdHxx.o
+ .debug_line    0x000000000000576d      0xaf0 /tmp/ccX2Rs0w.o
+ .debug_line    0x000000000000625d      0x2d2 /tmp/ccNNDxAw.o
+ .debug_line    0x000000000000652f      0x6e1 /tmp/cc47QRmw.o
+ .debug_line    0x0000000000006c10      0x295 /tmp/ccG9NTfw.o
+ .debug_line    0x0000000000006ea5      0x4c5 /tmp/ccWrvyiw.o
+ .debug_line    0x000000000000736a       0x1d /tmp/ccf7YNnw.o
+ .debug_line    0x0000000000007387      0x25e /tmp/ccAJnGyw.o
+ .debug_line    0x00000000000075e5      0x2b4 /tmp/ccQffUPw.o
+ .debug_line    0x0000000000007899      0x49d /tmp/ccQc5Qfx.o
+ .debug_line    0x0000000000007d36      0x18e /tmp/ccNEDHMx.o
+ .debug_line    0x0000000000007ec4      0x17d /tmp/cc3jfSpy.o
+ .debug_line    0x0000000000008041       0x76 /tmp/ccqNVG3y.o
+ .debug_line    0x00000000000080b7       0xa6 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
+ .debug_line    0x000000000000815d      0x13f /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-exit.o)
+ .debug_line    0x000000000000829c       0x9c /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-fini.o)
+ .debug_line    0x0000000000008338       0xd6 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-impure.o)
+ .debug_line    0x000000000000840e       0xb5 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-init.o)
+ .debug_line    0x00000000000084c3       0xbb /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memcpy.o)
+ .debug_line    0x000000000000857e       0xff /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memset.o)
+ .debug_line    0x000000000000867d      0x2e8 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-qsort.o)
+ .debug_line    0x0000000000008965      0x160 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__atexit.o)
+ .debug_line    0x0000000000008ac5      0x19a /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__call_atexit.o)
+ .debug_line    0x0000000000008c5f       0x58 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libnosys.a(_exit.o)
 
-.debug_info     0x0000000000000000    0x15ef8
+.debug_info     0x0000000000000000    0x15f0d
  .debug_info    0x0000000000000000       0x8d /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o
- .debug_info    0x000000000000008d      0x2f6 /tmp/cchxSs51.o
- .debug_info    0x0000000000000383      0x299 /tmp/ccNe3KE4.o
- .debug_info    0x000000000000061c     0x14ba /tmp/ccEeSEq7.o
- .debug_info    0x0000000000001ad6      0x65a /tmp/cc5NRdia.o
- .debug_info    0x0000000000002130      0xbfd /tmp/cc5VyRhd.o
- .debug_info    0x0000000000002d2d       0x6e /tmp/ccFJuakg.o
- .debug_info    0x0000000000002d9b       0x6e /tmp/ccP7m8oj.o
- .debug_info    0x0000000000002e09      0x322 /tmp/ccCMpxxm.o
- .debug_info    0x000000000000312b      0x5db /tmp/ccptBPMp.o
- .debug_info    0x0000000000003706      0x56d /tmp/ccNt0yat.o
- .debug_info    0x0000000000003c73     0x172e /tmp/cc7i1DKw.o
- .debug_info    0x00000000000053a1      0x427 /tmp/ccZPryrA.o
- .debug_info    0x00000000000057c8      0x43f /tmp/ccOlmcfE.o
- .debug_info    0x0000000000005c07      0xa58 /tmp/ccexzzcI.o
- .debug_info    0x000000000000665f      0x5ca /tmp/cchIhVgM.o
- .debug_info    0x0000000000006c29      0xc1e /tmp/ccE6NSsQ.o
- .debug_info    0x0000000000007847      0x7b9 /tmp/ccYfQSLU.o
- .debug_info    0x0000000000008000      0x31b /tmp/ccGXHXaZ.o
- .debug_info    0x000000000000831b      0x321 /tmp/ccirxgG3.o
- .debug_info    0x000000000000863c      0x50d /tmp/ccW42li8.o
- .debug_info    0x0000000000008b49      0xdf4 /tmp/ccCXUe5c.o
- .debug_info    0x000000000000993d      0x864 /tmp/cc40Pb0h.o
- .debug_info    0x000000000000a1a1      0x8a2 /tmp/cc6hgX2m.o
- .debug_info    0x000000000000aa43      0x657 /tmp/cc0WIYbs.o
- .debug_info    0x000000000000b09a     0x2097 /tmp/ccbY2wIx.o
- .debug_info    0x000000000000d131      0x58b /tmp/cc2hosmD.o
- .debug_info    0x000000000000d6bc      0xdd5 /tmp/ccv0vFcJ.o
- .debug_info    0x000000000000e491      0x691 /tmp/ccrMGE9O.o
- .debug_info    0x000000000000eb22      0xbec /tmp/ccFDougV.o
- .debug_info    0x000000000000f70e       0x72 /tmp/cczXTVp1.o
- .debug_info    0x000000000000f780      0x4e7 /tmp/ccSH5UE7.o
- .debug_info    0x000000000000fc67      0xf88 /tmp/ccsLjl0d.o
- .debug_info    0x0000000000010bef     0x1691 /tmp/ccTLVLuk.o
- .debug_info    0x0000000000012280      0x400 /tmp/ccV0Zf6q.o
- .debug_info    0x0000000000012680      0x23e /tmp/cc9C3fOx.o
- .debug_info    0x00000000000128be       0x63 /tmp/ccBVzUwE.o
- .debug_info    0x0000000000012921      0x10a /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
- .debug_info    0x0000000000012a2b      0x8e4 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-exit.o)
- .debug_info    0x000000000001330f       0xef /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-fini.o)
- .debug_info    0x00000000000133fe      0x894 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-impure.o)
- .debug_info    0x0000000000013c92      0x105 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-init.o)
- .debug_info    0x0000000000013d97       0xb2 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memcpy.o)
- .debug_info    0x0000000000013e49      0x117 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memset.o)
- .debug_info    0x0000000000013f60      0xc62 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-qsort.o)
- .debug_info    0x0000000000014bc2      0x934 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__atexit.o)
- .debug_info    0x00000000000154f6      0x9aa /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__call_atexit.o)
- .debug_info    0x0000000000015ea0       0x58 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libnosys.a(_exit.o)
+ .debug_info    0x000000000000008d      0x2f6 /tmp/cclHHYwm.o
+ .debug_info    0x0000000000000383      0x299 /tmp/ccmoWu3i.o
+ .debug_info    0x000000000000061c     0x14ba /tmp/ccP1PCMf.o
+ .debug_info    0x0000000000001ad6      0x65a /tmp/cczwUnBc.o
+ .debug_info    0x0000000000002130      0xbfd /tmp/ccg4Nby9.o
+ .debug_info    0x0000000000002d2d       0x6e /tmp/ccO03Nx6.o
+ .debug_info    0x0000000000002d9b       0x6e /tmp/cc7uIgA3.o
+ .debug_info    0x0000000000002e09      0x322 /tmp/ccvtV8F0.o
+ .debug_info    0x000000000000312b      0x5db /tmp/ccUpJWSX.o
+ .debug_info    0x0000000000003706      0x56d /tmp/ccMfBneV.o
+ .debug_info    0x0000000000003c73     0x172e /tmp/ccBxoaMS.o
+ .debug_info    0x00000000000053a1      0x427 /tmp/ccmJNLqQ.o
+ .debug_info    0x00000000000057c8      0x43f /tmp/ccTmy5bO.o
+ .debug_info    0x0000000000005c07      0xa58 /tmp/cc3sWC6L.o
+ .debug_info    0x000000000000665f      0x5ca /tmp/ccpGFS7J.o
+ .debug_info    0x0000000000006c29      0xc1e /tmp/ccF4JIgI.o
+ .debug_info    0x0000000000007847      0x7b9 /tmp/ccPqkpwG.o
+ .debug_info    0x0000000000008000      0x31b /tmp/ccncv2RE.o
+ .debug_info    0x000000000000831b      0x321 /tmp/ccIEINjD.o
+ .debug_info    0x000000000000863c      0x50d /tmp/cc278iSB.o
+ .debug_info    0x0000000000008b49      0xdf4 /tmp/ccD5KCBA.o
+ .debug_info    0x000000000000993d      0x864 /tmp/cc2df9sz.o
+ .debug_info    0x000000000000a1a1      0x8a2 /tmp/ccCdjhsy.o
+ .debug_info    0x000000000000aa43      0x657 /tmp/cc6DdHxx.o
+ .debug_info    0x000000000000b09a     0x2097 /tmp/ccX2Rs0w.o
+ .debug_info    0x000000000000d131      0x58b /tmp/ccNNDxAw.o
+ .debug_info    0x000000000000d6bc      0xdd5 /tmp/cc47QRmw.o
+ .debug_info    0x000000000000e491      0x691 /tmp/ccG9NTfw.o
+ .debug_info    0x000000000000eb22      0xbec /tmp/ccWrvyiw.o
+ .debug_info    0x000000000000f70e       0x72 /tmp/ccf7YNnw.o
+ .debug_info    0x000000000000f780      0x4e7 /tmp/ccAJnGyw.o
+ .debug_info    0x000000000000fc67      0xf88 /tmp/ccQffUPw.o
+ .debug_info    0x0000000000010bef     0x16a6 /tmp/ccQc5Qfx.o
+ .debug_info    0x0000000000012295      0x400 /tmp/ccNEDHMx.o
+ .debug_info    0x0000000000012695      0x23e /tmp/cc3jfSpy.o
+ .debug_info    0x00000000000128d3       0x63 /tmp/ccqNVG3y.o
+ .debug_info    0x0000000000012936      0x10a /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
+ .debug_info    0x0000000000012a40      0x8e4 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-exit.o)
+ .debug_info    0x0000000000013324       0xef /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-fini.o)
+ .debug_info    0x0000000000013413      0x894 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-impure.o)
+ .debug_info    0x0000000000013ca7      0x105 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-init.o)
+ .debug_info    0x0000000000013dac       0xb2 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memcpy.o)
+ .debug_info    0x0000000000013e5e      0x117 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-memset.o)
+ .debug_info    0x0000000000013f75      0xc62 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-qsort.o)
+ .debug_info    0x0000000000014bd7      0x934 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__atexit.o)
+ .debug_info    0x000000000001550b      0x9aa /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-__call_atexit.o)
+ .debug_info    0x0000000000015eb5       0x58 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libnosys.a(_exit.o)
 
 .debug_abbrev   0x0000000000000000     0x4432
  .debug_abbrev  0x0000000000000000       0x14 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o
- .debug_abbrev  0x0000000000000014      0x156 /tmp/cchxSs51.o
- .debug_abbrev  0x000000000000016a       0xbc /tmp/ccNe3KE4.o
- .debug_abbrev  0x0000000000000226      0x274 /tmp/ccEeSEq7.o
- .debug_abbrev  0x000000000000049a      0x135 /tmp/cc5NRdia.o
- .debug_abbrev  0x00000000000005cf      0x18d /tmp/cc5VyRhd.o
- .debug_abbrev  0x000000000000075c       0x24 /tmp/ccFJuakg.o
- .debug_abbrev  0x0000000000000780       0x24 /tmp/ccP7m8oj.o
- .debug_abbrev  0x00000000000007a4      0x1b5 /tmp/ccCMpxxm.o
- .debug_abbrev  0x0000000000000959      0x1aa /tmp/ccptBPMp.o
- .debug_abbrev  0x0000000000000b03      0x1b3 /tmp/ccNt0yat.o
- .debug_abbrev  0x0000000000000cb6      0x285 /tmp/cc7i1DKw.o
- .debug_abbrev  0x0000000000000f3b      0x1cc /tmp/ccZPryrA.o
- .debug_abbrev  0x0000000000001107      0x1e1 /tmp/ccOlmcfE.o
- .debug_abbrev  0x00000000000012e8      0x280 /tmp/ccexzzcI.o
- .debug_abbrev  0x0000000000001568      0x1a5 /tmp/cchIhVgM.o
- .debug_abbrev  0x000000000000170d      0x28a /tmp/ccE6NSsQ.o
- .debug_abbrev  0x0000000000001997      0x1f3 /tmp/ccYfQSLU.o
- .debug_abbrev  0x0000000000001b8a      0x12a /tmp/ccGXHXaZ.o
- .debug_abbrev  0x0000000000001cb4      0x136 /tmp/ccirxgG3.o
- .debug_abbrev  0x0000000000001dea      0x187 /tmp/ccW42li8.o
- .debug_abbrev  0x0000000000001f71      0x244 /tmp/ccCXUe5c.o
- .debug_abbrev  0x00000000000021b5      0x230 /tmp/cc40Pb0h.o
- .debug_abbrev  0x00000000000023e5      0x1a8 /tmp/cc6hgX2m.o
- .debug_abbrev  0x000000000000258d      0x192 /tmp/cc0WIYbs.o
- .debug_abbrev  0x000000000000271f      0x1f7 /tmp/ccbY2wIx.o
- .debug_abbrev  0x0000000000002916      0x125 /tmp/cc2hosmD.o
- .debug_abbrev  0x0000000000002a3b      0x215 /tmp/ccv0vFcJ.o
- .debug_abbrev  0x0000000000002c50      0x18c /tmp/ccrMGE9O.o
- .debug_abbrev  0x0000000000002ddc      0x1ee /tmp/ccFDougV.o
- .debug_abbrev  0x0000000000002fca       0x26 /tmp/cczXTVp1.o
- .debug_abbrev  0x0000000000002ff0      0x111 /tmp/ccSH5UE7.o
- .debug_abbrev  0x0000000000003101      0x19e /tmp/ccsLjl0d.o
- .debug_abbrev  0x000000000000329f      0x27a /tmp/ccTLVLuk.o
- .debug_abbrev  0x0000000000003519      0x101 /tmp/ccV0Zf6q.o
- .debug_abbrev  0x000000000000361a      0x11d /tmp/cc9C3fOx.o
- .debug_abbrev  0x0000000000003737       0x12 /tmp/ccBVzUwE.o
+ .debug_abbrev  0x0000000000000014      0x156 /tmp/cclHHYwm.o
+ .debug_abbrev  0x000000000000016a       0xbc /tmp/ccmoWu3i.o
+ .debug_abbrev  0x0000000000000226      0x274 /tmp/ccP1PCMf.o
+ .debug_abbrev  0x000000000000049a      0x135 /tmp/cczwUnBc.o
+ .debug_abbrev  0x00000000000005cf      0x18d /tmp/ccg4Nby9.o
+ .debug_abbrev  0x000000000000075c       0x24 /tmp/ccO03Nx6.o
+ .debug_abbrev  0x0000000000000780       0x24 /tmp/cc7uIgA3.o
+ .debug_abbrev  0x00000000000007a4      0x1b5 /tmp/ccvtV8F0.o
+ .debug_abbrev  0x0000000000000959      0x1aa /tmp/ccUpJWSX.o
+ .debug_abbrev  0x0000000000000b03      0x1b3 /tmp/ccMfBneV.o
+ .debug_abbrev  0x0000000000000cb6      0x285 /tmp/ccBxoaMS.o
+ .debug_abbrev  0x0000000000000f3b      0x1cc /tmp/ccmJNLqQ.o
+ .debug_abbrev  0x0000000000001107      0x1e1 /tmp/ccTmy5bO.o
+ .debug_abbrev  0x00000000000012e8      0x280 /tmp/cc3sWC6L.o
+ .debug_abbrev  0x0000000000001568      0x1a5 /tmp/ccpGFS7J.o
+ .debug_abbrev  0x000000000000170d      0x28a /tmp/ccF4JIgI.o
+ .debug_abbrev  0x0000000000001997      0x1f3 /tmp/ccPqkpwG.o
+ .debug_abbrev  0x0000000000001b8a      0x12a /tmp/ccncv2RE.o
+ .debug_abbrev  0x0000000000001cb4      0x136 /tmp/ccIEINjD.o
+ .debug_abbrev  0x0000000000001dea      0x187 /tmp/cc278iSB.o
+ .debug_abbrev  0x0000000000001f71      0x244 /tmp/ccD5KCBA.o
+ .debug_abbrev  0x00000000000021b5      0x230 /tmp/cc2df9sz.o
+ .debug_abbrev  0x00000000000023e5      0x1a8 /tmp/ccCdjhsy.o
+ .debug_abbrev  0x000000000000258d      0x192 /tmp/cc6DdHxx.o
+ .debug_abbrev  0x000000000000271f      0x1f7 /tmp/ccX2Rs0w.o
+ .debug_abbrev  0x0000000000002916      0x125 /tmp/ccNNDxAw.o
+ .debug_abbrev  0x0000000000002a3b      0x215 /tmp/cc47QRmw.o
+ .debug_abbrev  0x0000000000002c50      0x18c /tmp/ccG9NTfw.o
+ .debug_abbrev  0x0000000000002ddc      0x1ee /tmp/ccWrvyiw.o
+ .debug_abbrev  0x0000000000002fca       0x26 /tmp/ccf7YNnw.o
+ .debug_abbrev  0x0000000000002ff0      0x111 /tmp/ccAJnGyw.o
+ .debug_abbrev  0x0000000000003101      0x19e /tmp/ccQffUPw.o
+ .debug_abbrev  0x000000000000329f      0x27a /tmp/ccQc5Qfx.o
+ .debug_abbrev  0x0000000000003519      0x101 /tmp/ccNEDHMx.o
+ .debug_abbrev  0x000000000000361a      0x11d /tmp/cc3jfSpy.o
+ .debug_abbrev  0x0000000000003737       0x12 /tmp/ccqNVG3y.o
  .debug_abbrev  0x0000000000003749       0xb8 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
  .debug_abbrev  0x0000000000003801      0x1e6 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-exit.o)
  .debug_abbrev  0x00000000000039e7       0xbd /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-fini.o)
@@ -1276,77 +1276,77 @@ OUTPUT(chrono.elf elf32-littlearm)
  .debug_aranges
                 0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/crt0.o
  .debug_aranges
-                0x0000000000000020       0x20 /tmp/cchxSs51.o
+                0x0000000000000020       0x20 /tmp/cclHHYwm.o
  .debug_aranges
-                0x0000000000000040       0x20 /tmp/ccNe3KE4.o
+                0x0000000000000040       0x20 /tmp/ccmoWu3i.o
  .debug_aranges
-                0x0000000000000060       0x20 /tmp/ccEeSEq7.o
+                0x0000000000000060       0x20 /tmp/ccP1PCMf.o
  .debug_aranges
-                0x0000000000000080       0x20 /tmp/cc5NRdia.o
+                0x0000000000000080       0x20 /tmp/cczwUnBc.o
  .debug_aranges
-                0x00000000000000a0       0x20 /tmp/cc5VyRhd.o
+                0x00000000000000a0       0x20 /tmp/ccg4Nby9.o
  .debug_aranges
-                0x00000000000000c0       0x18 /tmp/ccFJuakg.o
+                0x00000000000000c0       0x18 /tmp/ccO03Nx6.o
  .debug_aranges
-                0x00000000000000d8       0x18 /tmp/ccP7m8oj.o
+                0x00000000000000d8       0x18 /tmp/cc7uIgA3.o
  .debug_aranges
-                0x00000000000000f0       0x20 /tmp/ccCMpxxm.o
+                0x00000000000000f0       0x20 /tmp/ccvtV8F0.o
  .debug_aranges
-                0x0000000000000110       0x20 /tmp/ccptBPMp.o
+                0x0000000000000110       0x20 /tmp/ccUpJWSX.o
  .debug_aranges
-                0x0000000000000130       0x20 /tmp/ccNt0yat.o
+                0x0000000000000130       0x20 /tmp/ccMfBneV.o
  .debug_aranges
-                0x0000000000000150       0x20 /tmp/cc7i1DKw.o
+                0x0000000000000150       0x20 /tmp/ccBxoaMS.o
  .debug_aranges
-                0x0000000000000170       0x20 /tmp/ccZPryrA.o
+                0x0000000000000170       0x20 /tmp/ccmJNLqQ.o
  .debug_aranges
-                0x0000000000000190       0x20 /tmp/ccOlmcfE.o
+                0x0000000000000190       0x20 /tmp/ccTmy5bO.o
  .debug_aranges
-                0x00000000000001b0       0x20 /tmp/ccexzzcI.o
+                0x00000000000001b0       0x20 /tmp/cc3sWC6L.o
  .debug_aranges
-                0x00000000000001d0       0x20 /tmp/cchIhVgM.o
+                0x00000000000001d0       0x20 /tmp/ccpGFS7J.o
  .debug_aranges
-                0x00000000000001f0       0x20 /tmp/ccE6NSsQ.o
+                0x00000000000001f0       0x20 /tmp/ccF4JIgI.o
  .debug_aranges
-                0x0000000000000210       0x20 /tmp/ccYfQSLU.o
+                0x0000000000000210       0x20 /tmp/ccPqkpwG.o
  .debug_aranges
-                0x0000000000000230       0x20 /tmp/ccGXHXaZ.o
+                0x0000000000000230       0x20 /tmp/ccncv2RE.o
  .debug_aranges
-                0x0000000000000250       0x48 /tmp/ccirxgG3.o
+                0x0000000000000250       0x48 /tmp/ccIEINjD.o
  .debug_aranges
-                0x0000000000000298       0x20 /tmp/ccW42li8.o
+                0x0000000000000298       0x20 /tmp/cc278iSB.o
  .debug_aranges
-                0x00000000000002b8       0x20 /tmp/ccCXUe5c.o
+                0x00000000000002b8       0x20 /tmp/ccD5KCBA.o
  .debug_aranges
-                0x00000000000002d8       0x20 /tmp/cc40Pb0h.o
+                0x00000000000002d8       0x20 /tmp/cc2df9sz.o
  .debug_aranges
-                0x00000000000002f8       0x20 /tmp/cc6hgX2m.o
+                0x00000000000002f8       0x20 /tmp/ccCdjhsy.o
  .debug_aranges
-                0x0000000000000318       0x20 /tmp/cc0WIYbs.o
+                0x0000000000000318       0x20 /tmp/cc6DdHxx.o
  .debug_aranges
-                0x0000000000000338       0x20 /tmp/ccbY2wIx.o
+                0x0000000000000338       0x20 /tmp/ccX2Rs0w.o
  .debug_aranges
-                0x0000000000000358       0x20 /tmp/cc2hosmD.o
+                0x0000000000000358       0x20 /tmp/ccNNDxAw.o
  .debug_aranges
-                0x0000000000000378       0x20 /tmp/ccv0vFcJ.o
+                0x0000000000000378       0x20 /tmp/cc47QRmw.o
  .debug_aranges
-                0x0000000000000398       0x20 /tmp/ccrMGE9O.o
+                0x0000000000000398       0x20 /tmp/ccG9NTfw.o
  .debug_aranges
-                0x00000000000003b8       0x20 /tmp/ccFDougV.o
+                0x00000000000003b8       0x20 /tmp/ccWrvyiw.o
  .debug_aranges
-                0x00000000000003d8       0x18 /tmp/cczXTVp1.o
+                0x00000000000003d8       0x18 /tmp/ccf7YNnw.o
  .debug_aranges
-                0x00000000000003f0       0x20 /tmp/ccSH5UE7.o
+                0x00000000000003f0       0x20 /tmp/ccAJnGyw.o
  .debug_aranges
-                0x0000000000000410       0x20 /tmp/ccsLjl0d.o
+                0x0000000000000410       0x20 /tmp/ccQffUPw.o
  .debug_aranges
-                0x0000000000000430       0x20 /tmp/ccTLVLuk.o
+                0x0000000000000430       0x20 /tmp/ccQc5Qfx.o
  .debug_aranges
-                0x0000000000000450       0x20 /tmp/ccV0Zf6q.o
+                0x0000000000000450       0x20 /tmp/ccNEDHMx.o
  .debug_aranges
-                0x0000000000000470       0x20 /tmp/cc9C3fOx.o
+                0x0000000000000470       0x20 /tmp/cc3jfSpy.o
  .debug_aranges
-                0x0000000000000490       0x28 /tmp/ccBVzUwE.o
+                0x0000000000000490       0x28 /tmp/ccqNVG3y.o
  .debug_aranges
                 0x00000000000004b8       0x20 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
  .debug_aranges
@@ -1371,75 +1371,75 @@ OUTPUT(chrono.elf elf32-littlearm)
                 0x00000000000005f8       0x20 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libnosys.a(_exit.o)
 
 .debug_str      0x0000000000000000     0x6ecc
- .debug_str     0x0000000000000000      0x2c7 /tmp/cchxSs51.o
+ .debug_str     0x0000000000000000      0x2c7 /tmp/cclHHYwm.o
                                         0x311 (size before relaxing)
- .debug_str     0x00000000000002c7      0x152 /tmp/ccNe3KE4.o
+ .debug_str     0x00000000000002c7      0x152 /tmp/ccmoWu3i.o
                                         0x266 (size before relaxing)
- .debug_str     0x0000000000000419      0xb80 /tmp/ccEeSEq7.o
+ .debug_str     0x0000000000000419      0xb80 /tmp/ccP1PCMf.o
                                         0xd99 (size before relaxing)
- .debug_str     0x0000000000000f99      0x2ac /tmp/cc5NRdia.o
+ .debug_str     0x0000000000000f99      0x2ac /tmp/cczwUnBc.o
                                         0x4b8 (size before relaxing)
- .debug_str     0x0000000000001245      0x487 /tmp/cc5VyRhd.o
+ .debug_str     0x0000000000001245      0x487 /tmp/ccg4Nby9.o
                                         0x70c (size before relaxing)
- .debug_str     0x00000000000016cc       0x36 /tmp/ccFJuakg.o
+ .debug_str     0x00000000000016cc       0x36 /tmp/ccO03Nx6.o
                                         0x117 (size before relaxing)
- .debug_str     0x0000000000001702       0x34 /tmp/ccP7m8oj.o
+ .debug_str     0x0000000000001702       0x34 /tmp/cc7uIgA3.o
                                         0x115 (size before relaxing)
- .debug_str     0x0000000000001736      0x27c /tmp/ccCMpxxm.o
+ .debug_str     0x0000000000001736      0x27c /tmp/ccvtV8F0.o
                                         0x3da (size before relaxing)
- .debug_str     0x00000000000019b2      0x2a5 /tmp/ccptBPMp.o
+ .debug_str     0x00000000000019b2      0x2a5 /tmp/ccUpJWSX.o
                                         0x401 (size before relaxing)
- .debug_str     0x0000000000001c57      0x317 /tmp/ccNt0yat.o
+ .debug_str     0x0000000000001c57      0x317 /tmp/ccMfBneV.o
                                         0x4d7 (size before relaxing)
- .debug_str     0x0000000000001f6e      0x3db /tmp/cc7i1DKw.o
+ .debug_str     0x0000000000001f6e      0x3db /tmp/ccBxoaMS.o
                                         0x673 (size before relaxing)
- .debug_str     0x0000000000002349      0x146 /tmp/ccZPryrA.o
+ .debug_str     0x0000000000002349      0x146 /tmp/ccmJNLqQ.o
                                         0x376 (size before relaxing)
- .debug_str     0x000000000000248f      0x246 /tmp/ccOlmcfE.o
+ .debug_str     0x000000000000248f      0x246 /tmp/ccTmy5bO.o
                                         0x45c (size before relaxing)
- .debug_str     0x00000000000026d5      0x442 /tmp/ccexzzcI.o
+ .debug_str     0x00000000000026d5      0x442 /tmp/cc3sWC6L.o
                                         0x734 (size before relaxing)
- .debug_str     0x0000000000002b17      0x4d6 /tmp/cchIhVgM.o
+ .debug_str     0x0000000000002b17      0x4d6 /tmp/ccpGFS7J.o
                                         0x6f5 (size before relaxing)
- .debug_str     0x0000000000002fed      0x42f /tmp/ccE6NSsQ.o
+ .debug_str     0x0000000000002fed      0x42f /tmp/ccF4JIgI.o
                                         0x980 (size before relaxing)
- .debug_str     0x000000000000341c      0x24d /tmp/ccYfQSLU.o
+ .debug_str     0x000000000000341c      0x24d /tmp/ccPqkpwG.o
                                         0x4b4 (size before relaxing)
- .debug_str     0x0000000000003669      0x13f /tmp/ccGXHXaZ.o
+ .debug_str     0x0000000000003669      0x13f /tmp/ccncv2RE.o
                                         0x2a9 (size before relaxing)
- .debug_str     0x00000000000037a8      0x15f /tmp/ccirxgG3.o
+ .debug_str     0x00000000000037a8      0x15f /tmp/ccIEINjD.o
                                         0x34f (size before relaxing)
- .debug_str     0x0000000000003907      0x257 /tmp/ccW42li8.o
+ .debug_str     0x0000000000003907      0x257 /tmp/cc278iSB.o
                                         0x457 (size before relaxing)
- .debug_str     0x0000000000003b5e      0x4bb /tmp/ccCXUe5c.o
+ .debug_str     0x0000000000003b5e      0x4bb /tmp/ccD5KCBA.o
                                         0x927 (size before relaxing)
- .debug_str     0x0000000000004019      0x27f /tmp/cc40Pb0h.o
+ .debug_str     0x0000000000004019      0x27f /tmp/cc2df9sz.o
                                         0x7eb (size before relaxing)
- .debug_str     0x0000000000004298      0x34c /tmp/cc6hgX2m.o
+ .debug_str     0x0000000000004298      0x34c /tmp/ccCdjhsy.o
                                         0x6c3 (size before relaxing)
- .debug_str     0x00000000000045e4      0x199 /tmp/cc0WIYbs.o
+ .debug_str     0x00000000000045e4      0x199 /tmp/cc6DdHxx.o
                                         0x605 (size before relaxing)
- .debug_str     0x000000000000477d      0xec9 /tmp/ccbY2wIx.o
+ .debug_str     0x000000000000477d      0xec9 /tmp/ccX2Rs0w.o
                                        0x1293 (size before relaxing)
- .debug_str     0x0000000000005646       0xfc /tmp/cc2hosmD.o
+ .debug_str     0x0000000000005646       0xfc /tmp/ccNNDxAw.o
                                         0x601 (size before relaxing)
- .debug_str     0x0000000000005742      0x55d /tmp/ccv0vFcJ.o
+ .debug_str     0x0000000000005742      0x55d /tmp/cc47QRmw.o
                                         0x91a (size before relaxing)
- .debug_str     0x0000000000005c9f      0x193 /tmp/ccrMGE9O.o
+ .debug_str     0x0000000000005c9f      0x193 /tmp/ccG9NTfw.o
                                         0x69a (size before relaxing)
- .debug_str     0x0000000000005e32      0x3f7 /tmp/ccFDougV.o
+ .debug_str     0x0000000000005e32      0x3f7 /tmp/ccWrvyiw.o
                                         0x93f (size before relaxing)
- .debug_str     0x0000000000006229        0xf /tmp/cczXTVp1.o
+ .debug_str     0x0000000000006229        0xf /tmp/ccf7YNnw.o
                                         0x117 (size before relaxing)
- .debug_str     0x0000000000006238       0x86 /tmp/ccSH5UE7.o
+ .debug_str     0x0000000000006238       0x86 /tmp/ccAJnGyw.o
                                         0x543 (size before relaxing)
- .debug_str     0x00000000000062be       0x32 /tmp/ccsLjl0d.o
+ .debug_str     0x00000000000062be       0x32 /tmp/ccQffUPw.o
                                         0xda2 (size before relaxing)
- .debug_str     0x00000000000062f0      0x1b7 /tmp/ccTLVLuk.o
-                                       0x1202 (size before relaxing)
- .debug_str     0x00000000000064a7       0x5c /tmp/ccV0Zf6q.o
+ .debug_str     0x00000000000062f0      0x1b7 /tmp/ccQc5Qfx.o
+                                       0x121e (size before relaxing)
+ .debug_str     0x00000000000064a7       0x5c /tmp/ccNEDHMx.o
                                         0x293 (size before relaxing)
- .debug_str     0x0000000000006503       0x43 /tmp/cc9C3fOx.o
+ .debug_str     0x0000000000006503       0x43 /tmp/cc3jfSpy.o
                                         0x1ba (size before relaxing)
  .debug_str     0x0000000000006546      0x140 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
                                         0x1d9 (size before relaxing)
@@ -1463,38 +1463,38 @@ OUTPUT(chrono.elf elf32-littlearm)
                                          0xe3 (size before relaxing)
 
 .debug_frame    0x0000000000000000     0x43c8
- .debug_frame   0x0000000000000000       0xd0 /tmp/cchxSs51.o
- .debug_frame   0x00000000000000d0       0x9c /tmp/ccNe3KE4.o
- .debug_frame   0x000000000000016c      0x60c /tmp/ccEeSEq7.o
- .debug_frame   0x0000000000000778      0x168 /tmp/cc5NRdia.o
- .debug_frame   0x00000000000008e0      0x37c /tmp/cc5VyRhd.o
- .debug_frame   0x0000000000000c5c      0x178 /tmp/ccCMpxxm.o
- .debug_frame   0x0000000000000dd4       0xf4 /tmp/ccptBPMp.o
- .debug_frame   0x0000000000000ec8      0x13c /tmp/ccNt0yat.o
- .debug_frame   0x0000000000001004      0x1cc /tmp/cc7i1DKw.o
- .debug_frame   0x00000000000011d0       0x68 /tmp/ccZPryrA.o
- .debug_frame   0x0000000000001238      0x170 /tmp/ccOlmcfE.o
- .debug_frame   0x00000000000013a8      0x2f8 /tmp/ccexzzcI.o
- .debug_frame   0x00000000000016a0      0x1f0 /tmp/cchIhVgM.o
- .debug_frame   0x0000000000001890      0x378 /tmp/ccE6NSsQ.o
- .debug_frame   0x0000000000001c08      0x1d0 /tmp/ccYfQSLU.o
- .debug_frame   0x0000000000001dd8       0xd0 /tmp/ccGXHXaZ.o
- .debug_frame   0x0000000000001ea8       0xc0 /tmp/ccirxgG3.o
- .debug_frame   0x0000000000001f68      0x140 /tmp/ccW42li8.o
- .debug_frame   0x00000000000020a8      0x348 /tmp/ccCXUe5c.o
- .debug_frame   0x00000000000023f0      0x108 /tmp/cc40Pb0h.o
- .debug_frame   0x00000000000024f8      0x27c /tmp/cc6hgX2m.o
- .debug_frame   0x0000000000002774      0x150 /tmp/cc0WIYbs.o
- .debug_frame   0x00000000000028c4      0xc98 /tmp/ccbY2wIx.o
- .debug_frame   0x000000000000355c       0x48 /tmp/cc2hosmD.o
- .debug_frame   0x00000000000035a4      0x4a8 /tmp/ccv0vFcJ.o
- .debug_frame   0x0000000000003a4c       0xe8 /tmp/ccrMGE9O.o
- .debug_frame   0x0000000000003b34      0x200 /tmp/ccFDougV.o
- .debug_frame   0x0000000000003d34       0x80 /tmp/ccSH5UE7.o
- .debug_frame   0x0000000000003db4      0x128 /tmp/ccsLjl0d.o
- .debug_frame   0x0000000000003edc      0x280 /tmp/ccTLVLuk.o
- .debug_frame   0x000000000000415c       0x44 /tmp/ccV0Zf6q.o
- .debug_frame   0x00000000000041a0       0x8c /tmp/cc9C3fOx.o
+ .debug_frame   0x0000000000000000       0xd0 /tmp/cclHHYwm.o
+ .debug_frame   0x00000000000000d0       0x9c /tmp/ccmoWu3i.o
+ .debug_frame   0x000000000000016c      0x60c /tmp/ccP1PCMf.o
+ .debug_frame   0x0000000000000778      0x168 /tmp/cczwUnBc.o
+ .debug_frame   0x00000000000008e0      0x37c /tmp/ccg4Nby9.o
+ .debug_frame   0x0000000000000c5c      0x178 /tmp/ccvtV8F0.o
+ .debug_frame   0x0000000000000dd4       0xf4 /tmp/ccUpJWSX.o
+ .debug_frame   0x0000000000000ec8      0x13c /tmp/ccMfBneV.o
+ .debug_frame   0x0000000000001004      0x1cc /tmp/ccBxoaMS.o
+ .debug_frame   0x00000000000011d0       0x68 /tmp/ccmJNLqQ.o
+ .debug_frame   0x0000000000001238      0x170 /tmp/ccTmy5bO.o
+ .debug_frame   0x00000000000013a8      0x2f8 /tmp/cc3sWC6L.o
+ .debug_frame   0x00000000000016a0      0x1f0 /tmp/ccpGFS7J.o
+ .debug_frame   0x0000000000001890      0x378 /tmp/ccF4JIgI.o
+ .debug_frame   0x0000000000001c08      0x1d0 /tmp/ccPqkpwG.o
+ .debug_frame   0x0000000000001dd8       0xd0 /tmp/ccncv2RE.o
+ .debug_frame   0x0000000000001ea8       0xc0 /tmp/ccIEINjD.o
+ .debug_frame   0x0000000000001f68      0x140 /tmp/cc278iSB.o
+ .debug_frame   0x00000000000020a8      0x348 /tmp/ccD5KCBA.o
+ .debug_frame   0x00000000000023f0      0x108 /tmp/cc2df9sz.o
+ .debug_frame   0x00000000000024f8      0x27c /tmp/ccCdjhsy.o
+ .debug_frame   0x0000000000002774      0x150 /tmp/cc6DdHxx.o
+ .debug_frame   0x00000000000028c4      0xc98 /tmp/ccX2Rs0w.o
+ .debug_frame   0x000000000000355c       0x48 /tmp/ccNNDxAw.o
+ .debug_frame   0x00000000000035a4      0x4a8 /tmp/cc47QRmw.o
+ .debug_frame   0x0000000000003a4c       0xe8 /tmp/ccG9NTfw.o
+ .debug_frame   0x0000000000003b34      0x200 /tmp/ccWrvyiw.o
+ .debug_frame   0x0000000000003d34       0x80 /tmp/ccAJnGyw.o
+ .debug_frame   0x0000000000003db4      0x128 /tmp/ccQffUPw.o
+ .debug_frame   0x0000000000003edc      0x280 /tmp/ccQc5Qfx.o
+ .debug_frame   0x000000000000415c       0x44 /tmp/ccNEDHMx.o
+ .debug_frame   0x00000000000041a0       0x8c /tmp/cc3jfSpy.o
  .debug_frame   0x000000000000422c       0x20 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
  .debug_frame   0x000000000000424c       0x28 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-exit.o)
  .debug_frame   0x0000000000004274       0x2c /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-fini.o)
@@ -1506,8 +1506,8 @@ OUTPUT(chrono.elf elf32-littlearm)
  .debug_frame   0x00000000000043a8       0x20 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libnosys.a(_exit.o)
 
 .debug_ranges   0x0000000000000000      0x500
- .debug_ranges  0x0000000000000000       0x38 /tmp/ccirxgG3.o
- .debug_ranges  0x0000000000000038       0x20 /tmp/ccBVzUwE.o
+ .debug_ranges  0x0000000000000000       0x38 /tmp/ccIEINjD.o
+ .debug_ranges  0x0000000000000038       0x20 /tmp/ccqNVG3y.o
  .debug_ranges  0x0000000000000058       0x10 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-atexit.o)
  .debug_ranges  0x0000000000000068       0x10 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-exit.o)
  .debug_ranges  0x0000000000000078       0x10 /usr/lib/gcc/arm-none-eabi/4.8.2/../../../arm-none-eabi/lib/armv7-m/libg.a(lib_a-fini.o)
