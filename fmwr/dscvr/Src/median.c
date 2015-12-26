@@ -15,7 +15,7 @@ int cmp(const void *a, const void *b)
 u16_median_t * u16_median_init(size_t len)
 {
 	configASSERT(len);
-	u16_median_t *entity = (u16_median_t *)pvPortMalloc(sizeof(u16_median_t));
+	u16_median_t *entity = (u16_median_t *)pvPortMalloc(sizeof(*entity));
 	configASSERT(entity);
 	memset(entity, 0, sizeof(*entity));
 	entity->dline.buf = (uint16_t *)pvPortMalloc(sizeof(uint16_t)*len);

@@ -46,6 +46,19 @@
 #include <semphr.h>
 #include <median.h>
 
+
+typedef struct {
+  void * buf;
+  size_t size;
+  uint32_t nf;
+} tx_buf_t;
+
+typedef enum {
+  BT_UNDEFINED = 0,
+  BT_IS_PRESENT,
+  BT_PAIRED
+} bt_status_e;
+
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -65,6 +78,11 @@ DMA_HandleTypeDef hdma_usart1_tx;
 static TaskHandle_t xMainHandle = NULL;
 static TaskHandle_t xTestHandle = NULL;
 static TaskHandle_t xSensorTuneHandle = NULL;
+static TaskHandle_t xUsartTXHandle = NULL;
+static TaskHandle_t xUsartRXHandle = NULL;
+
+static QueueHandle_t xUartTxQueue = NULL;
+static QueueHandle_t xUartRxQueue = NULL;
 
 #define NUM_ELEMENTS(x) (sizeof(x)/sizeof(x[0]))
 #define NUM_ADC_CHANNELS 2
@@ -74,6 +92,8 @@ static TaskHandle_t xSensorTuneHandle = NULL;
 #define ADC_GATE2 1
 static uint16_t adc_data[ADC_DATA_BUFFER_SIZE] __attribute__ ((aligned));
 static u16_median_t * median[2];
+static uint8_t uart_data;
+static bt_status_e bt_status = BT_UNDEFINED;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -90,13 +110,15 @@ static void MX_USART1_UART_Init(void);
 void vMainTask( void * pvParameters );
 void vTestTask( void * pvParameters );
 void vSensorTuneTask( void * pvParameters );
+void vUartTxTask( void * pvParameters );
+void vUartRxTask( void * pvParameters );
 static void DAC_SetValue(uint32_t Channel, uint32_t Data);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
+
 static void start_acquire(void)
 {
-  // init_median();
   HAL_ADC_Start_DMA(&hadc, (uint32_t*)adc_data, NUM_ELEMENTS(adc_data));
   HAL_TIM_Base_Start(&htim3);
 }
@@ -122,9 +144,34 @@ void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc)
   //   NULL);
 }
 
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+  vTaskNotifyGiveFromISR(xUsartTXHandle, NULL);
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  xQueueSendFromISR( xUartRxQueue, &uart_data, NULL);
+  HAL_UART_Receive_IT(&huart1, &uart_data, 1);
+}
+
+
 static void DAC_SetValue(uint32_t Channel, uint32_t Data)
 {
   HAL_DAC_SetValue(&hdac, Channel, DAC_ALIGN_12B_R, Data);
+}
+
+static BaseType_t send_data(const void *addr, size_t size, uint32_t nf)
+{
+  tx_buf_t *b = (tx_buf_t *)pvPortMalloc(size);
+
+  configASSERT( b );
+
+  b->buf = (void *)addr;
+  b->size = size;
+  b->nf = nf;
+
+  return xQueueSend( xUartTxQueue, &b, ( TickType_t ) 0 );
 }
 
 /* USER CODE END 0 */
@@ -191,17 +238,22 @@ int main(void)
   /* add threads, ... */
   xTaskCreate( vMainTask, "MAIN", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xMainHandle );
   configASSERT( xMainHandle ); 
-
   xTaskCreate( vTestTask, "TEST", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xTestHandle );
   configASSERT( xTestHandle ); 
-
-  xTaskCreate( vSensorTuneTask, "SENS", configMINIMAL_STACK_SIZE, NULL, 1, &xSensorTuneHandle );
+  xTaskCreate( vSensorTuneTask, "TUNE", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xSensorTuneHandle );
   configASSERT( xSensorTuneHandle ); 
-
+  xTaskCreate( vUartTxTask, "UARTTX", configMINIMAL_STACK_SIZE, NULL, 1, &xUsartTXHandle );
+  configASSERT( xUsartTXHandle );  
+  xTaskCreate( vUartRxTask, "UARTRX", configMINIMAL_STACK_SIZE, NULL, 2, &xUsartRXHandle );
+  configASSERT( xUsartRXHandle );  
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
+  xUartTxQueue = xQueueCreate(5, sizeof(tx_buf_t *));
+  configASSERT( xUartTxQueue );  
+  xUartRxQueue = xQueueCreate(10, sizeof(uint8_t));
+  configASSERT( xUartRxQueue ); 
   /* USER CODE END RTOS_QUEUES */
  
 
@@ -212,6 +264,11 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+  HAL_UART_Receive_IT(&huart1, &uart_data, 1);
+
+  
+
   vTaskStartScheduler();
   while (1)
   {
@@ -348,7 +405,7 @@ void MX_USART1_UART_Init(void)
 {
 
   huart1.Instance = USART1;
-  huart1.Init.BaudRate = 115200;
+  huart1.Init.BaudRate = 9600;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
@@ -476,7 +533,9 @@ void vTestTask( void * pvParameters )
   {
     // DAC_SetValue(DAC_CHANNEL_1, dac);
     // DAC_SetValue(DAC_CHANNEL_2, dac++);    
-    vTaskDelay(pdMS_TO_TICKS(100));
+
+    send_data("AT", strlen("AT"), 0);
+    vTaskDelay(pdMS_TO_TICKS(1500));
   }
 }
 
@@ -488,6 +547,37 @@ void vSensorTuneTask( void * pvParameters )
   }
 }
 
+void vUartTxTask( void * pvParameters )
+{
+  for( ;; )
+  {
+    tx_buf_t * txb = NULL;
+    xQueueReceive(xUartTxQueue, &txb, portMAX_DELAY);
+    if(txb)
+    {
+      HAL_StatusTypeDef st __attribute__((unused)) = 
+        HAL_UART_Transmit_DMA(&huart1, txb->buf, txb->size);
+      ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+      if(txb->nf && txb->buf)
+        vPortFree(txb->buf);
+      vPortFree(txb);
+    }
+  }
+}
+
+void vUartRxTask( void * pvParameters )
+{
+  static uint8_t rx_buf[255], pos = 0;
+  for( ;; )
+  {
+    uint8_t data;
+    BaseType_t status = xQueueReceive(xUartRxQueue, &data, portMAX_DELAY /*pdMS_TO_TICKS(10)*/);
+
+    rx_buf[pos] = data;
+    if(++pos > sizeof(rx_buf)-1)
+      pos = 0;
+  }
+}
 /* USER CODE END 4 */
 
 /* StartDefaultTask function */
