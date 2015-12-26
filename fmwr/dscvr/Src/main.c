@@ -73,7 +73,7 @@ static TaskHandle_t xSensorTuneHandle = NULL;
 #define ADC_GATE1 0
 #define ADC_GATE2 1
 static uint16_t adc_data[ADC_DATA_BUFFER_SIZE] __attribute__ ((aligned));
-
+static u16_median_t * median[2];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -96,7 +96,7 @@ static void DAC_SetValue(uint32_t Channel, uint32_t Data);
 /* USER CODE BEGIN 0 */
 static void start_acquire(void)
 {
-  init_median();
+  // init_median();
   HAL_ADC_Start_DMA(&hadc, (uint32_t*)adc_data, NUM_ELEMENTS(adc_data));
   HAL_TIM_Base_Start(&htim3);
 }
@@ -156,6 +156,9 @@ int main(void)
   
   /* LCD GLASS Initialization */
   // BSP_LCD_GLASS_Init();
+  median[0] = u16_median_init(5);
+  median[1] = u16_median_init(5);
+
   start_acquire();
 
   HAL_DAC_Start(&hdac, DAC_CHANNEL_1);

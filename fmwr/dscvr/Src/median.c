@@ -1,11 +1,9 @@
 #include "stm32l1xx_hal.h"
+#include <FreeRTOS.h>
+#include <task.h>
 #include <median.h>
 #include <stdlib.h>
 #include <string.h>
-
-static uint16_t buffer[FLT_SIZE];
-static int filled = 0;
-static size_t idx = 0;
 
 int cmp(const void *a, const void *b) 
 {
@@ -14,26 +12,44 @@ int cmp(const void *a, const void *b)
 	return (a1>b1)?(1):((a1<b1)?-1:0); 
 }
 
-int flt_median(const uint16_t in, uint16_t *out)
+u16_median_t * u16_median_init(size_t len)
 {
-	uint16_t b[FLT_SIZE];
-
-	buffer[idx] = in;
-	if(++idx > FLT_SIZE-1)
-	{
-		idx = 0;
-		filled = 1;
-	}
-	memcpy(b, buffer, sizeof(buffer));
-	qsort(b, FLT_SIZE, sizeof(b[0]), cmp);
-	*out = b[FLT_SIZE/2];
-
-	return filled?0:-1;
+	configASSERT(len);
+	u16_median_t *entity = (u16_median_t *)pvPortMalloc(sizeof(u16_median_t));
+	configASSERT(entity);
+	memset(entity, 0, sizeof(*entity));
+	entity->dline.buf = (uint16_t *)pvPortMalloc(sizeof(uint16_t)*len);
+	configASSERT(entity->dline.buf);
+	memset(entity->dline.buf, 0, sizeof(uint16_t)*len);
+	entity->dline.len = len;
+	entity->sorted = (uint16_t *)pvPortMalloc(sizeof(uint16_t)*len);
+	configASSERT(entity->sorted);
+	return entity;	
 }
 
-void init_median(void)
+void u16_median_free(u16_median_t *entity)
 {
-	memset(buffer, 0, sizeof(buffer));
-	filled = 0;
-	idx = 0;
+	if(entity == NULL)
+		return;
+	if(entity->dline.buf)
+		vPortFree(entity->dline.buf);
+	if(entity->sorted)
+		vPortFree(entity->sorted);
+	vPortFree(entity);
+}
+
+int u16_median_flt(u16_median_t * entity, const uint16_t in, uint16_t *out)
+{
+	entity->dline.buf[entity->dline.pos] = in;
+	if(++(entity->dline.pos) > entity->dline.len-1)
+	{
+		entity->dline.pos = 0;
+		entity->filled = 1;	
+	}
+
+	memcpy(entity->sorted, entity->dline.buf, entity->dline.len*sizeof(uint16_t));
+	qsort(entity->sorted, entity->dline.len, sizeof(entity->sorted[0]), cmp);
+	*out = entity->sorted[entity->dline.len/2];
+
+	return entity->filled?1:0;
 }
