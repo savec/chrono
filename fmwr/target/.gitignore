@@ -5,5 +5,4 @@
 *.o
 *.d
 .mxproject
-
-
+*.code-workspace
