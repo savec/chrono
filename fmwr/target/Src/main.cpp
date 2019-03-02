@@ -26,6 +26,7 @@
 #include <i2c.h>
 #include <usart.h>
 #include <gpio.h>
+#include <chrono.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -50,7 +51,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+Chrono app;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -97,7 +98,7 @@ int main(void)
   MX_I2C1_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  app.start();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
