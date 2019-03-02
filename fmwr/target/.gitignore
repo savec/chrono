@@ -1,0 +1,9 @@
+*.elf
+*.bin
+*.map
+*.lst
+*.o
+*.d
+.mxproject
+
+
