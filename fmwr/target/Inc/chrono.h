@@ -7,5 +7,4 @@ private:
 
 public:
     Chrono() {};
-    void start();
 };

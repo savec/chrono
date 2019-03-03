@@ -1,11 +1,14 @@
-class Indicator
+#include <cxx_task.h>
+
+class Indicator: public ActiveObject
 {
 private:
 
 public:
     Indicator()
+    : ActiveObject("indicator")
     {}
 
-    void start();
+    virtual void runtask();
 };
 

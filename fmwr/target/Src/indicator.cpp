@@ -1,6 +1,10 @@
 #include <indicator.h>
+#include "cmsis_os.h"
 
-void Indicator::start()
+void Indicator::runtask()
 {
+    for(;;)
+    {
+        osDelay(1);
+    }
 }
-
