@@ -10,6 +10,10 @@ class ActiveObject
 private:
     xTaskHandle handle;
 
+protected:
+    virtual void runtask() {}
+    static void runtaskstub(void* param) { (static_cast<ActiveObject*>(param))->runtask(); }
+
 public:
     ActiveObject(char const* name, unsigned portBASE_TYPE priority = osPriorityNormal, unsigned portSHORT stackDepth = configMINIMAL_STACK_SIZE)
     {
@@ -23,9 +27,6 @@ public:
 #endif
         return;
     }
-
-    virtual void runtask() {}
-    static void runtaskstub(void* param) { (static_cast<ActiveObject*>(param))->runtask(); }
 };
 
 #endif
