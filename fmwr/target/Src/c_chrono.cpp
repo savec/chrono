@@ -1,4 +1,4 @@
-#include <chrono.h>
+#include <c_chrono.h>
 #include <stdlib.h>
 
 void Chrono::runtask()
@@ -13,4 +13,9 @@ void Chrono::runtask()
         }
 
     }
+}
+
+void Chrono::start()
+{
+    adc.start();
 }

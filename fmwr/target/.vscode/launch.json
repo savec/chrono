@@ -14,7 +14,8 @@
             "configFiles": [
                 "openocd_stlinkv2.cfg",
             ],
-            "runToMain": true
+            "runToMain": true,
+            "svdFile": "${workspaceRoot}/STM32F100.svd"
         },
         {
             "name": "Cortex Debug (attach)",
@@ -25,7 +26,8 @@
             "servertype": "openocd",
             "configFiles": [
                 "openocd_stlinkv2.cfg",
-            ]
+            ],
+            "svdFile": "${workspaceRoot}/STM32F100.svd"
         }
     ]
 }
