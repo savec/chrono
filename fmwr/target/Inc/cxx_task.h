@@ -1,9 +1,9 @@
+#ifndef CXX_TASK__
+#define CXX_TASK__
+
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
 #include "task.h"
-
-#ifndef CXX_TASK__
-#define CXX_TASK__
 
 class ActiveObject
 {

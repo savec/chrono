@@ -1,3 +1,6 @@
+#ifndef C_CHRONO__
+#define C_CHRONO__
+
 #include "c_indicator.h"
 #include "c_adc.h"
 #include <cxx_task.h>
@@ -14,3 +17,5 @@ public:
     : ActiveObject("Chrono")
     {};
 };
+
+#endif /* C_CHRONO__ */

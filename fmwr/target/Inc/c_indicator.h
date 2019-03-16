@@ -1,3 +1,6 @@
+#ifndef C_INDICATOR__
+#define C_INDICATOR__
+
 #include <cxx_task.h>
 
 class Indicator: public ActiveObject
@@ -21,3 +24,4 @@ private:
 
 };
 
+#endif /* C_INDICATOR__ */

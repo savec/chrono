@@ -24,6 +24,7 @@
 #include "cmsis_os.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "c_adc_c_interface.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -79,9 +80,16 @@ extern TIM_HandleTypeDef htim17;
 void DMA1_Channel1_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Channel1_IRQn 0 */
-  if(LL_DMA_IsActiveFlag_HT1(DMA1))
+  if(LL_DMA_IsActiveFlag_TC1(DMA1))
   {
-    LL_DMA_ClearFlag_HT1(DMA1);
+    dma_transfer_complete_handler();
+    LL_DMA_ClearFlag_TC1(DMA1);
+  }
+
+  if(LL_DMA_IsActiveFlag_TE1(DMA1))
+  {
+    dma_transfer_error_handler();
+    LL_DMA_ClearFlag_TE1(DMA1);
   }
   /* USER CODE END DMA1_Channel1_IRQn 0 */
 
