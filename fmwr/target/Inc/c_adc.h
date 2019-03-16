@@ -12,9 +12,8 @@ class ADC: public ActiveObject
 private:
     enum
     {
-        ADC_DMA_EVENT_HT = (1l << 0),
-        ADC_DMA_EVENT_TC = (1l << 1),
-        ADC_DMA_EVENT_TE = (1l << 2)
+        ADC_DMA_EVENT_TC = (1l << 0),
+        ADC_DMA_EVENT_TE = (1l << 1)
     };
 
     enum
@@ -36,6 +35,9 @@ private:
     virtual void runtask();
 public:
     ADC();
+    uint16_t get_opt0() {return opt0.get_median();}
+    uint16_t get_opt1() {return opt1.get_median();}
+    uint16_t get_bat() {return bat.get_median();}
     friend void dma_transfer_complete_handler();
     friend void dma_transfer_error_handler();
 };

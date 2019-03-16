@@ -31,7 +31,7 @@ void ADC::runtask()
 
         EventBits_t events = xEventGroupWaitBits(
                                                 adc_events,
-                                                ADC_DMA_EVENT_HT | ADC_DMA_EVENT_TC | ADC_DMA_EVENT_TE,
+                                                ADC_DMA_EVENT_TC | ADC_DMA_EVENT_TE,
                                                 pdTRUE,        /* should be cleared before returning. */
                                                 pdFALSE,       /* Don't wait for both bits, either bit will do. */
                                                 portMAX_DELAY );
