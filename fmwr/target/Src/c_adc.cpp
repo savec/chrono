@@ -6,10 +6,6 @@
 
 ADC::ADC()
 {
-}
-
-void ADC::start()
-{
     LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_1, SIZE_OF_ARRAY(adc_data));
     LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_1, (uint32_t)adc_data);
     LL_DMA_SetPeriphAddress(DMA1, LL_DMA_CHANNEL_1, (uint32_t)&ADC1->DR);

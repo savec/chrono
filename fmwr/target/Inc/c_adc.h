@@ -9,6 +9,4 @@ private:
 
 public:
     ADC();
-    void start();
-
 };

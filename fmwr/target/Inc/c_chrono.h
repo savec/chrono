@@ -13,5 +13,4 @@ public:
     Chrono()
     : ActiveObject("Chrono")
     {};
-    void start();
 };
