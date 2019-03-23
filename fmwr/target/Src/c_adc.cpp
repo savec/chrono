@@ -1,16 +1,14 @@
 #include <c_adc.h>
 #include "adc.h"
 #include "cmsis_os.h"
+#include "isr_events.h"
+#include "cinterface.h"
 
-uint16_t ADC::adc_data[ADC::ADC_CHANNEL_NUM];
-EventGroupHandle_t ADC::adc_events;
+using namespace ISREvents;
 
 ADC::ADC()
 : ActiveObject("ADC")
 {
-    adc_events = xEventGroupCreate();
-    assert_param(adc_events);
-
     LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_1, ADC_CHANNEL_NUM);
     LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_1, (uint32_t)adc_data);
     LL_DMA_SetPeriphAddress(DMA1, LL_DMA_CHANNEL_1, (uint32_t)&ADC1->DR);
@@ -29,18 +27,13 @@ void ADC::runtask()
         osDelay(100);
         LL_ADC_REG_StartConversionSWStart(ADC1);
 
-        EventBits_t events = xEventGroupWaitBits(
-                                                adc_events,
-                                                ADC_DMA_EVENT_TC | ADC_DMA_EVENT_TE,
-                                                pdTRUE,        /* should be cleared before returning. */
-                                                pdFALSE,       /* Don't wait for both bits, either bit will do. */
-                                                portMAX_DELAY );
+        uint32_t events = notify_wait(portMAX_DELAY);
 
         if( ( events & ADC_DMA_EVENT_TC ) != 0 )
         {
-            opt0.add_sample(adc_data[ADC_CHANNEL_OPT0]);
-            opt1.add_sample(adc_data[ADC_CHANNEL_OPT1]);
-            bat.add_sample(adc_data[ADC_CHANNEL_BAT]);
+            filters[ADC_CHANNEL_OPT0].add_sample(adc_data[ADC_CHANNEL_OPT0]);
+            filters[ADC_CHANNEL_OPT1].add_sample(adc_data[ADC_CHANNEL_OPT1]);
+            filters[ADC_CHANNEL_BAT].add_sample(adc_data[ADC_CHANNEL_BAT]);
         }
         else if( ( events & ADC_DMA_EVENT_TE ) != 0 )
         {
@@ -51,24 +44,10 @@ void ADC::runtask()
 
 void dma_transfer_complete_handler()
 {
-    BaseType_t xHigherPriorityTaskWoken(pdFALSE), xResult;
-
-    xResult = xEventGroupSetBitsFromISR(
-                                        ADC::adc_events,   /* The event group being updated. */
-                                        ADC::ADC_DMA_EVENT_TC, /* The bits being set. */
-                                        &xHigherPriorityTaskWoken );
-
-    if( xResult != pdFAIL ) portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+    ADC::get_instance().notify_from_isr(ADC_DMA_EVENT_TC);
 }
 
 void dma_transfer_error_handler()
 {
-    BaseType_t xHigherPriorityTaskWoken(pdFALSE), xResult;
-
-    xResult = xEventGroupSetBitsFromISR(
-                                        ADC::adc_events,   /* The event group being updated. */
-                                        ADC::ADC_DMA_EVENT_TE, /* The bits being set. */
-                                        &xHigherPriorityTaskWoken );
-
-    if( xResult != pdFAIL ) portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+    ADC::get_instance().notify_from_isr(ADC_DMA_EVENT_TE);
 }

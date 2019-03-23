@@ -64,6 +64,7 @@ uint32_t Indicator::decode(char ch)
 
 void Indicator::set(char *str)
 {
+    segments.fill(decode(' '));
     for(size_t i = 0; i < size && str[i]; i++)
     {
         segments[i] = decode(str[i]);

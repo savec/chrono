@@ -1,5 +1,5 @@
-#ifndef C_ADC_CINTERFACE__
-#define C_ADC_CINTERFACE__
+#ifndef CINTERFACE__
+#define CINTERFACE__
 
 #ifdef __cplusplus
 extern "C" {
@@ -10,4 +10,4 @@ extern "C" {
 }
 #endif
 
-#endif /* C_ADC_CINTERFACE__ */
+#endif /* CINTERFACE__ */

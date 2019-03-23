@@ -2,21 +2,15 @@
 #define C_ADC__
 
 #include "FreeRTOS.h"
-#include "c_adc_c_interface.h"
-#include <cxx_task.h>
-#include <event_groups.h>
+#include "cxx_task.h"
+#include "singleton.h"
 #include "c_median_filter.h"
 
-class ADC: public ActiveObject
+class ADC: public ActiveObject, public Singleton<ADC>
 {
-private:
-    enum
-    {
-        ADC_DMA_EVENT_TC = (1l << 0),
-        ADC_DMA_EVENT_TE = (1l << 1)
-    };
-
-    enum
+    friend class Singleton<ADC>;
+public:
+    enum AdcChannel
     {
         ADC_CHANNEL_OPT0 = 0,
         ADC_CHANNEL_OPT1,
@@ -25,21 +19,24 @@ private:
         ADC_CHANNEL_NUM
     };
 
-    static uint16_t adc_data[];
-    static EventGroupHandle_t adc_events;
+    static ADC & get_instance()
+    {
+        static ADC instance;
+        return instance;
+    }
+    uint16_t get_filtered(AdcChannel channel) {return filters[channel].get_median();}
 
-    MedianFilter<uint16_t, 8> opt0;
-    MedianFilter<uint16_t, 8> opt1;
-    MedianFilter<uint16_t, 8> bat;
+private:
+
+    uint16_t adc_data[ADC_CHANNEL_NUM];
+    MedianFilter<uint16_t, 8> filters[ADC_CHANNEL_NUM];
 
     virtual void runtask();
-public:
+
     ADC();
-    uint16_t get_opt0() {return opt0.get_median();}
-    uint16_t get_opt1() {return opt1.get_median();}
-    uint16_t get_bat() {return bat.get_median();}
-    friend void dma_transfer_complete_handler();
-    friend void dma_transfer_error_handler();
+    ~ADC()= default;
+    ADC(const ADC&)= delete;
+    ADC& operator=(const ADC&)= delete;
 };
 
 #endif /* C_ADC__ */

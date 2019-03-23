@@ -24,7 +24,7 @@
 #include "cmsis_os.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "c_adc_c_interface.h"
+#include "cinterface.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
