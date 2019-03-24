@@ -74,6 +74,7 @@ extern TIM_HandleTypeDef htim17;
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f1xx.s).                    */
 /******************************************************************************/
+
 /**
   * @brief This function handles DMA1 channel1 global interrupt.
   */
@@ -96,6 +97,31 @@ void DMA1_Channel1_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
 
   /* USER CODE END DMA1_Channel1_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI line[9:5] interrupts.
+  */
+void EXTI9_5_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI9_5_IRQn 0 */
+
+  /* USER CODE END EXTI9_5_IRQn 0 */
+  if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_6) != RESET)
+  {
+    LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_6);
+    /* USER CODE BEGIN LL_EXTI_LINE_6 */
+    /* USER CODE END LL_EXTI_LINE_6 */
+  }
+  if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_7) != RESET)
+  {
+    LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_7);
+    /* USER CODE BEGIN LL_EXTI_LINE_7 */
+    /* USER CODE END LL_EXTI_LINE_7 */
+  }
+  /* USER CODE BEGIN EXTI9_5_IRQn 1 */
+
+  /* USER CODE END EXTI9_5_IRQn 1 */
 }
 
 /**
