@@ -5,15 +5,15 @@
 #include <cxx_task.h>
 #include <singleton.h>
 
-class Indicator: public ActiveObject, public Singleton<Indicator>
+class cIndicator: public ActiveObject, public Singleton<cIndicator>
 {
-    friend class Singleton<Indicator>;
+    friend class Singleton<cIndicator>;
 public:
     static const size_t size = 3;
     void set(char *str);
 
 private:
-    Indicator()
+    cIndicator()
     : ActiveObject("Indicator")
     {}
 

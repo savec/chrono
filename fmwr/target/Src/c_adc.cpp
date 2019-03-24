@@ -6,7 +6,7 @@
 
 using namespace ISREvents;
 
-ADC::ADC()
+cADC::cADC()
 : ActiveObject("ADC")
 {
     LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_1, ADC_CHANNEL_NUM);
@@ -20,7 +20,7 @@ ADC::ADC()
     LL_ADC_Enable(ADC1);
 }
 
-void ADC::runtask()
+void cADC::runtask()
 {
     for(;;)
     {
@@ -44,10 +44,10 @@ void ADC::runtask()
 
 void dma_transfer_complete_handler()
 {
-    ADC::get_instance().notify_from_isr(ADC_DMA_EVENT_TC);
+    cADC::get_instance().notify_from_isr(ADC_DMA_EVENT_TC);
 }
 
 void dma_transfer_error_handler()
 {
-    ADC::get_instance().notify_from_isr(ADC_DMA_EVENT_TE);
+    cADC::get_instance().notify_from_isr(ADC_DMA_EVENT_TE);
 }

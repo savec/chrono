@@ -19,7 +19,7 @@
 
 #define ALL_DIGITS (DIGIT0 | DIGIT1 | DIGIT2)
 
-const uint32_t Indicator::char_to_segments[] =
+const uint32_t cIndicator::char_to_segments[] =
 {
     (SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F),
     (SEG_B | SEG_C),
@@ -33,14 +33,14 @@ const uint32_t Indicator::char_to_segments[] =
     (SEG_A | SEG_B | SEG_C | SEG_D | SEG_F | SEG_G)
 };
 
-const uint32_t Indicator::digits[size] =
+const uint32_t cIndicator::digits[size] =
 {
     DIGIT0,
     DIGIT1,
     DIGIT2
 };
 
-uint32_t Indicator::decode(char ch)
+uint32_t cIndicator::decode(char ch)
 {
     switch (ch)
     {
@@ -62,7 +62,7 @@ uint32_t Indicator::decode(char ch)
     }
 }
 
-void Indicator::set(char *str)
+void cIndicator::set(char *str)
 {
     segments.fill(decode(' '));
     for(size_t i = 0; i < size && str[i]; i++)
@@ -71,7 +71,7 @@ void Indicator::set(char *str)
     }
 }
 
-void Indicator::runtask()
+void cIndicator::runtask()
 {
     for(;;)
     {

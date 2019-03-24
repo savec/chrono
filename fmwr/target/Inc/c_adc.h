@@ -6,9 +6,9 @@
 #include "singleton.h"
 #include "c_median_filter.h"
 
-class ADC: public ActiveObject, public Singleton<ADC>
+class cADC: public ActiveObject, public Singleton<cADC>
 {
-    friend class Singleton<ADC>;
+    friend class Singleton<cADC>;
 public:
     enum AdcChannel
     {
@@ -19,9 +19,9 @@ public:
         ADC_CHANNEL_NUM
     };
 
-    static ADC & get_instance()
+    static cADC & get_instance()
     {
-        static ADC instance;
+        static cADC instance;
         return instance;
     }
     uint16_t get_filtered(AdcChannel channel) {return filters[channel].get_median();}
@@ -33,10 +33,10 @@ private:
 
     virtual void runtask();
 
-    ADC();
-    ~ADC()= default;
-    ADC(const ADC&)= delete;
-    ADC& operator=(const ADC&)= delete;
+    cADC();
+    ~cADC()= default;
+    cADC(const cADC&)= delete;
+    cADC& operator=(const cADC&)= delete;
 };
 
 #endif /* C_ADC__ */
