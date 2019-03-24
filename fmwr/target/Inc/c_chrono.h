@@ -10,9 +10,7 @@ private:
     virtual void runtask();
 
 public:
-    Chrono()
-    : ActiveObject("Chrono")
-    {};
+    Chrono();
 };
 
 #endif /* C_CHRONO__ */
