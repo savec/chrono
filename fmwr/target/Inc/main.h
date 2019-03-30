@@ -32,6 +32,7 @@ extern "C" {
 #include "stm32f1xx_ll_adc.h"
 #include "stm32f1xx_ll_dac.h"
 #include "stm32f1xx_ll_i2c.h"
+#include "stm32f1xx_ll_tim.h"
 #include "stm32f1xx.h"
 #include "stm32f1xx_ll_system.h"
 #include "stm32f1xx_ll_gpio.h"

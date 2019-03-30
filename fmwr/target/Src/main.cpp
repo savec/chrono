@@ -5,6 +5,7 @@
 #include "dma.h"
 #include "i2c.h"
 #include "gpio.h"
+#include "tim.h"
 #include <c_chrono.h>
 
 Chrono app;
@@ -28,6 +29,7 @@ extern "C" void LowLevelInit()
   MX_ADC1_Init();
   MX_DAC_Init();
   MX_I2C1_Init();
+  MX_TIM3_Init();
 }
 
 /**

@@ -111,12 +111,14 @@ void EXTI9_5_IRQHandler(void)
   {
     LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_6);
     /* USER CODE BEGIN LL_EXTI_LINE_6 */
+    gate_in_handler();
     /* USER CODE END LL_EXTI_LINE_6 */
   }
   if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_7) != RESET)
   {
     LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_7);
     /* USER CODE BEGIN LL_EXTI_LINE_7 */
+    gate_out_handler();
     /* USER CODE END LL_EXTI_LINE_7 */
   }
   /* USER CODE BEGIN EXTI9_5_IRQn 1 */

@@ -4,7 +4,11 @@
 #include "c_adc.h"
 #include "c_dac.h"
 #include <gpio.h>
+#include "cinterface.h"
+#include <tim.h>
 
+#define EXTI_GATE_IN    LL_EXTI_LINE_6
+#define EXTI_GATE_OUT   LL_EXTI_LINE_7
 
 uint16_t adc[cADC::ADC_CHANNEL_NUM];
 
@@ -12,6 +16,9 @@ Chrono::Chrono()
 : ActiveObject("Chrono")
 {
     LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_1|LL_GPIO_PIN_2);
+
+    LL_EXTI_EnableIT_0_31(EXTI_GATE_IN);
+    LL_EXTI_DisableIT_0_31(EXTI_GATE_OUT);
 }
 
 void Chrono::adjust_comparators_reference()
@@ -44,3 +51,32 @@ void Chrono::runtask()
     }
 }
 
+uint32_t counter_out;
+uint32_t counter_in;
+uint32_t counter_timeout;
+
+void gate_out_handler()
+{
+    LL_EXTI_EnableIT_0_31(EXTI_GATE_IN);
+    LL_EXTI_DisableIT_0_31(EXTI_GATE_OUT);
+
+    counter_out++;
+}
+
+void gate_in_handler()
+{
+
+    LL_EXTI_EnableIT_0_31(EXTI_GATE_OUT);
+    LL_EXTI_DisableIT_0_31(EXTI_GATE_IN);
+
+    counter_in++;
+}
+
+void gate_timeout_handler()
+{
+
+    LL_EXTI_EnableIT_0_31(EXTI_GATE_IN);
+    LL_EXTI_DisableIT_0_31(EXTI_GATE_OUT);
+
+    counter_timeout++;
+}
