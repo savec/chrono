@@ -81,13 +81,13 @@ extern TIM_HandleTypeDef htim17;
 void DMA1_Channel1_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Channel1_IRQn 0 */
-  if(LL_DMA_IsActiveFlag_TC1(DMA1))
+  if(LL_DMA_IsActiveFlag_TC1(DMA1) != RESET)
   {
     dma_transfer_complete_handler();
     LL_DMA_ClearFlag_TC1(DMA1);
   }
 
-  if(LL_DMA_IsActiveFlag_TE1(DMA1))
+  if(LL_DMA_IsActiveFlag_TE1(DMA1) != RESET)
   {
     dma_transfer_error_handler();
     LL_DMA_ClearFlag_TE1(DMA1);
@@ -111,14 +111,14 @@ void EXTI9_5_IRQHandler(void)
   {
     LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_6);
     /* USER CODE BEGIN LL_EXTI_LINE_6 */
-    gate_in_handler();
+    gate_out_handler();
     /* USER CODE END LL_EXTI_LINE_6 */
   }
   if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_7) != RESET)
   {
     LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_7);
     /* USER CODE BEGIN LL_EXTI_LINE_7 */
-    gate_out_handler();
+    gate_in_handler();
     /* USER CODE END LL_EXTI_LINE_7 */
   }
   /* USER CODE BEGIN EXTI9_5_IRQn 1 */
@@ -138,6 +138,23 @@ void TIM1_TRG_COM_TIM17_IRQHandler(void)
   /* USER CODE BEGIN TIM1_TRG_COM_TIM17_IRQn 1 */
 
   /* USER CODE END TIM1_TRG_COM_TIM17_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM3 global interrupt.
+  */
+void TIM3_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM3_IRQn 0 */
+  if(LL_TIM_IsActiveFlag_UPDATE(TIM3) != RESET)
+  {
+    LL_TIM_ClearFlag_UPDATE(TIM3);
+    gate_timeout_handler();
+  }
+  /* USER CODE END TIM3_IRQn 0 */
+  /* USER CODE BEGIN TIM3_IRQn 1 */
+
+  /* USER CODE END TIM3_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

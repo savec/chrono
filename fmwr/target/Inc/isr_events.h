@@ -11,7 +11,8 @@ namespace ISREvents
 
     enum
     {
-        EVT_SHOT_WAS_PERFORMED = (1ul << 0)
+        EVT_SHOT_WAS_PERFORMED =    (1ul << 0),
+        EVT_COUNTER_OVERFLOW =      (1ul << 1)
     };
 }
 

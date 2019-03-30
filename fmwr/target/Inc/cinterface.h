@@ -1,6 +1,9 @@
 #ifndef CINTERFACE__
 #define CINTERFACE__
 
+#define EXTI_GATE_IN    LL_EXTI_LINE_7
+#define EXTI_GATE_OUT   LL_EXTI_LINE_6
+
 #ifdef __cplusplus
 extern "C" {
 #endif

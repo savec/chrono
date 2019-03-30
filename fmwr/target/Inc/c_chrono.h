@@ -10,6 +10,7 @@ private:
     virtual void runtask();
     void adjust_comparators_reference();
     inline uint8_t convert_12_bits(const uint32_t value);
+    uint32_t calculate_velocity();
 public:
     Chrono();
 };

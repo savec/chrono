@@ -5,6 +5,8 @@
 #include "c_dac.h"
 #include <gpio.h>
 #include <tim.h>
+#include "cinterface.h"
+#include <stm32f1xx_ll_rcc.h>
 
 uint16_t adc[cADC::ADC_CHANNEL_NUM];
 
@@ -13,8 +15,12 @@ Chrono::Chrono()
 {
     LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_1|LL_GPIO_PIN_2);
 
-    LL_EXTI_EnableIT_0_31(LL_EXTI_LINE_6);
-    LL_EXTI_DisableIT_0_31(LL_EXTI_LINE_7);
+    LL_EXTI_ClearFlag_0_31(EXTI_GATE_IN);
+    LL_EXTI_EnableIT_0_31(EXTI_GATE_IN);
+    LL_EXTI_DisableIT_0_31(EXTI_GATE_OUT);
+
+    LL_TIM_ClearFlag_UPDATE(TIM3);
+    LL_TIM_EnableIT_UPDATE(TIM3);
 }
 
 void Chrono::adjust_comparators_reference()
@@ -34,23 +40,36 @@ uint8_t Chrono::convert_12_bits(const uint32_t value)
     return (value * 255ul) / 4095ul;
 }
 
-uint32_t counter_shot;
+uint32_t Chrono::calculate_velocity()
+{
+    const uint32_t counter = LL_TIM_GetCounter(TIM3);
+
+    LL_RCC_ClocksTypeDef sys_clocks;
+    LL_RCC_GetSystemClocksFreq(&sys_clocks);
+
+    uint32_t timer_freq = sys_clocks.PCLK2_Frequency / LL_TIM_GetPrescaler(TIM3);
+
+    return (timer_freq * 60 / 1000) / counter;
+}
 
 void Chrono::runtask()
 {
-    uint8_t cntr = 0;
+    cIndicator::get_instance().set("---");
+
     for(;;)
     {
         adjust_comparators_reference();
 
         const uint32_t evt = notify_wait(100);
+        char counter_str[4];
 
         if(evt & ISREvents::EVT_SHOT_WAS_PERFORMED)
         {
-            counter_shot++;
+            cIndicator::get_instance().set(itoa(calculate_velocity(), counter_str, 10));
         }
-
-        char counter_str[4];
-        cIndicator::get_instance().set(itoa(++cntr, counter_str, 10));
+        else if(evt & ISREvents::EVT_COUNTER_OVERFLOW)
+        {
+            cIndicator::get_instance().set("err");
+        }
     }
 }

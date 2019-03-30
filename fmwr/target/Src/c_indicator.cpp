@@ -19,7 +19,7 @@
 
 #define ALL_DIGITS (DIGIT0 | DIGIT1 | DIGIT2)
 
-const uint32_t cIndicator::char_to_segments[] =
+const uint32_t cIndicator::digit_to_segments[] =
 {
     (SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F),
     (SEG_B | SEG_C),
@@ -54,15 +54,22 @@ uint32_t cIndicator::decode(char ch)
         case '7':
         case '8':
         case '9':
-            return char_to_segments[ch - '0'];
-
+            return digit_to_segments[ch - '0'];
+        case '-':
+            return (SEG_G);
+        case 'e':
+        case 'E':
+            return (SEG_A | SEG_D | SEG_E | SEG_F | SEG_G);
+        case 'r':
+        case 'R':
+            return (SEG_E | SEG_G);
         case ' ':
         default:
             return 0;
     }
 }
 
-void cIndicator::set(char *str)
+void cIndicator::set(const char *str)
 {
     segments.fill(decode(' '));
     for(size_t i = 0; i < size && str[i]; i++)

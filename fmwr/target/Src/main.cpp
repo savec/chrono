@@ -18,14 +18,11 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-#define EXTI_GATE_IN    LL_EXTI_LINE_6
-#define EXTI_GATE_OUT   LL_EXTI_LINE_7
-
-
 void gate_out_handler()
 {
     LL_TIM_DisableCounter(TIM3);
 
+    LL_EXTI_ClearFlag_0_31(EXTI_GATE_IN);
     LL_EXTI_EnableIT_0_31(EXTI_GATE_IN);
     LL_EXTI_DisableIT_0_31(EXTI_GATE_OUT);
 
@@ -34,8 +31,10 @@ void gate_out_handler()
 
 void gate_in_handler()
 {
+    LL_TIM_SetCounter(TIM3, 0);
     LL_TIM_EnableCounter(TIM3);
 
+    LL_EXTI_ClearFlag_0_31(EXTI_GATE_OUT);
     LL_EXTI_EnableIT_0_31(EXTI_GATE_OUT);
     LL_EXTI_DisableIT_0_31(EXTI_GATE_IN);
 }
@@ -44,8 +43,11 @@ void gate_timeout_handler()
 {
     LL_TIM_DisableCounter(TIM3);
 
+    LL_EXTI_ClearFlag_0_31(EXTI_GATE_IN);
     LL_EXTI_EnableIT_0_31(EXTI_GATE_IN);
     LL_EXTI_DisableIT_0_31(EXTI_GATE_OUT);
+
+    app.notify_from_isr(ISREvents::EVT_COUNTER_OVERFLOW);
 }
 
 
