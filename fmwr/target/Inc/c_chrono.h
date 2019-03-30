@@ -8,7 +8,8 @@ class Chrono: public ActiveObject
 {
 private:
     virtual void runtask();
-
+    void adjust_comparators_reference();
+    inline uint8_t convert_12_bits(const uint32_t value);
 public:
     Chrono();
 };
