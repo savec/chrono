@@ -4,11 +4,7 @@
 #include "c_adc.h"
 #include "c_dac.h"
 #include <gpio.h>
-#include "cinterface.h"
 #include <tim.h>
-
-#define EXTI_GATE_IN    LL_EXTI_LINE_6
-#define EXTI_GATE_OUT   LL_EXTI_LINE_7
 
 uint16_t adc[cADC::ADC_CHANNEL_NUM];
 
@@ -17,8 +13,8 @@ Chrono::Chrono()
 {
     LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_1|LL_GPIO_PIN_2);
 
-    LL_EXTI_EnableIT_0_31(EXTI_GATE_IN);
-    LL_EXTI_DisableIT_0_31(EXTI_GATE_OUT);
+    LL_EXTI_EnableIT_0_31(LL_EXTI_LINE_6);
+    LL_EXTI_DisableIT_0_31(LL_EXTI_LINE_7);
 }
 
 void Chrono::adjust_comparators_reference()
@@ -38,6 +34,8 @@ uint8_t Chrono::convert_12_bits(const uint32_t value)
     return (value * 255ul) / 4095ul;
 }
 
+uint32_t counter_shot;
+
 void Chrono::runtask()
 {
     uint8_t cntr = 0;
@@ -45,38 +43,14 @@ void Chrono::runtask()
     {
         adjust_comparators_reference();
 
+        const uint32_t evt = notify_wait(100);
+
+        if(evt & ISREvents::EVT_SHOT_WAS_PERFORMED)
+        {
+            counter_shot++;
+        }
+
         char counter_str[4];
         cIndicator::get_instance().set(itoa(++cntr, counter_str, 10));
-        osDelay(100);
     }
-}
-
-uint32_t counter_out;
-uint32_t counter_in;
-uint32_t counter_timeout;
-
-void gate_out_handler()
-{
-    LL_EXTI_EnableIT_0_31(EXTI_GATE_IN);
-    LL_EXTI_DisableIT_0_31(EXTI_GATE_OUT);
-
-    counter_out++;
-}
-
-void gate_in_handler()
-{
-
-    LL_EXTI_EnableIT_0_31(EXTI_GATE_OUT);
-    LL_EXTI_DisableIT_0_31(EXTI_GATE_IN);
-
-    counter_in++;
-}
-
-void gate_timeout_handler()
-{
-
-    LL_EXTI_EnableIT_0_31(EXTI_GATE_IN);
-    LL_EXTI_DisableIT_0_31(EXTI_GATE_OUT);
-
-    counter_timeout++;
 }

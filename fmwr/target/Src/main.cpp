@@ -7,6 +7,8 @@
 #include "gpio.h"
 #include "tim.h"
 #include <c_chrono.h>
+#include <isr_events.h>
+#include "cinterface.h"
 
 Chrono app;
 
@@ -15,6 +17,38 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+#define EXTI_GATE_IN    LL_EXTI_LINE_6
+#define EXTI_GATE_OUT   LL_EXTI_LINE_7
+
+
+void gate_out_handler()
+{
+    LL_TIM_DisableCounter(TIM3);
+
+    LL_EXTI_EnableIT_0_31(EXTI_GATE_IN);
+    LL_EXTI_DisableIT_0_31(EXTI_GATE_OUT);
+
+    app.notify_from_isr(ISREvents::EVT_SHOT_WAS_PERFORMED);
+}
+
+void gate_in_handler()
+{
+    LL_TIM_EnableCounter(TIM3);
+
+    LL_EXTI_EnableIT_0_31(EXTI_GATE_OUT);
+    LL_EXTI_DisableIT_0_31(EXTI_GATE_IN);
+}
+
+void gate_timeout_handler()
+{
+    LL_TIM_DisableCounter(TIM3);
+
+    LL_EXTI_EnableIT_0_31(EXTI_GATE_IN);
+    LL_EXTI_DisableIT_0_31(EXTI_GATE_OUT);
+}
+
+
 extern "C" void LowLevelInit()
 {
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */

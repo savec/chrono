@@ -8,6 +8,11 @@ namespace ISREvents
         ADC_DMA_EVENT_TC = (1l << 0),
         ADC_DMA_EVENT_TE = (1l << 1)
     };
+
+    enum
+    {
+        EVT_SHOT_WAS_PERFORMED = (1ul << 0)
+    };
 }
 
 #endif /* ISR_EVENTS__ */
